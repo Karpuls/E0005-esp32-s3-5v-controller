@@ -1,4 +1,5 @@
 #!/bin/sh
 # pr 'python code using check/check_via'
-cd "$(dirname "$0")"; ~/.cache/kistack/layout-placement/a761496662742274/bin/python -c "from probe import *
+cd "$(dirname "$0")"; ~/.cache/kistack/layout-placement/a761496662742274/bin/python -c "import rt; rt.NEWFRAME=True
+from probe import *
 $1"
