@@ -1,0 +1,90 @@
+Supplier,Qty,QtyBasis,References,Value,Footprint,MPN,Manufacturer,SupplierPN,Stock,Lifecycle,UnitEUR,LeadWeeks,DNP,OwnerStock,Notes
+DigiKey,2,schematic,BH1 BH2,Keystone 1121 + P50B,Keystone_1121_1x21700_THM,1121,Keystone Electronics,36-1121-ND,1372,Active,6.1,18,,no,E0003 data 2026-10-18. Mandatory P50B test fit before PCB order (PN/stock from DigiKey keyword search)
+DigiKey,1,schematic,C1,4.7nF,C_0402_1005Metric,GRM155R71H472KA01J,Murata Electronics,490-8259-1-ND,143253,Active,0.09,17,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,C2,1uF,C_0603_1608Metric,C1608X7R1H105K080AB,TDK,445-C1608X7R1H105K080ABCT-ND,26221,Active,0.2,24,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
+DigiKey,12,schematic,C8 C9 C18 C22 C42 C48 C51 C54 C57 C60 C71 C72,10uF,C_0805_2012Metric,TMK212BBJ106MG-T,Taiyo Yuden,587-6025-1-ND,237658,Active,0.18,23,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
+DigiKey,1,schematic,C11,47nF,C_0402_1005Metric,GRM155R71H473KE14D,Murata Electronics,490-10702-1-ND,636093,Active,0.09,17,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,C20,4.7uF,C_0603_1608Metric,GRM188R61E475KE11D,Murata Electronics,490-7203-1-ND,713624,Active,0.21,17,,no,E0003 data 2026-10-18.
+DigiKey,16,schematic,C23 C25 C26 C31 C36 C38 C39 C40 C41 C43 C44 C45 C65 C68 C73 C74,100nF,C_0402_1005Metric,GRM155R71H104KE14D,Murata Electronics,490-10700-1-ND,1430736,Active,0.09,17,,no,E0003 data 2026-10-18.
+DigiKey,2,schematic,C24 C35,22uF,C_0805_2012Metric,CL21A226KQCLRNC,Samsung Electro-Mechanics,1276-6687-1-ND,167366,Active,0.15,61,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
+DigiKey,2,schematic,C32 C33,0.47uF,C_0402_1005Metric,GRM155R61A474KE15D,Murata Electronics,490-3264-1-ND,1604085,Active,0.11,17,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,C37,1uF,C_0402_1005Metric,CL05A105KP5NNNC,Samsung Electro-Mechanics,1276-1076-1-ND,911254,Active,0.09,61,,no,E0003 data 2026-10-18.
+DigiKey,6,schematic,C46 C49 C52 C55 C58 C66,1.8nF,C_0402_1005Metric,C0402C182K5RACTU,KEMET,399-C0402C182K5RACTUCT-ND,9731,Active,0.44,17,,no,E0003 data 2026-10-18.
+DigiKey,6,schematic,C47 C50 C53 C56 C59 C67,22nF,C_0402_1005Metric,GRM155R71H223KA12D,Murata Electronics,490-3884-1-ND,244845,Active,0.1,17,,no,E0003 data 2026-10-18.
+DigiKey,8,schematic,C61 C62 C69 C70 C75 C76 C77 C78,47uF,C_1210_3225Metric,CL32A476KOJNNNE,Samsung Electro-Mechanics,1276-3376-1-ND,256510,Active,0.76,61,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
+DigiKey,2,schematic,C63 C64,1nF,C_0402_1005Metric,GRM155R71H102KA01D,Murata Electronics,490-1303-1-ND,4189153,Active,0.1,21,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,C79,100pF,C_0402_1005Metric,GRM1555C1H101JA01D,Murata Electronics,490-5922-1-ND,107905,Active,0.11 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. 100 pF C0G (TR 490-5922-2-ND)"
+DigiKey,1,schematic,D1,SMF9.0A,D_SOD-123F,SMF9.0A,Littelfuse Inc.,F5755CT-ND,2437,Active,0.47,20,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,D2,amber,LED_0603_1608Metric,LTST-C191KSKT,Lite-On Inc.,160-1448-1-ND,852866,Active,0.14,14,,no,E0003 data 2026-10-18. 590 nm yellow-amber
+DigiKey,6,schematic,D3 D5 D7 D8 D13 D14,BAT54W,SOT-323_SC-70,"BAT54W,135",Nexperia USA Inc.,1727-1869-1-ND,26776,Active,0.17,30,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
+DigiKey,2,schematic,D4 D6,red,LED_0603_1608Metric,LTST-C191KRKT,Lite-On Inc.,160-1447-1-ND,1445960,Active,0.13,14,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,D11,green,LED_0603_1608Metric,LTST-C191KGKT,Lite-On Inc.,160-1446-1-ND,2812317,Active,0.13,14,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,D12,TPD1E10B09,D_0402_1005Metric,TPD1E10B09DPYR,Texas Instruments,296-30405-1-ND,48491,Active,0.65 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. 9 V bidirectional ESD, X1SON-2 0402 (TR 296-30405-2-ND)"
+DigiKey,4,schematic,D15 D16 D17 D18,PESD5V0L1UL,D_SOD-882,"PESD5V0L1UL,315",Nexperia USA Inc.,1727-4193-1-ND,18740,Active,0.22,30,,no,E0003 data 2026-10-18.
+DigiKey,5,schematic,D19 D21 D23 D25 D27,SMF5.0A,D_SOD-123F,SMF5.0A,Littelfuse Inc.,F5748CT-ND,21423,Active,0.50 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. common part E0001/E0002"
+DigiKey,5,schematic,D20 D22 D24 D26 D28,TPD2E2U06DRL,SOT-553,TPD2E2U06DRLR,Texas Instruments,296-38361-1-ND,74139,Active,0.97,12,,no,"E0003 data 2026-10-18. Spec: <=1 pF/line, VRWM>=3.6V (0.5 pF typ)"
+DigiKey,1,schematic,F1,10A T,Fuse_Littelfuse-NANO2-451_453,0452010.MRL,Littelfuse Inc.,18-0452010.MRLCT-ND,2932,Active,3.78,19,,no,"E0003 data 2026-10-18. Nano2 SMF, 125 VAC/VDC"
+LCSC,4,schematic,J1 J2 J3 J4,SM04B-GHS-TB,JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal,SM04B-GHS-TB,JST,LCSC C189895 (SM04B-GHS-TB(LF)(SN)),2305 (LCSC),Active,0.31 USD @5 (LCSC),,,yes,E0003 data 2026-10-18. DigiKey stock 0 on 2026-10-18 (DigiKey PN 455-1566-1-ND); LCSC min order 5 BOM EXCEPTION (not DigiKey)
+DigiKey,1,schematic,J5,SM06B-GHS-TB,JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal,SM06B-GHS-TB(LF)(SN),JST Sales America Inc.,455-1568-1-ND,160364,Active,0.43,16,,yes,E0003 data 2026-10-18.
+LCSC,5,schematic,J6 J7 J8 J9 J12,SM02B-GHS-TB,JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal,SM02B-GHS-TB,JST,LCSC C189893 (SM02B-GHS-TB(LF)(SN)),29910 (LCSC),Active,0.51 USD @5 (LCSC),,,no,E0003 data 2026-10-18. DigiKey stock 0 on 2026-10-18 (DigiKey PN 455-1564-1-ND); LCSC min order 5 BOM EXCEPTION (not DigiKey)
+DigiKey,1,schematic,J10,FH12-18S-0.5SH,Hirose_FH12-18S-0.5SH_1x18-1MP_P0.50mm_Horizontal,FH12-18S-0.5SH(55),Hirose Electric Co Ltd,HFJ118CT-ND,5602,Active,2.08,16,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,J11,USB4105-GF-A,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,USB4105-GF-A,GCT,2073-USB4105-GF-ACT-ND,97080,Active,0.7,7,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,L1,2.2uH,L_Bourns_SRP7028A_7.3x6.6mm,SRP7028A-2R2M,Bourns Inc.,SRP7028A-2R2MCT-ND,5578,Active,1.02,18,,no,"E0003 data 2026-10-18. Irated 8 A, Isat 14 A, DCR 20 mR max, 7.3x6.6x3.0 mm; KiCad footprint exists. Lower-DCR alt: Wuerth 74439344022 (10.5 mR, 6.65x6.45x3.3, needs land pattern). Coilcraft XAL7030-222 not carried by DigiKey"
+DigiKey,1,schematic,L2,1uH,L_Vishay_IHLP-2525,IHLP2525CZER1R0M01,Vishay Dale,541-1006-1-ND,38987,Active,1.11 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. 1 uH 11 A rated / 22 A sat, 10 mOhm max (TR 541-1006-2-ND)"
+DigiKey,1,schematic,L3,2.2uH,L_1008_2520Metric,DFE252012PD-2R2M=P2,Murata Electronics,490-DFE252012PD-2R2M=P2CT-ND,8950,Active,0.36,21,,no,E0003 data 2026-10-18. Per TPS629210 datasheet table 9-4
+DigiKey,2,schematic,Q1 Q2,PSMN2R0-30YLDX,LFPAK56,PSMN2R0-30YLDX,Nexperia USA Inc.,1727-2218-1-ND,3965,Active,1.29,16,,no,"E0003 data 2026-10-18. With ~5 mR total the S-8252 OC trip is ~30 A, F1 10 A is the real limit (notes.md)"
+DigiKey,8,schematic,Q3 Q4 Q5 Q6 Q7 Q11 Q12 Q14,2N7002,SOT-23,2N7002-7-F,Diodes Incorporated,2N7002-FDICT-ND,431766,Active,0.18,36,,no,E0003 data 2026-10-18. 5 port EN + OV2 + spare + BAL_EN (Q10)
+DigiKey,1,schematic,Q13,AO3401A,SOT-23,AO3401A,Alpha & Omega Semiconductor Inc.,785-1001-1-ND,321804,Active,0.52 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. common part (E0001/E0002); -30 V, VGS +-12 V, Vth -1.3 V max"
+DigiKey,1,schematic,R1,1M,R_0402_1005Metric,RC0402FR-071ML,YAGEO,311-1.00MLRCT-ND,961162,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,2,schematic,R2 R3,0R,R_0402_1005Metric,RC0402JR-070RL,YAGEO,311-0.0JRCT-ND,1032165,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,R10,5.23k 1%,R_0402_1005Metric,RC0402FR-075K23L,YAGEO,YAG3195CT-ND,39950,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,R11,30.1k 1%,R_0402_1005Metric,RC0402FR-0730K1L,YAGEO,311-30.1KLRCT-ND,12740,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,30,schematic,R12 R35 R36 R37 R38 R40 R41 R42 R43 R57 R58 R59 R62 R63 R76 R77 R78 R79 R81 R83 R85 R87 R89 R90 R92 R93 R131 R132 R144 R149,10k,R_0402_1005Metric,RC0402FR-0710KL,YAGEO,311-10.0KLRCT-ND,10874291,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,7,schematic,R13 R31 R46 R48 R50 R52 R54,1k,R_0402_1005Metric,RC0402FR-071KL,YAGEO,311-1.00KLRCT-ND,3584811,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,R14,27.4k 1%,R_0402_1005Metric,RC0402FR-0727K4L,YAGEO,311-27.4KLRCT-ND,134391,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,4,schematic,R15 R16 R44 R45,2.2k,R_0402_1005Metric,RC0402FR-072K2L,YAGEO,311-2.20KLRCT-ND,133524,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,2,schematic,R17 R18,470R,R_0402_1005Metric,RC0402FR-07470RL,YAGEO,311-470LRCT-ND,747255,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,R19,2k,R_0402_1005Metric,RK73H1ETTP2001F,"KOA Speer Electronics, Inc.",2019-RK73H1ETTP2001FCT-ND,679296,Active,0.09,7,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
+DigiKey,1,schematic,R20,5mR 1%,R_2512_6332Metric,CRF2512-FZ-R005ELF,Bourns Inc.,CRF2512-FZ-R005ELFCT-ND,76061,Active,0.43,18,,no,E0003 data 2026-10-18. Kelvin pads
+DigiKey,1,schematic,R28,49.9R,R_0402_1005Metric,RC0402FR-0749R9L,YAGEO,311-49.9LRCT-ND,2407274,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,2,schematic,R29 R30,150R,R_0402_1005Metric,RC0402FR-07150RL,YAGEO,311-150LRCT-ND,2979224,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,2,schematic,R32 R154,10k 1%,R_0402_1005Metric,RC0402FR-0710KL,YAGEO,311-10.0KLRCT-ND,10874291,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,16,schematic,R47 R49 R51 R53 R64 R65 R66 R67 R68 R69 R70 R71 R72 R73 R74 R75,4.7k,R_0402_1005Metric,RK73H1ETTP4701F,"KOA Speer Electronics, Inc.",2019-RK73H1ETTP4701FCT-ND,2889565,Active,0.09,7,,no,E0003 data 2026-10-18.
+DigiKey,2,schematic,R55 R56,33R,R_0402_1005Metric,RC0402FR-0733RL,YAGEO,311-33.0LRCT-ND,1770917,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,R60,0R,R_0402_1005Metric,RC0402JR-070RL,YAGEO,311-0.0JRCT-ND,1032165,Active,0.09,22,DNP,no,E0003 data 2026-10-18.
+DigiKey,10,schematic,R80 R82 R84 R86 R88 R139 R141 R142 R143 R150,100k,R_0402_1005Metric,RC0402FR-07100KL,YAGEO,311-100KLRCT-ND,6147223,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,12,schematic,R94 R96 R101 R103 R108 R110 R115 R117 R122 R124 R133 R135,1M 1%,R_0402_1005Metric,RC0402FR-071ML,YAGEO,311-1.00MLRCT-ND,961162,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,5,schematic,R95 R102 R109 R116 R123,365k 1%,R_0402_1005Metric,RC0402FR-07365KL,YAGEO,YAG3133CT-ND,7547,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,6,schematic,R97 R104 R111 R118 R125 R136,249k 1%,R_0402_1005Metric,RC0402FR-07249KL,YAGEO,311-249KLRCT-ND,93250,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,5,schematic,R98 R105 R112 R119 R138,3.83k 1%,R_0402_1005Metric,RC0402FR-073K83L,YAGEO,311-3.83KLRCT-ND,121495,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,10,schematic,R99 R100 R106 R107 R113 R114 R120 R121 R127 R128,220R,R_0402_1005Metric,RC0402FR-07220RL,YAGEO,311-220LRCT-ND,959135,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,R126,1.65k 1%,R_0402_1005Metric,RC0402FR-071K65L,YAGEO,YAG3043CT-ND,90781,Active,0.09,22,,no,E0003 data 2026-10-18.
+DigiKey,2,schematic,R129 R130,5.1k 1%,R_0402_1005Metric,RC0402FR-075K1L,YAGEO,311-5.10KLRCT-ND,599923,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R134,390k 1%,R_0402_1005Metric,RC0402FR-07390KL,YAGEO,YAG3143CT-ND,80565,Active,0.11 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R137,6.65k 1%,R_0402_1005Metric,RC0402FR-076K65L,YAGEO,YAG3219CT-ND,237279,Active,0.11 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R140,2.32k 1%,R_0402_1005Metric,RC0402FR-072K32L,YAGEO,YAG3100CT-ND,105858,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R145,374R 1%,R_0402_1005Metric,RC0402FR-07374RL,YAGEO,YAG3137CT-ND,131070,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R146,300R,R_0402_1005Metric,RC0402FR-07300RL,YAGEO,311-300LRCT-ND,190616,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R147,39R 1% 1W,R_2512_6332Metric,RMCF2512FT39R0,Stackpole Electronics Inc,RMCF2512FT39R0CT-ND,34038,Active,0.25 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. 39R 1% 1 W 2512 (TR RMCF2512FT39R0TR-ND)"
+DigiKey,1,schematic,R148,39k,R_0402_1005Metric,RC0402FR-0739KL,YAGEO,311-39.0KLRCT-ND,,,,,,no,Common part (E0002); stock not re-queried (E0001/E0002 BOMs)
+DigiKey,1,schematic,R151,200k 1%,R_0402_1005Metric,RC0402FR-07200KL,YAGEO,311-200KLRCT-ND,1264282,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R152,53.6k 1%,R_0402_1005Metric,RC0402FR-0753K6L,YAGEO,311-53.6KLRCT-ND,86892,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R153,69.8k 1%,R_0402_1005Metric,RC0402FR-0769K8L,YAGEO,YAG3216CT-ND,174137,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,1,schematic,R155,20k,R_0402_1005Metric,RC0402FR-0720KL,YAGEO,311-20.0KLRCT-ND,,,,,,no,Common part (E0002); stock not re-queried (E0001/E0002 BOMs)
+DigiKey,2,schematic,RT1 RT2,10k B3435,NTC_Leaded_THT_P2.54mm_Drill0.8mm,103AT-2,Semitec USA Corp,4316-103AT-2-ND,3810,Active,0.6,12,,no,E0003 data 2026-10-18. THROUGH-HOLE glass bead with 12.5 mm leads (not 0603); Manager decision 2026-10-10
+DigiKey,1,schematic,SW1,PWR,SW_SPST_PTS810,PTS810SJM250SMTR LFS,C&K,CKN10502CT-ND,73538,Active,0.51,16,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,SW2,BOOT,SW_SPST_PTS810,PTS810SJM250SMTR LFS,C&K,CKN10502CT-ND,73538,Active,0.51,16,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,SW3,RESET,SW_SPST_PTS810,PTS810SJM250SMTR LFS,C&K,CKN10502CT-ND,73538,Active,0.51,16,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,U1,ESP32-S3-WROOM-1-N16R2,ESP32-S3-WROOM-1,ESP32-S3-WROOM-1-N16R2,Espressif Systems,5407-ESP32-S3-WROOM-1-N16R2CT-ND,5578,Active,5.55,8,,no,E0003 data 2026-10-18. Manager decision 2026-10-10: R2 (2 MB quad PSRAM) replaces N16R8 (0 stock); GPIO35-37 free
+DigiKey,1,schematic,U2,BQ25887RGET,Texas_RGE0024H_VQFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm,BQ25887RGET,Texas Instruments,296-53518-2-ND,211,Active,6.62 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. STOCK EXCEPTION: DigiKey returns only the T&R listing 296-53518-2-ND (211 pcs, MOQ 250); cut-tape PN 296-53518-1-ND not found by the lookup. Buy BQ25887RGER cut tape (SPEC: 10 911 on reel) or confirm RGET cut tape at order time"
+DigiKey,1,schematic,U4,USBLC6-2SC6,SOT-23-6,USBLC6-2SC6,STMicroelectronics,497-5235-1-ND,100882,Active,0.47,25,,no,E0003 data 2026-10-18.
+DigiKey,1,schematic,U5,TPS629210DRL,SOT-583-8,TPS629210DRLR,Texas Instruments,296-TPS629210DRLRCT-ND,1486,Active,1.44,20,,no,E0003 data 2026-10-18. 2.2uH + 22uF per datasheet
+DigiKey,1,schematic,U6,S-8252AAG-M6T1U,SOT-23-6,S-8252AAG-M6T1U,ABLIC Inc.,1662-S-8252AAG-M6T1UCT-ND,49357,Active,2.07,16,,no,E0003 data 2026-10-18. No variant has OV 4.325-4.35 AND UV 2.7-2.8; see notes.md
+DigiKey,1,schematic,U8,PCA9548APW,TSSOP-24_4.4x7.8mm_P0.65mm,"PCA9548APW,118",NXP USA Inc.,568-10297-1-ND,17650,Active,1.26,30,,no,E0003 data 2026-10-18. TCA9548APWR 0 stock: NXP PCA9548A is a pin/address-compatible TSSOP-24 drop-in (see notes.md)
+DigiKey,1,schematic,U9,TCA9535PWR,TSSOP-24_4.4x7.8mm_P0.65mm,TCA9535PWR,Texas Instruments,296-25129-1-ND,36887,Active,1.76,20,,no,E0003 data 2026-10-18.
+DigiKey,6,schematic,U10 U11 U12 U13 U14 U16,TPS259470ARPW,TI_RPW0010A_VQFN-HR-10_2x2mm_P0.475mm,TPS259470ARPWR,Texas Instruments,296-TPS259470ARPWRCT-ND,78910,Active,1.81,12,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
+DigiKey,1,schematic,U15,MAX17205G+,TDFN-14-1EP_3x3mm_P0.4mm_EP1.78x2.35mm,MAX17205G+T,Analog Devices Inc./Maxim Integrated,MAX17205G+TCT-ND,14176,Active,6.03,33,,no,E0003 data 2026-10-18. tape&reel variant; MAX17205G+ (tube) 459 stock also exists
+DigiKey,1,schematic,U17,TPS56637RPAR,TI_RPA0010A_VQFN-HR-10_3x3mm,TPS56637RPAR,Texas Instruments,296-TPS56637RPARTR-ND,14313,Active,2.71 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. Only the T&R listing returned (14 313, MOQ 3000); cut tape (CT) PN not confirmed by the lookup: check at order time"
+DigiKey,1,spec,Display (off-board),"Adafruit 2.0"" 320x240 IPS (PID 4311)",n/a,4311,Adafruit Industries LLC,1528-4311-ND,555,Active,17.52,4,,no,Off-board module (PN/stock from DigiKey keyword search)
+Adafruit,1,spec,EYESPI cable (off-board),18-pin 100mm,n/a,5239,Adafruit Industries LLC,adafruit.com/product/5239,in stock,Active,0.95 USD,4,,no,"DigiKey 1528-5239-ND has 0 stock; Adafruit direct, in stock (checked 2026-10-10)"
+nkon.nl / akkuteile.de,2,spec,Cells (off-board),Molicel INR21700-P50B 5000mAh flat-top,n/a,INR21700-P50B,Molicel,eu.nkon.nl/molicel-inr21700-p50b-5000mah-50a.html,not verified,Active,"7.95 (web, unverified)",,,no,Not sold by DigiKey. Matched pair; flat-top vs Keystone 1121 test fit mandatory
