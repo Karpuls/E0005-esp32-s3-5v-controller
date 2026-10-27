@@ -62,3 +62,9 @@ for n, p, yl, xc in WU:
 # ---------------- B east-U (pins 9 CS, 12 TSCS)
 T('LCD_TSCS', 0.15, B, (jx(12), VA), (jx(12), 28.3), (35.6, 28.3), (35.6, 21.0), (33.39, 21.0), (33.39, 21.65))
 T('LCD_CS', 0.15, B, (jx(9), VB), (jx(9), 28.6), (35.9, 28.6), (35.9, 19.95), (XF['LCD_CS'], 19.95), (XF['LCD_CS'], VY['LCD_CS']))
+# ---------------- In2: RST / SDCS / TOUCH from the U1 south-row vias, lanes between the BH2 peg and the comb
+for n, v, yl, p in (('LCD_RST', (44.4, 20.6), 24.4, 8), ('LCD_SDCS', (46.6, 20.0), 24.9, 10), ('TOUCH_INT_N', (47.3, 21.2), 25.4, 15)):
+    T(n, 0.15, I2, v, (v[0], yl), (jx(p), yl), (jx(p), VA if p % 2 == 0 else VB))
+# In2 west-U for LCD_SCL / LCD_SDA (columns x 21.4 / 21.1 continue north towards U8)
+for n, p, yl, xc in (('LCD_SCL', 13, 28.3, 21.4), ('LCD_SDA', 14, 28.6, 21.1)):
+    T(n, 0.15, I2, (jx(p), VA if p % 2 == 0 else VB), (jx(p), yl), (xc, yl), (xc, 20.0))
