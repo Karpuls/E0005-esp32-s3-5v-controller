@@ -1,0 +1,283 @@
+warning: no courtyard read for NT1
+rules: track width 0.200 mm (flag), clearance 0.150 mm (flag), via diameter 0.600 mm (flag), copper to edge 0.300 mm (flag)
+rules: 2 nets are differential pairs (USB_DN, USB_DP); the checks route them as single tracks, at least the pair width wide, and do not check their coupling or gap
+rules: custom rules in E0005_controller.kicad_dru are not evaluated; the flagged values are what was checked
+pins (IC pin -> nearest small-part pad on the same net)
+  pin  29 PWR_HOLD       98.049 mm to Q14.1
+  pin  13 USB_DN         85.966 mm to R3.2
+  pin  14 USB_DP         84.536 mm to R2.2
+  pin  39 I2C1_SDA       55.115 mm to R62.2
+  pin  38 I2C1_SCL       44.750 mm to R63.2
+  pin  34 /MCU, UI, LCD, switches/LCD_SDCS 23.250 mm to R59.2
+  pin  25 EXP_INT_N      18.499 mm to R40.2
+  pin  30 /MCU, UI, LCD, switches/SPARE37 14.926 mm to R60.1
+  pin   7 CC2_SENSE       6.040 mm to C64.1
+  pin   6 CC1_SENSE       6.040 mm to C63.1
+  pin   4 V5_SENSE        6.028 mm to R143.1
+  pin  10 /MCU, UI, LCD, switches/SW3  4.482 mm to C40.1
+  pin  11 /MCU, UI, LCD, switches/SW4  4.317 mm to R54.2
+  pin  19 /MCU, UI, LCD, switches/LCD_MOSI_MCU  3.122 mm to R56.1
+  pin   9 /MCU, UI, LCD, switches/SW2  2.920 mm to R50.2
+  pin   5 CHG_INT_N       2.584 mm to R38.2
+  pin   3 /MCU, UI, LCD, switches/EN  1.710 mm to R35.2
+  pin  12 I2C0_SDA        1.470 mm to R44.2
+  pin   8 /MCU, UI, LCD, switches/SW1  0.985 mm to R48.2
+  pin   2 +3V3            0.650 mm to C35.1
+  pin  35 /MCU, UI, LCD, switches/TOUCH_INT_N  0.570 mm to R42.2
+  pin  33 /MCU, UI, LCD, switches/LED_STATUS  0.570 mm to R46.1
+  pin  27 /MCU, UI, LCD, switches/BOOT  0.570 mm to R36.2
+  pin  20 /MCU, UI, LCD, switches/LCD_SCK_MCU  0.530 mm to R55.1
+  pin  23 /MCU, UI, LCD, switches/PWR_BTN_N  0.520 mm to R43.2
+  pin  17 I2C0_SCL        0.520 mm to R45.2
+  pin  31 MUX_RST_N       0.480 mm to R41.2
+  pin  28 GAUGE_ALRT_N    0.430 mm to R37.2
+parts (small-part pad -> nearest IC pin on the same net)
+  R13.1   +3V3           112.071 mm to pin 2
+  R12.1   +3V3           102.626 mm to pin 2
+  R144.1  +3V3           100.632 mm to pin 2
+  R150.1  PWR_HOLD       100.529 mm to pin 29
+  Q14.1   PWR_HOLD       98.049 mm to pin 29
+  D14.1   /MCU, UI, LCD, switches/PWR_BTN_N 95.859 mm to pin 23
+  C24.1   +3V3           93.687 mm to pin 2
+  L3.2    +3V3           90.687 mm to pin 2
+  R47.1   +3V3           87.799 mm to pin 2
+  R81.1   +3V3           86.515 mm to pin 2
+  R3.2    USB_DN         85.966 mm to pin 13
+  R2.2    USB_DP         84.536 mm to pin 14
+  R49.1   +3V3           78.631 mm to pin 2
+  R80.1   +3V3           74.549 mm to pin 2
+  R83.1   +3V3           72.304 mm to pin 2
+  R51.1   +3V3           69.692 mm to pin 2
+  R66.1   +3V3           61.999 mm to pin 2
+  R82.1   +3V3           61.217 mm to pin 2
+  R53.1   +3V3           61.083 mm to pin 2
+  R64.1   +3V3           60.793 mm to pin 2
+  R67.1   +3V3           60.580 mm to pin 2
+  R65.1   +3V3           60.551 mm to pin 2
+  R71.1   +3V3           59.701 mm to pin 2
+  R68.1   +3V3           58.430 mm to pin 2
+  R85.1   +3V3           58.386 mm to pin 2
+  R70.1   +3V3           56.301 mm to pin 2
+  R69.1   +3V3           56.300 mm to pin 2
+  R74.1   +3V3           55.120 mm to pin 2
+  R62.2   I2C1_SDA       55.115 mm to pin 39
+  R72.1   +3V3           52.980 mm to pin 2
+  R31.2   GAUGE_ALRT_N   52.309 mm to pin 28
+  C44.1   +3V3           51.378 mm to pin 2
+  R73.1   +3V3           51.030 mm to pin 2
+  R62.1   +3V3           50.118 mm to pin 2
+  R75.1   +3V3           49.890 mm to pin 2
+  R29.2   I2C0_SDA       49.650 mm to pin 12
+  R84.1   +3V3           49.001 mm to pin 2
+  R77.1   +3V3           48.692 mm to pin 2
+  R63.1   +3V3           48.012 mm to pin 2
+  R86.1   +3V3           47.971 mm to pin 2
+  R76.1   +3V3           47.872 mm to pin 2
+  R78.1   +3V3           46.667 mm to pin 2
+  R79.1   +3V3           45.741 mm to pin 2
+  R30.2   I2C0_SCL       45.503 mm to pin 17
+  R87.1   +3V3           45.152 mm to pin 2
+  R63.2   I2C1_SCL       44.750 mm to pin 38
+  C42.1   +3V3           41.150 mm to pin 2
+  R59.1   +3V3           39.437 mm to pin 2
+  C45.1   +3V3           36.801 mm to pin 2
+  R57.1   +3V3           36.548 mm to pin 2
+  R93.1   +3V3           35.653 mm to pin 2
+  SW3.1   /MCU, UI, LCD, switches/EN 35.426 mm to pin 3
+  R58.1   +3V3           35.386 mm to pin 2
+  SW3.1   /MCU, UI, LCD, switches/EN 35.350 mm to pin 3
+  R92.1   +3V3           34.407 mm to pin 2
+  R90.1   +3V3           34.269 mm to pin 2
+  R88.1   +3V3           31.715 mm to pin 2
+  R36.1   +3V3           24.131 mm to pin 2
+  R89.1   +3V3           24.016 mm to pin 2
+  R59.2   /MCU, UI, LCD, switches/LCD_SDCS 23.250 mm to pin 34
+  R37.1   +3V3           21.901 mm to pin 2
+  R43.1   +3V3           20.959 mm to pin 2
+  R41.1   +3V3           20.628 mm to pin 2
+  R42.1   +3V3           19.645 mm to pin 2
+  SW2.1   /MCU, UI, LCD, switches/BOOT 19.381 mm to pin 27
+  R40.2   EXP_INT_N      18.499 mm to pin 25
+  SW2.1   /MCU, UI, LCD, switches/BOOT 18.171 mm to pin 27
+  R45.1   +3V3           17.818 mm to pin 2
+  R60.1   /MCU, UI, LCD, switches/SPARE37 14.926 mm to pin 30
+  R44.1   +3V3           12.982 mm to pin 2
+  R142.2  V5_SENSE        9.140 mm to pin 4
+  R132.2  CC2_SENSE       9.140 mm to pin 7
+  R131.2  CC1_SENSE       9.140 mm to pin 6
+  R38.1   +3V3            7.354 mm to pin 2
+  R40.1   +3V3            6.901 mm to pin 2
+  R52.2   /MCU, UI, LCD, switches/SW3  6.339 mm to pin 10
+  C64.1   CC2_SENSE       6.040 mm to pin 7
+  C63.1   CC1_SENSE       6.040 mm to pin 6
+  C68.1   V5_SENSE        6.040 mm to pin 4
+  R143.1  V5_SENSE        6.028 mm to pin 4
+  C41.1   /MCU, UI, LCD, switches/SW4  5.270 mm to pin 11
+  C40.1   /MCU, UI, LCD, switches/SW3  4.482 mm to pin 10
+  R54.2   /MCU, UI, LCD, switches/SW4  4.317 mm to pin 11
+  C39.1   /MCU, UI, LCD, switches/SW2  3.481 mm to pin 9
+  R56.1   /MCU, UI, LCD, switches/LCD_MOSI_MCU  3.122 mm to pin 19
+  R50.2   /MCU, UI, LCD, switches/SW2  2.920 mm to pin 9
+  R35.1   +3V3            2.612 mm to pin 2
+  R38.2   CHG_INT_N       2.584 mm to pin 5
+  C38.1   /MCU, UI, LCD, switches/SW1  1.790 mm to pin 8
+  C37.1   /MCU, UI, LCD, switches/EN  1.789 mm to pin 3
+  R35.2   /MCU, UI, LCD, switches/EN  1.710 mm to pin 3
+  R44.2   I2C0_SDA        1.470 mm to pin 12
+  C36.1   +3V3            1.122 mm to pin 2
+  C43.1   +3V3            1.114 mm to pin 2
+  R48.2   /MCU, UI, LCD, switches/SW1  0.985 mm to pin 8
+  C35.1   +3V3            0.650 mm to pin 2
+  R46.1   /MCU, UI, LCD, switches/LED_STATUS  0.570 mm to pin 33
+  R42.2   /MCU, UI, LCD, switches/TOUCH_INT_N  0.570 mm to pin 35
+  R36.2   /MCU, UI, LCD, switches/BOOT  0.570 mm to pin 27
+  R55.1   /MCU, UI, LCD, switches/LCD_SCK_MCU  0.530 mm to pin 20
+  R45.2   I2C0_SCL        0.520 mm to pin 17
+  R43.2   /MCU, UI, LCD, switches/PWR_BTN_N  0.520 mm to pin 23
+  R41.2   MUX_RST_N       0.480 mm to pin 31
+  R37.2   GAUGE_ALRT_N    0.430 mm to pin 28
+ground (ground pad -> nearest legal via site, None = no site within 1.2 mm)
+  C36.2    0.993 mm
+  C59.2    0.303 mm
+  C56.2    0.303 mm
+  C53.2    0.303 mm
+  SW3.2    0.000 mm
+  SW3.2    0.000 mm
+  SW2.2    0.000 mm
+  SW2.2    0.000 mm
+  SW1.2    0.000 mm
+  SW1.2    0.000 mm
+  RT2.2    0.000 mm
+  RT1.2    0.000 mm
+  R98.2    0.000 mm
+  R97.2    0.000 mm
+  R95.2    0.000 mm
+  R20.2    0.000 mm
+  R19.2    0.000 mm
+  R154.2   0.000 mm
+  R152.2   0.000 mm
+  R150.2   0.000 mm
+  R145.2   0.000 mm
+  R143.2   0.000 mm
+  R141.2   0.000 mm
+  R14.2    0.000 mm
+  R139.2   0.000 mm
+  R137.2   0.000 mm
+  R136.2   0.000 mm
+  R134.2   0.000 mm
+  R130.2   0.000 mm
+  R129.2   0.000 mm
+  R126.2   0.000 mm
+  R125.2   0.000 mm
+  R123.2   0.000 mm
+  R119.2   0.000 mm
+  R118.2   0.000 mm
+  R116.2   0.000 mm
+  R112.2   0.000 mm
+  R111.2   0.000 mm
+  R11.2    0.000 mm
+  R109.2   0.000 mm
+  R105.2   0.000 mm
+  R104.2   0.000 mm
+  R102.2   0.000 mm
+  R1.2     0.000 mm
+  Q7.2     0.000 mm
+  Q6.2     0.000 mm
+  Q5.2     0.000 mm
+  Q4.2     0.000 mm
+  Q3.2     0.000 mm
+  Q14.2    0.000 mm
+  Q12.2    0.000 mm
+  Q11.2    0.000 mm
+  NT1.2    0.000 mm
+  J9.MP    0.000 mm
+  J9.MP    0.000 mm
+  J9.2     0.000 mm
+  J8.MP    0.000 mm
+  J8.MP    0.000 mm
+  J8.2     0.000 mm
+  J7.MP    0.000 mm
+  J7.MP    0.000 mm
+  J7.2     0.000 mm
+  J6.MP    0.000 mm
+  J6.MP    0.000 mm
+  J6.2     0.000 mm
+  J12.MP   0.000 mm
+  J12.MP   0.000 mm
+  J12.2    0.000 mm
+  D27.2    0.000 mm
+  D25.2    0.000 mm
+  D23.2    0.000 mm
+  D21.2    0.000 mm
+  D19.2    0.000 mm
+  D18.2    0.000 mm
+  D17.2    0.000 mm
+  D16.2    0.000 mm
+  D15.2    0.000 mm
+  D12.2    0.000 mm
+  D11.1    0.000 mm
+  D1.2     0.000 mm
+  C9.2     0.000 mm
+  C8.2     0.000 mm
+  C76.2    0.000 mm
+  C75.2    0.000 mm
+  C73.2    0.000 mm
+  C72.2    0.000 mm
+  C71.2    0.000 mm
+  C70.2    0.000 mm
+  C69.2    0.000 mm
+  C68.2    0.000 mm
+  C67.2    0.000 mm
+  C66.2    0.000 mm
+  C65.2    0.000 mm
+  C64.2    0.000 mm
+  C63.2    0.000 mm
+  C60.2    0.000 mm
+  C58.2    0.000 mm
+  C57.2    0.000 mm
+  C55.2    0.000 mm
+  C54.2    0.000 mm
+  C52.2    0.000 mm
+  C51.2    0.000 mm
+  C50.2    0.000 mm
+  C49.2    0.000 mm
+  C48.2    0.000 mm
+  C47.2    0.000 mm
+  C46.2    0.000 mm
+  C45.2    0.000 mm
+  C44.2    0.000 mm
+  C43.2    0.000 mm
+  C42.2    0.000 mm
+  C41.2    0.000 mm
+  C40.2    0.000 mm
+  C39.2    0.000 mm
+  C38.2    0.000 mm
+  C37.2    0.000 mm
+  C35.2    0.000 mm
+  C33.2    0.000 mm
+  C32.2    0.000 mm
+  C31.2    0.000 mm
+  C24.2    0.000 mm
+  C23.2    0.000 mm
+  C22.2    0.000 mm
+  C20.2    0.000 mm
+  C2.2     0.000 mm
+  C18.2    0.000 mm
+  C1.2     0.000 mm
+pairs (two-pad parts with both pads on IC pins)
+  R44   R44.1 12.982 mm, R44.2 1.470 mm, difference 11.512 mm
+  R37   R37.1 21.901 mm, R37.2 0.430 mm, difference 21.471 mm
+  R43   R43.1 20.959 mm, R43.2 0.520 mm, difference 20.439 mm
+  R45   R45.1 17.818 mm, R45.2 0.520 mm, difference 17.298 mm
+  R63   R63.1 48.012 mm, R63.2 44.750 mm, difference 3.262 mm
+  R59   R59.1 39.437 mm, R59.2 23.250 mm, difference 16.186 mm
+  R62   R62.1 50.118 mm, R62.2 55.115 mm, difference 4.997 mm
+  R40   R40.1 6.901 mm, R40.2 18.499 mm, difference 11.598 mm
+  R38   R38.1 7.354 mm, R38.2 2.584 mm, difference 4.770 mm
+  R35   R35.1 2.612 mm, R35.2 1.710 mm, difference 0.902 mm
+  R41   R41.1 20.628 mm, R41.2 0.480 mm, difference 20.148 mm
+  R36   R36.1 24.131 mm, R36.2 0.570 mm, difference 23.561 mm
+  R42   R42.1 19.645 mm, R42.2 0.570 mm, difference 19.075 mm
+fronts (IC signal pins with no free 2.0 mm channel straight out or at 45 degrees)
+  pin  16 unconnected-(U1-IO46-Pad16) blocked by R45.2, R56.1, R56.2
+  pin  18 /MCU, UI, LCD, switches/LCD_CS blocked by R45.1, R45.2, R55.2

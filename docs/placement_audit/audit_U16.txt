@@ -1,0 +1,189 @@
+warning: no courtyard read for NT1
+rules: track width 0.200 mm (flag), clearance 0.150 mm (flag), via diameter 0.600 mm (flag), copper to edge 0.300 mm (flag)
+rules: 2 nets are differential pairs (USB_DN, USB_DP); the checks route them as single tracks, at least the pair width wide, and do not check their coupling or gap
+rules: custom rules in E0005_controller.kicad_dru are not evaluated; the flagged values are what was checked
+pins (IC pin -> nearest small-part pad on the same net)
+  pin   4 USBIN_FLT_N    67.875 mm to R90.2
+  pin   4 USBIN_FLT_N    67.828 mm to R90.2
+  pin   6 V5             15.690 mm to R96.1
+  pin   2 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_OVLO  3.022 mm to R136.1  GROUND PAD FACES PIN
+  pin   1 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_EN  1.634 mm to R134.1  GROUND PAD FACES PIN
+  pin   5 VBUS            1.596 mm to C65.1
+  pin   1 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_EN  1.176 mm to R134.1  GROUND PAD FACES PIN
+  pin  10 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_ITIMER  1.091 mm to C67.1
+  pin   7 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_DVDT  1.090 mm to C66.1
+  pin  10 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_ITIMER  0.829 mm to C67.1
+  pin   7 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_DVDT  0.740 mm to C66.1
+  pin   9 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_ILM  0.720 mm to R137.1
+parts (small-part pad -> nearest IC pin on the same net)
+  R142.1  V5             99.253 mm to pin 6
+  C60.1   V5             78.162 mm to pin 6
+  R122.1  V5             76.468 mm to pin 6
+  R124.1  V5             74.890 mm to pin 6
+  C57.1   V5             68.247 mm to pin 6
+  R90.2   USBIN_FLT_N    67.828 mm to pin 4
+  R115.1  V5             59.298 mm to pin 6
+  R117.1  V5             59.190 mm to pin 6
+  C54.1   V5             47.722 mm to pin 6
+  C76.1   V5             46.534 mm to pin 6
+  L1.2    V5             45.113 mm to pin 6
+  R108.1  V5             44.827 mm to pin 6
+  R110.1  V5             44.690 mm to pin 6
+  C75.1   V5             41.894 mm to pin 6
+  C23.1   V5             41.860 mm to pin 6
+  C22.1   V5             41.834 mm to pin 6
+  C51.1   V5             37.078 mm to pin 6
+  R155.1  V5             35.504 mm to pin 6
+  D1.1    VBUS           33.354 mm to pin 5
+  R153.1  V5             33.306 mm to pin 6
+  R101.1  V5             31.877 mm to pin 6
+  R103.1  V5             30.190 mm to pin 6
+  C2.1    VBUS           20.429 mm to pin 5
+  C48.1   V5             19.126 mm to pin 6
+  R94.1   V5             17.532 mm to pin 6
+  R96.1   V5             15.690 mm to pin 6
+  R135.1  VBUS            4.880 mm to pin 5
+  R135.2  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_OVLO  4.080 mm to pin 2
+  R138.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_ILM  3.047 mm to pin 9
+  R136.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_OVLO  3.022 mm to pin 2
+  R140.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_ILM  3.010 mm to pin 9
+  R133.1  VBUS            2.680 mm to pin 5
+  R133.2  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_EN  1.880 mm to pin 1
+  C65.1   VBUS            1.596 mm to pin 5
+  R134.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_EN  1.176 mm to pin 1
+  C67.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_ITIMER  0.829 mm to pin 10
+  C66.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_DVDT  0.740 mm to pin 7
+  R137.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/UIN_ILM  0.720 mm to pin 9
+ground (ground pad -> nearest legal via site, None = no site within 1.2 mm)
+  C36.2    0.993 mm
+  C59.2    0.303 mm
+  C56.2    0.303 mm
+  C53.2    0.303 mm
+  SW3.2    0.000 mm
+  SW3.2    0.000 mm
+  SW2.2    0.000 mm
+  SW2.2    0.000 mm
+  SW1.2    0.000 mm
+  SW1.2    0.000 mm
+  RT2.2    0.000 mm
+  RT1.2    0.000 mm
+  R98.2    0.000 mm
+  R97.2    0.000 mm
+  R95.2    0.000 mm
+  R20.2    0.000 mm
+  R19.2    0.000 mm
+  R154.2   0.000 mm
+  R152.2   0.000 mm
+  R150.2   0.000 mm
+  R145.2   0.000 mm
+  R143.2   0.000 mm
+  R141.2   0.000 mm
+  R14.2    0.000 mm
+  R139.2   0.000 mm
+  R137.2   0.000 mm
+  R136.2   0.000 mm
+  R134.2   0.000 mm
+  R130.2   0.000 mm
+  R129.2   0.000 mm
+  R126.2   0.000 mm
+  R125.2   0.000 mm
+  R123.2   0.000 mm
+  R119.2   0.000 mm
+  R118.2   0.000 mm
+  R116.2   0.000 mm
+  R112.2   0.000 mm
+  R111.2   0.000 mm
+  R11.2    0.000 mm
+  R109.2   0.000 mm
+  R105.2   0.000 mm
+  R104.2   0.000 mm
+  R102.2   0.000 mm
+  R1.2     0.000 mm
+  Q7.2     0.000 mm
+  Q6.2     0.000 mm
+  Q5.2     0.000 mm
+  Q4.2     0.000 mm
+  Q3.2     0.000 mm
+  Q14.2    0.000 mm
+  Q12.2    0.000 mm
+  Q11.2    0.000 mm
+  NT1.2    0.000 mm
+  J9.MP    0.000 mm
+  J9.MP    0.000 mm
+  J9.2     0.000 mm
+  J8.MP    0.000 mm
+  J8.MP    0.000 mm
+  J8.2     0.000 mm
+  J7.MP    0.000 mm
+  J7.MP    0.000 mm
+  J7.2     0.000 mm
+  J6.MP    0.000 mm
+  J6.MP    0.000 mm
+  J6.2     0.000 mm
+  J12.MP   0.000 mm
+  J12.MP   0.000 mm
+  J12.2    0.000 mm
+  D27.2    0.000 mm
+  D25.2    0.000 mm
+  D23.2    0.000 mm
+  D21.2    0.000 mm
+  D19.2    0.000 mm
+  D18.2    0.000 mm
+  D17.2    0.000 mm
+  D16.2    0.000 mm
+  D15.2    0.000 mm
+  D12.2    0.000 mm
+  D11.1    0.000 mm
+  D1.2     0.000 mm
+  C9.2     0.000 mm
+  C8.2     0.000 mm
+  C76.2    0.000 mm
+  C75.2    0.000 mm
+  C73.2    0.000 mm
+  C72.2    0.000 mm
+  C71.2    0.000 mm
+  C70.2    0.000 mm
+  C69.2    0.000 mm
+  C68.2    0.000 mm
+  C67.2    0.000 mm
+  C66.2    0.000 mm
+  C65.2    0.000 mm
+  C64.2    0.000 mm
+  C63.2    0.000 mm
+  C60.2    0.000 mm
+  C58.2    0.000 mm
+  C57.2    0.000 mm
+  C55.2    0.000 mm
+  C54.2    0.000 mm
+  C52.2    0.000 mm
+  C51.2    0.000 mm
+  C50.2    0.000 mm
+  C49.2    0.000 mm
+  C48.2    0.000 mm
+  C47.2    0.000 mm
+  C46.2    0.000 mm
+  C45.2    0.000 mm
+  C44.2    0.000 mm
+  C43.2    0.000 mm
+  C42.2    0.000 mm
+  C41.2    0.000 mm
+  C40.2    0.000 mm
+  C39.2    0.000 mm
+  C38.2    0.000 mm
+  C37.2    0.000 mm
+  C35.2    0.000 mm
+  C33.2    0.000 mm
+  C32.2    0.000 mm
+  C31.2    0.000 mm
+  C24.2    0.000 mm
+  C23.2    0.000 mm
+  C22.2    0.000 mm
+  C20.2    0.000 mm
+  C2.2     0.000 mm
+  C18.2    0.000 mm
+  C1.2     0.000 mm
+pairs (two-pad parts with both pads on IC pins)
+  R133  R133.1 2.680 mm, R133.2 1.880 mm, difference 0.800 mm
+  R135  R135.1 4.880 mm, R135.2 4.080 mm, difference 0.800 mm
+fronts (IC signal pins with no free 2.0 mm channel straight out or at 45 degrees)
+  pin   3 unconnected-(U16-AUXOFF-Pad3) blocked by R133.1, R134.1, R134.2

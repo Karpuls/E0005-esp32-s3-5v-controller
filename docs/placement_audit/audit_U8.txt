@@ -1,0 +1,263 @@
+warning: no courtyard read for NT1
+rules: track width 0.200 mm (flag), clearance 0.150 mm (flag), via diameter 0.600 mm (flag), copper to edge 0.300 mm (flag)
+rules: 2 nets are differential pairs (USB_DN, USB_DP); the checks route them as single tracks, at least the pair width wide, and do not check their coupling or gap
+rules: custom rules in E0005_controller.kicad_dru are not evaluated; the flagged values are what was checked
+pins (IC pin -> nearest small-part pad on the same net)
+  pin   3 MUX_RST_N      54.847 mm to R41.2
+  pin  22 I2C1_SCL       19.259 mm to R63.2
+  pin  20 /I2C mux, expander, 5 V peripheral ports/MUX7_SCL  5.190 mm to R79.2
+  pin  19 /I2C mux, expander, 5 V peripheral ports/MUX7_SDA  4.758 mm to R78.2
+  pin   7 /I2C mux, expander, 5 V peripheral ports/PORT2_SCL  3.600 mm to R67.2
+  pin  18 /I2C mux, expander, 5 V peripheral ports/MUX6_SCL  3.432 mm to R77.2
+  pin   8 /I2C mux, expander, 5 V peripheral ports/PORT3_SDA  3.325 mm to R68.2
+  pin  10 /I2C mux, expander, 5 V peripheral ports/PORT4_SDA  3.233 mm to R70.2
+  pin  17 /I2C mux, expander, 5 V peripheral ports/MUX6_SDA  2.872 mm to R76.2
+  pin  11 /I2C mux, expander, 5 V peripheral ports/PORT4_SCL  2.825 mm to R71.2
+  pin   9 /I2C mux, expander, 5 V peripheral ports/PORT3_SCL  2.716 mm to R69.2
+  pin   6 /I2C mux, expander, 5 V peripheral ports/PORT2_SDA  2.523 mm to R66.2
+  pin  16 LCD_SCL         2.260 mm to R75.2
+  pin  15 LCD_SDA         2.111 mm to R74.2
+  pin  23 I2C1_SDA        1.810 mm to R62.2
+  pin  24 +3V3            1.244 mm to C44.1
+  pin   5 /I2C mux, expander, 5 V peripheral ports/PORT1_SCL  1.108 mm to R65.2
+  pin   4 /I2C mux, expander, 5 V peripheral ports/PORT1_SDA  1.030 mm to R64.2
+  pin  13 /I2C mux, expander, 5 V peripheral ports/PORT5_SDA  0.685 mm to R72.2
+  pin  14 /I2C mux, expander, 5 V peripheral ports/PORT5_SCL  0.612 mm to R73.2
+parts (small-part pad -> nearest IC pin on the same net)
+  R13.1   +3V3           59.598 mm to pin 24
+  R42.1   +3V3           54.857 mm to pin 24
+  R41.2   MUX_RST_N      54.847 mm to pin 3
+  C43.1   +3V3           54.394 mm to pin 24
+  R57.1   +3V3           52.523 mm to pin 24
+  C35.1   +3V3           52.289 mm to pin 24
+  R58.1   +3V3           51.676 mm to pin 24
+  R12.1   +3V3           51.571 mm to pin 24
+  C36.1   +3V3           51.185 mm to pin 24
+  C24.1   +3V3           50.310 mm to pin 24
+  R47.1   +3V3           50.303 mm to pin 24
+  R35.1   +3V3           50.077 mm to pin 24
+  R144.1  +3V3           49.692 mm to pin 24
+  R41.1   +3V3           49.685 mm to pin 24
+  L3.2    +3V3           48.098 mm to pin 24
+  R59.1   +3V3           47.936 mm to pin 24
+  R37.1   +3V3           47.601 mm to pin 24
+  C42.1   +3V3           46.878 mm to pin 24
+  R36.1   +3V3           46.420 mm to pin 24
+  R49.1   +3V3           45.565 mm to pin 24
+  R40.1   +3V3           45.509 mm to pin 24
+  R38.1   +3V3           44.839 mm to pin 24
+  R51.1   +3V3           42.684 mm to pin 24
+  R53.1   +3V3           41.970 mm to pin 24
+  R43.1   +3V3           40.090 mm to pin 24
+  R44.1   +3V3           39.257 mm to pin 24
+  R45.1   +3V3           36.731 mm to pin 24
+  R81.1   +3V3           32.410 mm to pin 24
+  R100.1  /I2C mux, expander, 5 V peripheral ports/PORT1_SDA 30.445 mm to pin 4
+  R89.1   +3V3           28.810 mm to pin 24
+  R99.1   /I2C mux, expander, 5 V peripheral ports/PORT1_SCL 28.599 mm to pin 5
+  R127.1  /I2C mux, expander, 5 V peripheral ports/PORT5_SCL 26.329 mm to pin 14
+  R128.1  /I2C mux, expander, 5 V peripheral ports/PORT5_SDA 25.934 mm to pin 13
+  R88.1   +3V3           22.091 mm to pin 24
+  R80.1   +3V3           20.475 mm to pin 24
+  R63.1   +3V3           20.218 mm to pin 24
+  R120.1  /I2C mux, expander, 5 V peripheral ports/PORT4_SCL 19.563 mm to pin 11
+  R63.2   I2C1_SCL       19.259 mm to pin 22
+  R83.1   +3V3           18.088 mm to pin 24
+  R90.1   +3V3           18.008 mm to pin 24
+  R107.1  /I2C mux, expander, 5 V peripheral ports/PORT2_SDA 17.850 mm to pin 6
+  R92.1   +3V3           17.782 mm to pin 24
+  R121.1  /I2C mux, expander, 5 V peripheral ports/PORT4_SDA 17.712 mm to pin 10
+  R93.1   +3V3           16.580 mm to pin 24
+  R106.1  /I2C mux, expander, 5 V peripheral ports/PORT2_SCL 16.015 mm to pin 7
+  C45.1   +3V3           15.953 mm to pin 24
+  R71.1   +3V3           11.996 mm to pin 24
+  R114.1  /I2C mux, expander, 5 V peripheral ports/PORT3_SDA 11.449 mm to pin 8
+  R67.1   +3V3           10.841 mm to pin 24
+  R113.1  /I2C mux, expander, 5 V peripheral ports/PORT3_SCL 10.655 mm to pin 9
+  R68.1   +3V3           10.152 mm to pin 24
+  R70.1   +3V3            9.484 mm to pin 24
+  R72.1   +3V3            8.855 mm to pin 24
+  R86.1   +3V3            8.755 mm to pin 24
+  R69.1   +3V3            8.371 mm to pin 24
+  R74.1   +3V3            8.044 mm to pin 24
+  R66.1   +3V3            7.928 mm to pin 24
+  R65.1   +3V3            7.856 mm to pin 24
+  R75.1   +3V3            7.787 mm to pin 24
+  R78.1   +3V3            7.642 mm to pin 24
+  R87.1   +3V3            7.639 mm to pin 24
+  R73.1   +3V3            7.588 mm to pin 24
+  R77.1   +3V3            7.257 mm to pin 24
+  R82.1   +3V3            7.107 mm to pin 24
+  R64.1   +3V3            6.821 mm to pin 24
+  R79.1   +3V3            6.615 mm to pin 24
+  R76.1   +3V3            5.989 mm to pin 24
+  R79.2   /I2C mux, expander, 5 V peripheral ports/MUX7_SCL  5.190 mm to pin 20
+  R78.2   /I2C mux, expander, 5 V peripheral ports/MUX7_SDA  4.758 mm to pin 19
+  R85.1   +3V3            4.153 mm to pin 24
+  R67.2   /I2C mux, expander, 5 V peripheral ports/PORT2_SCL  3.600 mm to pin 7
+  R77.2   /I2C mux, expander, 5 V peripheral ports/MUX6_SCL  3.432 mm to pin 18
+  R68.2   /I2C mux, expander, 5 V peripheral ports/PORT3_SDA  3.325 mm to pin 8
+  R84.1   +3V3            3.262 mm to pin 24
+  R70.2   /I2C mux, expander, 5 V peripheral ports/PORT4_SDA  3.233 mm to pin 10
+  R76.2   /I2C mux, expander, 5 V peripheral ports/MUX6_SDA  2.872 mm to pin 17
+  R71.2   /I2C mux, expander, 5 V peripheral ports/PORT4_SCL  2.825 mm to pin 11
+  R62.1   +3V3            2.738 mm to pin 24
+  R69.2   /I2C mux, expander, 5 V peripheral ports/PORT3_SCL  2.716 mm to pin 9
+  R66.2   /I2C mux, expander, 5 V peripheral ports/PORT2_SDA  2.523 mm to pin 6
+  R75.2   LCD_SCL         2.260 mm to pin 16
+  R74.2   LCD_SDA         2.111 mm to pin 15
+  R62.2   I2C1_SDA        1.810 mm to pin 23
+  C44.1   +3V3            1.244 mm to pin 24
+  R65.2   /I2C mux, expander, 5 V peripheral ports/PORT1_SCL  1.108 mm to pin 5
+  R64.2   /I2C mux, expander, 5 V peripheral ports/PORT1_SDA  1.030 mm to pin 4
+  R72.2   /I2C mux, expander, 5 V peripheral ports/PORT5_SDA  0.685 mm to pin 13
+  R73.2   /I2C mux, expander, 5 V peripheral ports/PORT5_SCL  0.612 mm to pin 14
+ground (ground pad -> nearest legal via site, None = no site within 1.2 mm)
+  C36.2    0.993 mm
+  C59.2    0.303 mm
+  C56.2    0.303 mm
+  C53.2    0.303 mm
+  SW3.2    0.000 mm
+  SW3.2    0.000 mm
+  SW2.2    0.000 mm
+  SW2.2    0.000 mm
+  SW1.2    0.000 mm
+  SW1.2    0.000 mm
+  RT2.2    0.000 mm
+  RT1.2    0.000 mm
+  R98.2    0.000 mm
+  R97.2    0.000 mm
+  R95.2    0.000 mm
+  R20.2    0.000 mm
+  R19.2    0.000 mm
+  R154.2   0.000 mm
+  R152.2   0.000 mm
+  R150.2   0.000 mm
+  R145.2   0.000 mm
+  R143.2   0.000 mm
+  R141.2   0.000 mm
+  R14.2    0.000 mm
+  R139.2   0.000 mm
+  R137.2   0.000 mm
+  R136.2   0.000 mm
+  R134.2   0.000 mm
+  R130.2   0.000 mm
+  R129.2   0.000 mm
+  R126.2   0.000 mm
+  R125.2   0.000 mm
+  R123.2   0.000 mm
+  R119.2   0.000 mm
+  R118.2   0.000 mm
+  R116.2   0.000 mm
+  R112.2   0.000 mm
+  R111.2   0.000 mm
+  R11.2    0.000 mm
+  R109.2   0.000 mm
+  R105.2   0.000 mm
+  R104.2   0.000 mm
+  R102.2   0.000 mm
+  R1.2     0.000 mm
+  Q7.2     0.000 mm
+  Q6.2     0.000 mm
+  Q5.2     0.000 mm
+  Q4.2     0.000 mm
+  Q3.2     0.000 mm
+  Q14.2    0.000 mm
+  Q12.2    0.000 mm
+  Q11.2    0.000 mm
+  NT1.2    0.000 mm
+  J9.MP    0.000 mm
+  J9.MP    0.000 mm
+  J9.2     0.000 mm
+  J8.MP    0.000 mm
+  J8.MP    0.000 mm
+  J8.2     0.000 mm
+  J7.MP    0.000 mm
+  J7.MP    0.000 mm
+  J7.2     0.000 mm
+  J6.MP    0.000 mm
+  J6.MP    0.000 mm
+  J6.2     0.000 mm
+  J12.MP   0.000 mm
+  J12.MP   0.000 mm
+  J12.2    0.000 mm
+  D27.2    0.000 mm
+  D25.2    0.000 mm
+  D23.2    0.000 mm
+  D21.2    0.000 mm
+  D19.2    0.000 mm
+  D18.2    0.000 mm
+  D17.2    0.000 mm
+  D16.2    0.000 mm
+  D15.2    0.000 mm
+  D12.2    0.000 mm
+  D11.1    0.000 mm
+  D1.2     0.000 mm
+  C9.2     0.000 mm
+  C8.2     0.000 mm
+  C76.2    0.000 mm
+  C75.2    0.000 mm
+  C73.2    0.000 mm
+  C72.2    0.000 mm
+  C71.2    0.000 mm
+  C70.2    0.000 mm
+  C69.2    0.000 mm
+  C68.2    0.000 mm
+  C67.2    0.000 mm
+  C66.2    0.000 mm
+  C65.2    0.000 mm
+  C64.2    0.000 mm
+  C63.2    0.000 mm
+  C60.2    0.000 mm
+  C58.2    0.000 mm
+  C57.2    0.000 mm
+  C55.2    0.000 mm
+  C54.2    0.000 mm
+  C52.2    0.000 mm
+  C51.2    0.000 mm
+  C50.2    0.000 mm
+  C49.2    0.000 mm
+  C48.2    0.000 mm
+  C47.2    0.000 mm
+  C46.2    0.000 mm
+  C45.2    0.000 mm
+  C44.2    0.000 mm
+  C43.2    0.000 mm
+  C42.2    0.000 mm
+  C41.2    0.000 mm
+  C40.2    0.000 mm
+  C39.2    0.000 mm
+  C38.2    0.000 mm
+  C37.2    0.000 mm
+  C35.2    0.000 mm
+  C33.2    0.000 mm
+  C32.2    0.000 mm
+  C31.2    0.000 mm
+  C24.2    0.000 mm
+  C23.2    0.000 mm
+  C22.2    0.000 mm
+  C20.2    0.000 mm
+  C2.2     0.000 mm
+  C18.2    0.000 mm
+  C1.2     0.000 mm
+pairs (two-pad parts with both pads on IC pins)
+  R72   R72.1 8.855 mm, R72.2 0.685 mm, difference 8.170 mm
+  R76   R76.1 5.989 mm, R76.2 2.872 mm, difference 3.117 mm
+  R63   R63.1 20.218 mm, R63.2 19.259 mm, difference 0.958 mm
+  R65   R65.1 7.856 mm, R65.2 1.108 mm, difference 6.748 mm
+  R62   R62.1 2.738 mm, R62.2 1.810 mm, difference 0.928 mm
+  R68   R68.1 10.152 mm, R68.2 3.325 mm, difference 6.827 mm
+  R67   R67.1 10.841 mm, R67.2 3.600 mm, difference 7.241 mm
+  R70   R70.1 9.484 mm, R70.2 3.233 mm, difference 6.251 mm
+  R64   R64.1 6.821 mm, R64.2 1.030 mm, difference 5.791 mm
+  R79   R79.1 6.615 mm, R79.2 5.190 mm, difference 1.425 mm
+  R66   R66.1 7.928 mm, R66.2 2.523 mm, difference 5.405 mm
+  R74   R74.1 8.044 mm, R74.2 2.111 mm, difference 5.933 mm
+  R73   R73.1 7.588 mm, R73.2 0.612 mm, difference 6.976 mm
+  R41   R41.1 49.685 mm, R41.2 54.847 mm, difference 5.162 mm
+  R71   R71.1 11.996 mm, R71.2 2.825 mm, difference 9.170 mm
+  R75   R75.1 7.787 mm, R75.2 2.260 mm, difference 5.527 mm
+  R78   R78.1 7.642 mm, R78.2 4.758 mm, difference 2.884 mm
+  R77   R77.1 7.257 mm, R77.2 3.432 mm, difference 3.826 mm
+  R69   R69.1 8.371 mm, R69.2 2.716 mm, difference 5.654 mm
+fronts (IC signal pins with no free 2.0 mm channel straight out or at 45 degrees)

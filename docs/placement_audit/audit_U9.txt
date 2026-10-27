@@ -1,0 +1,260 @@
+warning: no courtyard read for NT1
+rules: track width 0.200 mm (flag), clearance 0.150 mm (flag), via diameter 0.600 mm (flag), copper to edge 0.300 mm (flag)
+rules: 2 nets are differential pairs (USB_DN, USB_DP); the checks route them as single tracks, at least the pair width wide, and do not check their coupling or gap
+rules: custom rules in E0005_controller.kicad_dru are not evaluated; the flagged values are what was checked
+pins (IC pin -> nearest small-part pad on the same net)
+  pin   9 CHG_CD         59.090 mm to R12.2
+  pin  10 USB_ILIM_1A5   49.679 mm to R139.1
+  pin  13 /I2C mux, expander, 5 V peripheral ports/PORT1_FLT_N 49.189 mm to R81.2
+  pin  11 USB_ILIM_3A0   48.914 mm to R141.1
+  pin   1 EXP_INT_N      35.436 mm to R40.2
+  pin  14 /I2C mux, expander, 5 V peripheral ports/PORT2_FLT_N 33.895 mm to R83.2
+  pin   4 /I2C mux, expander, 5 V peripheral ports/PORT1_OFF 31.809 mm to R80.2
+  pin  23 I2C0_SDA       22.450 mm to R44.2
+  pin  15 /I2C mux, expander, 5 V peripheral ports/PORT3_FLT_N 21.525 mm to R85.2
+  pin  22 I2C0_SCL       21.256 mm to R45.2
+  pin   5 /I2C mux, expander, 5 V peripheral ports/PORT2_OFF 18.538 mm to Q4.1
+  pin  17 /I2C mux, expander, 5 V peripheral ports/PORT5_FLT_N 13.918 mm to R89.2
+  pin   8 /I2C mux, expander, 5 V peripheral ports/PORT5_OFF 13.506 mm to Q7.1  GROUND PAD FACES PIN
+  pin   7 /I2C mux, expander, 5 V peripheral ports/PORT4_OFF  9.372 mm to Q6.1  GROUND PAD FACES PIN
+  pin  16 /I2C mux, expander, 5 V peripheral ports/PORT4_FLT_N  8.569 mm to R87.2
+  pin   6 /I2C mux, expander, 5 V peripheral ports/PORT3_OFF  4.432 mm to R84.2
+  pin  24 +3V3            0.756 mm to R93.1
+  pin  20 BUCK_PG         0.739 mm to R93.2
+  pin  19 CHG_PG_N        0.560 mm to R92.2
+  pin  18 USBIN_FLT_N     0.560 mm to R90.2
+parts (small-part pad -> nearest IC pin on the same net)
+  R13.1   +3V3           75.324 mm to pin 24
+  R12.1   +3V3           66.860 mm to pin 24
+  R144.1  +3V3           64.930 mm to pin 24
+  C24.1   +3V3           62.865 mm to pin 24
+  R47.1   +3V3           60.587 mm to pin 24
+  L3.2    +3V3           60.285 mm to pin 24
+  R12.2   CHG_CD         59.090 mm to pin 9
+  R49.1   +3V3           53.834 mm to pin 24
+  Q11.1   USB_ILIM_1A5   53.092 mm to pin 10
+  Q12.1   USB_ILIM_3A0   52.351 mm to pin 11
+  R139.1  USB_ILIM_1A5   49.679 mm to pin 10
+  R81.2   /I2C mux, expander, 5 V peripheral ports/PORT1_FLT_N 49.189 mm to pin 13
+  R141.1  USB_ILIM_3A0   48.914 mm to pin 11
+  R81.1   +3V3           48.408 mm to pin 24
+  R51.1   +3V3           48.215 mm to pin 24
+  R53.1   +3V3           44.165 mm to pin 24
+  R57.1   +3V3           44.082 mm to pin 24
+  R58.1   +3V3           43.007 mm to pin 24
+  R42.1   +3V3           41.914 mm to pin 24
+  R59.1   +3V3           41.088 mm to pin 24
+  C42.1   +3V3           40.934 mm to pin 24
+  C43.1   +3V3           38.554 mm to pin 24
+  R41.1   +3V3           37.261 mm to pin 24
+  R80.1   +3V3           36.475 mm to pin 24
+  C35.1   +3V3           36.445 mm to pin 24
+  R37.1   +3V3           35.561 mm to pin 24
+  R40.2   EXP_INT_N      35.436 mm to pin 1
+  C36.1   +3V3           35.368 mm to pin 24
+  R36.1   +3V3           35.026 mm to pin 24
+  R35.1   +3V3           34.207 mm to pin 24
+  R83.1   +3V3           34.073 mm to pin 24
+  R83.2   /I2C mux, expander, 5 V peripheral ports/PORT2_FLT_N 33.895 mm to pin 14
+  Q3.1    /I2C mux, expander, 5 V peripheral ports/PORT1_OFF 32.925 mm to pin 4
+  R80.2   /I2C mux, expander, 5 V peripheral ports/PORT1_OFF 31.809 mm to pin 4
+  R40.1   +3V3           29.623 mm to pin 24
+  R38.1   +3V3           29.090 mm to pin 24
+  R43.1   +3V3           27.641 mm to pin 24
+  R30.2   I2C0_SCL       26.294 mm to pin 22
+  R29.2   I2C0_SDA       25.595 mm to pin 23
+  R67.1   +3V3           24.379 mm to pin 24
+  R71.1   +3V3           24.340 mm to pin 24
+  R66.1   +3V3           23.919 mm to pin 24
+  R44.1   +3V3           23.603 mm to pin 24
+  R65.1   +3V3           23.116 mm to pin 24
+  R82.1   +3V3           22.783 mm to pin 24
+  R64.1   +3V3           22.775 mm to pin 24
+  R68.1   +3V3           22.618 mm to pin 24
+  R45.1   +3V3           22.521 mm to pin 24
+  R44.2   I2C0_SDA       22.450 mm to pin 23
+  R63.1   +3V3           21.632 mm to pin 24
+  R85.2   /I2C mux, expander, 5 V peripheral ports/PORT3_FLT_N 21.525 mm to pin 15
+  R45.2   I2C0_SCL       21.256 mm to pin 22
+  R70.1   +3V3           20.758 mm to pin 24
+  R69.1   +3V3           20.266 mm to pin 24
+  R85.1   +3V3           20.036 mm to pin 24
+  R74.1   +3V3           19.180 mm to pin 24
+  R82.2   /I2C mux, expander, 5 V peripheral ports/PORT2_OFF 18.658 mm to pin 5
+  Q4.1    /I2C mux, expander, 5 V peripheral ports/PORT2_OFF 18.538 mm to pin 5
+  R72.1   +3V3           17.736 mm to pin 24
+  R73.1   +3V3           15.392 mm to pin 24
+  R88.2   /I2C mux, expander, 5 V peripheral ports/PORT5_OFF 14.733 mm to pin 8
+  R75.1   +3V3           14.415 mm to pin 24
+  R89.2   /I2C mux, expander, 5 V peripheral ports/PORT5_FLT_N 13.918 mm to pin 17
+  Q7.1    /I2C mux, expander, 5 V peripheral ports/PORT5_OFF 13.506 mm to pin 8
+  C44.1   +3V3           13.371 mm to pin 24
+  R77.1   +3V3           12.879 mm to pin 24
+  R89.1   +3V3           12.810 mm to pin 24
+  R62.1   +3V3           12.358 mm to pin 24
+  R76.1   +3V3           11.098 mm to pin 24
+  R84.1   +3V3           10.987 mm to pin 24
+  R86.2   /I2C mux, expander, 5 V peripheral ports/PORT4_OFF 10.855 mm to pin 7
+  R78.1   +3V3           10.640 mm to pin 24
+  R86.1   +3V3           10.382 mm to pin 24
+  Q6.1    /I2C mux, expander, 5 V peripheral ports/PORT4_OFF  9.372 mm to pin 7
+  R87.2   /I2C mux, expander, 5 V peripheral ports/PORT4_FLT_N  8.569 mm to pin 16
+  R79.1   +3V3            8.106 mm to pin 24
+  R87.1   +3V3            6.664 mm to pin 24
+  R88.1   +3V3            6.622 mm to pin 24
+  Q5.1    /I2C mux, expander, 5 V peripheral ports/PORT3_OFF  4.824 mm to pin 6
+  R84.2   /I2C mux, expander, 5 V peripheral ports/PORT3_OFF  4.432 mm to pin 6
+  R90.1   +3V3            4.076 mm to pin 24
+  R92.1   +3V3            2.998 mm to pin 24
+  C45.1   +3V3            0.801 mm to pin 24
+  R93.1   +3V3            0.756 mm to pin 24
+  R93.2   BUCK_PG         0.739 mm to pin 20
+  R92.2   CHG_PG_N        0.560 mm to pin 19
+  R90.2   USBIN_FLT_N     0.560 mm to pin 18
+ground (ground pad -> nearest legal via site, None = no site within 1.2 mm)
+  C36.2    0.993 mm
+  C59.2    0.303 mm
+  C56.2    0.303 mm
+  C53.2    0.303 mm
+  SW3.2    0.000 mm
+  SW3.2    0.000 mm
+  SW2.2    0.000 mm
+  SW2.2    0.000 mm
+  SW1.2    0.000 mm
+  SW1.2    0.000 mm
+  RT2.2    0.000 mm
+  RT1.2    0.000 mm
+  R98.2    0.000 mm
+  R97.2    0.000 mm
+  R95.2    0.000 mm
+  R20.2    0.000 mm
+  R19.2    0.000 mm
+  R154.2   0.000 mm
+  R152.2   0.000 mm
+  R150.2   0.000 mm
+  R145.2   0.000 mm
+  R143.2   0.000 mm
+  R141.2   0.000 mm
+  R14.2    0.000 mm
+  R139.2   0.000 mm
+  R137.2   0.000 mm
+  R136.2   0.000 mm
+  R134.2   0.000 mm
+  R130.2   0.000 mm
+  R129.2   0.000 mm
+  R126.2   0.000 mm
+  R125.2   0.000 mm
+  R123.2   0.000 mm
+  R119.2   0.000 mm
+  R118.2   0.000 mm
+  R116.2   0.000 mm
+  R112.2   0.000 mm
+  R111.2   0.000 mm
+  R11.2    0.000 mm
+  R109.2   0.000 mm
+  R105.2   0.000 mm
+  R104.2   0.000 mm
+  R102.2   0.000 mm
+  R1.2     0.000 mm
+  Q7.2     0.000 mm
+  Q6.2     0.000 mm
+  Q5.2     0.000 mm
+  Q4.2     0.000 mm
+  Q3.2     0.000 mm
+  Q14.2    0.000 mm
+  Q12.2    0.000 mm
+  Q11.2    0.000 mm
+  NT1.2    0.000 mm
+  J9.MP    0.000 mm
+  J9.MP    0.000 mm
+  J9.2     0.000 mm
+  J8.MP    0.000 mm
+  J8.MP    0.000 mm
+  J8.2     0.000 mm
+  J7.MP    0.000 mm
+  J7.MP    0.000 mm
+  J7.2     0.000 mm
+  J6.MP    0.000 mm
+  J6.MP    0.000 mm
+  J6.2     0.000 mm
+  J12.MP   0.000 mm
+  J12.MP   0.000 mm
+  J12.2    0.000 mm
+  D27.2    0.000 mm
+  D25.2    0.000 mm
+  D23.2    0.000 mm
+  D21.2    0.000 mm
+  D19.2    0.000 mm
+  D18.2    0.000 mm
+  D17.2    0.000 mm
+  D16.2    0.000 mm
+  D15.2    0.000 mm
+  D12.2    0.000 mm
+  D11.1    0.000 mm
+  D1.2     0.000 mm
+  C9.2     0.000 mm
+  C8.2     0.000 mm
+  C76.2    0.000 mm
+  C75.2    0.000 mm
+  C73.2    0.000 mm
+  C72.2    0.000 mm
+  C71.2    0.000 mm
+  C70.2    0.000 mm
+  C69.2    0.000 mm
+  C68.2    0.000 mm
+  C67.2    0.000 mm
+  C66.2    0.000 mm
+  C65.2    0.000 mm
+  C64.2    0.000 mm
+  C63.2    0.000 mm
+  C60.2    0.000 mm
+  C58.2    0.000 mm
+  C57.2    0.000 mm
+  C55.2    0.000 mm
+  C54.2    0.000 mm
+  C52.2    0.000 mm
+  C51.2    0.000 mm
+  C50.2    0.000 mm
+  C49.2    0.000 mm
+  C48.2    0.000 mm
+  C47.2    0.000 mm
+  C46.2    0.000 mm
+  C45.2    0.000 mm
+  C44.2    0.000 mm
+  C43.2    0.000 mm
+  C42.2    0.000 mm
+  C41.2    0.000 mm
+  C40.2    0.000 mm
+  C39.2    0.000 mm
+  C38.2    0.000 mm
+  C37.2    0.000 mm
+  C35.2    0.000 mm
+  C33.2    0.000 mm
+  C32.2    0.000 mm
+  C31.2    0.000 mm
+  C24.2    0.000 mm
+  C23.2    0.000 mm
+  C22.2    0.000 mm
+  C20.2    0.000 mm
+  C2.2     0.000 mm
+  C18.2    0.000 mm
+  C1.2     0.000 mm
+pairs (two-pad parts with both pads on IC pins)
+  R44   R44.1 23.603 mm, R44.2 22.450 mm, difference 1.153 mm
+  R93   R93.1 0.756 mm, R93.2 0.739 mm, difference 0.017 mm
+  R45   R45.1 22.521 mm, R45.2 21.256 mm, difference 1.265 mm
+  R81   R81.1 48.408 mm, R81.2 49.189 mm, difference 0.781 mm
+  R92   R92.1 2.998 mm, R92.2 0.560 mm, difference 2.438 mm
+  R85   R85.1 20.036 mm, R85.2 21.525 mm, difference 1.489 mm
+  R84   R84.1 10.987 mm, R84.2 4.432 mm, difference 6.556 mm
+  R86   R86.1 10.382 mm, R86.2 10.855 mm, difference 0.473 mm
+  R40   R40.1 29.623 mm, R40.2 35.436 mm, difference 5.813 mm
+  R87   R87.1 6.664 mm, R87.2 8.569 mm, difference 1.905 mm
+  R90   R90.1 4.076 mm, R90.2 0.560 mm, difference 3.516 mm
+  R12   R12.1 66.860 mm, R12.2 59.090 mm, difference 7.770 mm
+  R82   R82.1 22.783 mm, R82.2 18.658 mm, difference 4.124 mm
+  R89   R89.1 12.810 mm, R89.2 13.918 mm, difference 1.108 mm
+  R80   R80.1 36.475 mm, R80.2 31.809 mm, difference 4.666 mm
+  R83   R83.1 34.073 mm, R83.2 33.895 mm, difference 0.177 mm
+  R88   R88.1 6.622 mm, R88.2 14.733 mm, difference 8.111 mm
+fronts (IC signal pins with no free 2.0 mm channel straight out or at 45 degrees)

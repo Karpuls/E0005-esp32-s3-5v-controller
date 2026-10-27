@@ -1,0 +1,199 @@
+warning: no courtyard read for NT1
+rules: track width 0.200 mm (flag), clearance 0.150 mm (flag), via diameter 0.600 mm (flag), copper to edge 0.300 mm (flag)
+rules: 2 nets are differential pairs (USB_DN, USB_DP); the checks route them as single tracks, at least the pair width wide, and do not check their coupling or gap
+rules: custom rules in E0005_controller.kicad_dru are not evaluated; the flagged values are what was checked
+pins (IC pin -> nearest small-part pad on the same net)
+  pin   6 CHG_INT_N      90.546 mm to R38.2
+  pin   1 CHG_PG_N       64.988 mm to R92.2
+  pin   4 I2C0_SDA       35.789 mm to R29.2
+  pin   5 I2C0_SCL       34.837 mm to R30.2
+  pin   2 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_STAT 13.774 mm to D2.1
+  pin  10 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_CBSET  4.481 mm to R147.1
+  pin  17 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SW  3.733 mm to L2.2
+  pin  18 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SW  3.296 mm to L2.2
+  pin   3 CHG_CD          2.797 mm to R12.2
+  pin  24 CHG_PSEL        2.026 mm to R144.2
+  pin  23 VBUS            1.220 mm to C2.1
+  pin   7 CHG_TS          1.167 mm to R11.1
+  pin  14 BAT+            0.772 mm to C18.1
+  pin  21 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_PMID  0.724 mm to C8.1
+  pin   8 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_ILIM  0.683 mm to R145.1
+  pin  22 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_PMID  0.600 mm to C8.1
+  pin  11 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/REGN  0.600 mm to C20.1
+  pin  12 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_BTST  0.588 mm to C11.1
+  pin  13 BAT+            0.586 mm to C18.1
+  pin  16 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SNS  0.525 mm to C69.1
+  pin  15 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SNS  0.525 mm to C69.1
+  pin   9 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_MID  0.445 mm to R146.1
+parts (small-part pad -> nearest IC pin on the same net)
+  R38.2   CHG_INT_N      90.546 mm to pin 6
+  R44.2   I2C0_SDA       83.904 mm to pin 4
+  R45.2   I2C0_SCL       79.573 mm to pin 5
+  R92.2   CHG_PG_N       64.988 mm to pin 1
+  RT1.1   CHG_TS         36.441 mm to pin 7
+  R29.2   I2C0_SDA       35.789 mm to pin 4
+  R30.2   I2C0_SCL       34.837 mm to pin 5
+  R28.1   BAT+           27.182 mm to pin 13
+  R148.1  BAT+           23.031 mm to pin 14
+  Q13.2   BAT+           21.864 mm to pin 14
+  R135.1  VBUS           20.972 mm to pin 23
+  R133.1  VBUS           20.341 mm to pin 23
+  C65.1   VBUS           17.815 mm to pin 23
+  F1.2    BAT+           16.125 mm to pin 13
+  C72.1   BAT+           14.600 mm to pin 13
+  D1.1    VBUS           14.440 mm to pin 23
+  C73.1   BAT+           14.405 mm to pin 14
+  D2.1    /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_STAT 13.774 mm to pin 2
+  C71.1   BAT+           12.439 mm to pin 14
+  L2.1    /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_PMID  8.511 mm to pin 21
+  R147.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_CBSET  4.481 mm to pin 10
+  C11.2   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SW  4.425 mm to pin 17
+  R10.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/REGN  4.101 mm to pin 11
+  C70.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SNS  3.725 mm to pin 15
+  L2.2    /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SW  3.296 mm to pin 18
+  R12.2   CHG_CD          2.797 mm to pin 3
+  C9.1    /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_PMID  2.600 mm to pin 22
+  R144.2  CHG_PSEL        2.026 mm to pin 24
+  R10.2   CHG_TS          2.005 mm to pin 7
+  C2.1    VBUS            1.220 mm to pin 23
+  R11.1   CHG_TS          1.167 mm to pin 7
+  R145.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_ILIM  0.683 mm to pin 8
+  C8.1    /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_PMID  0.600 mm to pin 22
+  C20.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/REGN  0.600 mm to pin 11
+  C11.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_BTST  0.588 mm to pin 12
+  C18.1   BAT+            0.586 mm to pin 13
+  C69.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_SNS  0.525 mm to pin 15
+  R146.1  /Power: USB-C, U_IN, charger, 5 V buck, 3V3/CHG_MID  0.445 mm to pin 9
+ground (ground pad -> nearest legal via site, None = no site within 1.2 mm)
+  C36.2    0.993 mm
+  C59.2    0.303 mm
+  C56.2    0.303 mm
+  C53.2    0.303 mm
+  SW3.2    0.000 mm
+  SW3.2    0.000 mm
+  SW2.2    0.000 mm
+  SW2.2    0.000 mm
+  SW1.2    0.000 mm
+  SW1.2    0.000 mm
+  RT2.2    0.000 mm
+  RT1.2    0.000 mm
+  R98.2    0.000 mm
+  R97.2    0.000 mm
+  R95.2    0.000 mm
+  R20.2    0.000 mm
+  R19.2    0.000 mm
+  R154.2   0.000 mm
+  R152.2   0.000 mm
+  R150.2   0.000 mm
+  R145.2   0.000 mm
+  R143.2   0.000 mm
+  R141.2   0.000 mm
+  R14.2    0.000 mm
+  R139.2   0.000 mm
+  R137.2   0.000 mm
+  R136.2   0.000 mm
+  R134.2   0.000 mm
+  R130.2   0.000 mm
+  R129.2   0.000 mm
+  R126.2   0.000 mm
+  R125.2   0.000 mm
+  R123.2   0.000 mm
+  R119.2   0.000 mm
+  R118.2   0.000 mm
+  R116.2   0.000 mm
+  R112.2   0.000 mm
+  R111.2   0.000 mm
+  R11.2    0.000 mm
+  R109.2   0.000 mm
+  R105.2   0.000 mm
+  R104.2   0.000 mm
+  R102.2   0.000 mm
+  R1.2     0.000 mm
+  Q7.2     0.000 mm
+  Q6.2     0.000 mm
+  Q5.2     0.000 mm
+  Q4.2     0.000 mm
+  Q3.2     0.000 mm
+  Q14.2    0.000 mm
+  Q12.2    0.000 mm
+  Q11.2    0.000 mm
+  NT1.2    0.000 mm
+  J9.MP    0.000 mm
+  J9.MP    0.000 mm
+  J9.2     0.000 mm
+  J8.MP    0.000 mm
+  J8.MP    0.000 mm
+  J8.2     0.000 mm
+  J7.MP    0.000 mm
+  J7.MP    0.000 mm
+  J7.2     0.000 mm
+  J6.MP    0.000 mm
+  J6.MP    0.000 mm
+  J6.2     0.000 mm
+  J12.MP   0.000 mm
+  J12.MP   0.000 mm
+  J12.2    0.000 mm
+  D27.2    0.000 mm
+  D25.2    0.000 mm
+  D23.2    0.000 mm
+  D21.2    0.000 mm
+  D19.2    0.000 mm
+  D18.2    0.000 mm
+  D17.2    0.000 mm
+  D16.2    0.000 mm
+  D15.2    0.000 mm
+  D12.2    0.000 mm
+  D11.1    0.000 mm
+  D1.2     0.000 mm
+  C9.2     0.000 mm
+  C8.2     0.000 mm
+  C76.2    0.000 mm
+  C75.2    0.000 mm
+  C73.2    0.000 mm
+  C72.2    0.000 mm
+  C71.2    0.000 mm
+  C70.2    0.000 mm
+  C69.2    0.000 mm
+  C68.2    0.000 mm
+  C67.2    0.000 mm
+  C66.2    0.000 mm
+  C65.2    0.000 mm
+  C64.2    0.000 mm
+  C63.2    0.000 mm
+  C60.2    0.000 mm
+  C58.2    0.000 mm
+  C57.2    0.000 mm
+  C55.2    0.000 mm
+  C54.2    0.000 mm
+  C52.2    0.000 mm
+  C51.2    0.000 mm
+  C50.2    0.000 mm
+  C49.2    0.000 mm
+  C48.2    0.000 mm
+  C47.2    0.000 mm
+  C46.2    0.000 mm
+  C45.2    0.000 mm
+  C44.2    0.000 mm
+  C43.2    0.000 mm
+  C42.2    0.000 mm
+  C41.2    0.000 mm
+  C40.2    0.000 mm
+  C39.2    0.000 mm
+  C38.2    0.000 mm
+  C37.2    0.000 mm
+  C35.2    0.000 mm
+  C33.2    0.000 mm
+  C32.2    0.000 mm
+  C31.2    0.000 mm
+  C24.2    0.000 mm
+  C23.2    0.000 mm
+  C22.2    0.000 mm
+  C20.2    0.000 mm
+  C2.2     0.000 mm
+  C18.2    0.000 mm
+  C1.2     0.000 mm
+pairs (two-pad parts with both pads on IC pins)
+  C11   C11.1 0.588 mm, C11.2 4.425 mm, difference 3.837 mm
+  R10   R10.1 4.101 mm, R10.2 2.005 mm, difference 2.096 mm
+  L2    L2.1 8.511 mm, L2.2 3.296 mm, difference 5.216 mm
+fronts (IC signal pins with no free 2.0 mm channel straight out or at 45 degrees)

@@ -1,0 +1,70 @@
+U1   all-part links 134/229 | own-pin links failing: 21 (both orders: 12) | escapes 10/10 | blocked fronts 2
+       FAILED U1.5 -> R38.2 (CHG_INT_N)  (both orders)
+       FAILED C64.1 -> U1.7 (CC2_SENSE)  (both orders)
+       FAILED U1.30 -> R60.1 (SPARE37)  (both orders)
+       FAILED U1.25 -> R40.2 (EXP_INT_N)  (both orders)
+       FAILED R59.2 -> U1.34 (LCD_SDCS)  (both orders)
+       FAILED U1.3 -> SW3.1 (EN)  (both orders)
+       FAILED R63.2 -> U1.38 (I2C1_SCL)  (both orders)
+       FAILED U1.28 -> R31.2 (GAUGE_ALRT_N)  (both orders)
+       FAILED R62.2 -> U1.39 (I2C1_SDA)  (both orders)
+       FAILED U1.14 -> R2.2 (USB_DP)  (both orders)
+       FAILED R3.2 -> U1.13 (USB_DN)  (both orders)
+       FAILED Q14.1 -> U1.29 (PWR_HOLD)  (both orders)
+U2   all-part links 139/219 | own-pin links failing: 13 (both orders: 9) | escapes 0/0 | blocked fronts 0
+       FAILED U2.11 -> R10.1 (REGN)  (both orders)
+       FAILED C11.2 -> U2.17 (CHG_SW)  (both orders)
+       FAILED C71.1 -> U2.14 (BAT+)  (both orders)
+       FAILED D2.1 -> U2.2 (CHG_STAT)  (both orders)
+       FAILED C65.1 -> U2.23 (VBUS)  (both orders)
+       FAILED R30.2 -> U2.5 (I2C0_SCL)  (both orders)
+       FAILED R29.2 -> U2.4 (I2C0_SDA)  (both orders)
+       FAILED R92.2 -> U2.1 (CHG_PG_N)  (both orders)
+       FAILED R38.2 -> U2.6 (CHG_INT_N)  (both orders)
+U4   all-part links 133/204 | own-pin links failing: 1 (both orders: 1) | escapes 0/0 | blocked fronts 0
+       FAILED C24.1 -> U4.5 (+3V3)  (both orders)
+U5   all-part links 132/205 | own-pin links failing: 2 (both orders: 0) | escapes 1/2 | blocked fronts 0
+U6   all-part links 133/205 | own-pin links failing: 2 (both orders: 0) | escapes 2/2 | blocked fronts 0
+U8   all-part links 128/221 | own-pin links failing: 19 (both orders: 7) | escapes 0/0 | blocked fronts 0
+       FAILED R67.2 -> U8.7 (PORT2_SCL)  (both orders)
+       FAILED U8.7 -> R106.1 (PORT2_SCL)  (both orders)
+       FAILED U8.10 -> R121.1 (PORT4_SDA)  (both orders)
+       FAILED R63.2 -> U8.22 (I2C1_SCL)  (both orders)
+       FAILED R120.1 -> U8.11 (PORT4_SCL)  (both orders)
+       FAILED U8.13 -> R128.1 (PORT5_SDA)  (both orders)
+       FAILED R41.2 -> U8.3 (MUX_RST_N)  (both orders)
+U9   all-part links 132/221 | own-pin links failing: 20 (both orders: 17) | escapes 0/0 | blocked fronts 0
+       FAILED R84.2 -> U9.6 (PORT3_OFF)  (both orders)
+       FAILED U9.24 -> R87.1 (+3V3)  (both orders)
+       FAILED U9.8 -> Q7.1 (PORT5_OFF)  (both orders)
+       FAILED U9.17 -> R89.2 (PORT5_FLT_N)  (both orders)
+       FAILED U9.5 -> Q4.1 (PORT2_OFF)  (both orders)
+       FAILED U9.22 -> R45.2 (I2C0_SCL)  (both orders)
+       FAILED U9.15 -> R85.2 (PORT3_FLT_N)  (both orders)
+       FAILED R44.2 -> U9.23 (I2C0_SDA)  (both orders)
+       FAILED U9.23 -> R29.2 (I2C0_SDA)  (both orders)
+       FAILED U9.22 -> R30.2 (I2C0_SCL)  (both orders)
+       FAILED U9.4 -> R80.2 (PORT1_OFF)  (both orders)
+       FAILED U9.14 -> R83.2 (PORT2_FLT_N)  (both orders)
+       FAILED U9.1 -> R40.2 (EXP_INT_N)  (both orders)
+       FAILED U9.11 -> R141.1 (USB_ILIM_3A0)  (both orders)
+       FAILED U9.13 -> R81.2 (PORT1_FLT_N)  (both orders)
+       FAILED U9.10 -> R139.1 (USB_ILIM_1A5)  (both orders)
+       FAILED U9.9 -> R12.2 (CHG_CD)  (both orders)
+U10  all-part links 134/209 | own-pin links failing: 6 (both orders: 1) | escapes 0/1 | blocked fronts 1
+       FAILED U10.5 -> R103.1 (V5)  (both orders)
+U11  all-part links 130/209 | own-pin links failing: 10 (both orders: 0) | escapes 0/1 | blocked fronts 1
+U12  all-part links 129/209 | own-pin links failing: 9 (both orders: 2) | escapes 0/1 | blocked fronts 1
+       FAILED U12.9 -> R112.1 (PORT3_ILM)  (both orders)
+       FAILED U12.4 -> R85.2 (PORT3_FLT_N)  (both orders)
+U13  all-part links 133/209 | own-pin links failing: 6 (both orders: 1) | escapes 0/1 | blocked fronts 1
+       FAILED U13.9 -> R119.1 (PORT4_ILM)  (both orders)
+U14  all-part links 134/209 | own-pin links failing: 4 (both orders: 0) | escapes 1/1 | blocked fronts 1
+U15  all-part links 135/211 | own-pin links failing: 5 (both orders: 1) | escapes 0/0 | blocked fronts 0
+       FAILED NT1.1 -> U15.4 (GAUGE_CSN)  (both orders)
+U16  all-part links 131/209 | own-pin links failing: 5 (both orders: 2) | escapes 0/1 | blocked fronts 1
+       FAILED R96.1 -> U16.6 (V5)  (both orders)
+       FAILED R90.2 -> U16.4 (USBIN_FLT_N)  (both orders)
+U17  all-part links 134/207 | own-pin links failing: 3 (both orders: 2) | escapes 1/1 | blocked fronts 0
+       FAILED Q13.2 -> U17.8 (BAT+)  (both orders)
+       FAILED R93.2 -> U17.4 (BUCK_PG)  (both orders)

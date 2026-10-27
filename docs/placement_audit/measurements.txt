@@ -1,0 +1,18 @@
+1. edges: J11 x=-58.8 (west), J1-J5 y=-29.3..-29.3 (north), J6-9/J12/SW1/J10 y=27.6..29.3
+   BH1 (3.00,-13.05) BH2 (3.00,13.05) rot 0/180
+2. antenna (x 56.05-62.05) to nearest cell can (2D): 17.98 mm; to MID lug pads: 13.76 mm
+3. U_IN reservation 23.8 x 14.2; keep area 17.3 x 7.6; clearance to: U2 11.87, L2 5.41, L1 33.42, U17 28.15
+   U16 passives outside keep area: ['R135']
+4. U17: C73 VIN-gap 0.49 / PGND-gap 0.49; C71 1.59; C72 1.63; C74 BOOT 0.59; L1.1-SW pin6 1.87
+   L1+C75/C76 bbox: 12.1 x 10.2 mm
+   FB: R153 0.64 R154 1.68, FF R155/C79 C79.2-FB 3.19
+   U2: C69 SNS 0.52 C70 SNS 3.72 C8 PMID 0.60 C9 PMID 2.60 C2 VBUS 1.22 C18 BAT 0.59 L2 SW 3.30 C11 BTST 0.59 C20 REGN 0.60
+   R147 to RT1 28.9, RT2 42.9, U15 21.1, nearest cell can 3.8 mm
+5. pack path: B_N lug->Q1 1.8, Q1-Q2 0.0, Q2-R20 0.6, F1-CELL2_P lug 1.3, U6-Q1 1.9; Kelvin U15.2-R20.1 2.92, U15.4-NT1 2.57, NT1-R20.2 0.51
+6. J1: eFuse U10 4.4, TVS D19 1.4, ESD D20 0.0 mm from connector courtyard; C48 to U10 IN 1.70
+6. J2: eFuse U11 4.4, TVS D21 1.4, ESD D22 0.0 mm from connector courtyard; C51 to U11 IN 3.73
+6. J3: eFuse U12 4.4, TVS D23 1.4, ESD D24 0.0 mm from connector courtyard; C54 to U12 IN 3.88
+6. J4: eFuse U13 4.4, TVS D25 1.4, ESD D26 0.0 mm from connector courtyard; C57 to U13 IN 5.59
+6. J5: eFuse U14 4.4, TVS D27 1.4, ESD D28 0.0 mm from connector courtyard; C60 to U14 IN 2.78
+   U8 at x -3.0; J1..J5 x -33.5..24.5 (centre -4.5)
+7. U4 to J11 1.51 mm; D+/D- J11 -> U1 pins 13/14 straight-line 94.1 mm

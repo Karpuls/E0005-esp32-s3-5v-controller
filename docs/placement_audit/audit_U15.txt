@@ -1,0 +1,159 @@
+warning: no courtyard read for NT1
+rules: track width 0.200 mm (flag), clearance 0.150 mm (flag), via diameter 0.600 mm (flag), copper to edge 0.300 mm (flag)
+rules: 2 nets are differential pairs (USB_DN, USB_DP); the checks route them as single tracks, at least the pair width wide, and do not check their coupling or gap
+rules: custom rules in E0005_controller.kicad_dru are not evaluated; the flagged values are what was checked
+pins (IC pin -> nearest small-part pad on the same net)
+  pin   9 /Battery pack, protection, gauge/GAUGE_AIN1  3.273 mm to R32.2
+  pin   2 SNS_P           2.919 mm to R20.1
+  pin   4 /Battery pack, protection, gauge/GAUGE_CSN  2.572 mm to NT1.1
+  pin   3 /Battery pack, protection, gauge/GAUGE_REG2  1.388 mm to C33.1
+  pin  14 /Battery pack, protection, gauge/GAUGE_THRM  1.035 mm to R32.1
+  pin   5 /Battery pack, protection, gauge/GAUGE_VBATT  1.008 mm to C31.1
+  pin  11 /Battery pack, protection, gauge/GAUGE_SCL  0.886 mm to R30.1
+  pin   8 /Battery pack, protection, gauge/GAUGE_ALRT  0.770 mm to R31.1
+  pin   1 /Battery pack, protection, gauge/GAUGE_REG3  0.760 mm to C32.1
+  pin  12 /Battery pack, protection, gauge/GAUGE_SDA  0.575 mm to R29.1
+parts (small-part pad -> nearest IC pin on the same net)
+  RT2.1   /Battery pack, protection, gauge/GAUGE_AIN1 19.141 mm to pin 9
+  R32.2   /Battery pack, protection, gauge/GAUGE_AIN1  3.273 mm to pin 9
+  R20.1   SNS_P           2.919 mm to pin 2
+  NT1.1   /Battery pack, protection, gauge/GAUGE_CSN  2.572 mm to pin 4
+  C33.1   /Battery pack, protection, gauge/GAUGE_REG2  1.388 mm to pin 3
+  R28.2   /Battery pack, protection, gauge/GAUGE_VBATT  1.186 mm to pin 5
+  R32.1   /Battery pack, protection, gauge/GAUGE_THRM  1.035 mm to pin 14
+  C31.1   /Battery pack, protection, gauge/GAUGE_VBATT  1.008 mm to pin 5
+  R30.1   /Battery pack, protection, gauge/GAUGE_SCL  0.886 mm to pin 11
+  R31.1   /Battery pack, protection, gauge/GAUGE_ALRT  0.770 mm to pin 8
+  C32.1   /Battery pack, protection, gauge/GAUGE_REG3  0.760 mm to pin 1
+  R29.1   /Battery pack, protection, gauge/GAUGE_SDA  0.575 mm to pin 12
+ground (ground pad -> nearest legal via site, None = no site within 1.2 mm)
+  C36.2    0.993 mm
+  C59.2    0.303 mm
+  C56.2    0.303 mm
+  C53.2    0.303 mm
+  SW3.2    0.000 mm
+  SW3.2    0.000 mm
+  SW2.2    0.000 mm
+  SW2.2    0.000 mm
+  SW1.2    0.000 mm
+  SW1.2    0.000 mm
+  RT2.2    0.000 mm
+  RT1.2    0.000 mm
+  R98.2    0.000 mm
+  R97.2    0.000 mm
+  R95.2    0.000 mm
+  R20.2    0.000 mm
+  R19.2    0.000 mm
+  R154.2   0.000 mm
+  R152.2   0.000 mm
+  R150.2   0.000 mm
+  R145.2   0.000 mm
+  R143.2   0.000 mm
+  R141.2   0.000 mm
+  R14.2    0.000 mm
+  R139.2   0.000 mm
+  R137.2   0.000 mm
+  R136.2   0.000 mm
+  R134.2   0.000 mm
+  R130.2   0.000 mm
+  R129.2   0.000 mm
+  R126.2   0.000 mm
+  R125.2   0.000 mm
+  R123.2   0.000 mm
+  R119.2   0.000 mm
+  R118.2   0.000 mm
+  R116.2   0.000 mm
+  R112.2   0.000 mm
+  R111.2   0.000 mm
+  R11.2    0.000 mm
+  R109.2   0.000 mm
+  R105.2   0.000 mm
+  R104.2   0.000 mm
+  R102.2   0.000 mm
+  R1.2     0.000 mm
+  Q7.2     0.000 mm
+  Q6.2     0.000 mm
+  Q5.2     0.000 mm
+  Q4.2     0.000 mm
+  Q3.2     0.000 mm
+  Q14.2    0.000 mm
+  Q12.2    0.000 mm
+  Q11.2    0.000 mm
+  NT1.2    0.000 mm
+  J9.MP    0.000 mm
+  J9.MP    0.000 mm
+  J9.2     0.000 mm
+  J8.MP    0.000 mm
+  J8.MP    0.000 mm
+  J8.2     0.000 mm
+  J7.MP    0.000 mm
+  J7.MP    0.000 mm
+  J7.2     0.000 mm
+  J6.MP    0.000 mm
+  J6.MP    0.000 mm
+  J6.2     0.000 mm
+  J12.MP   0.000 mm
+  J12.MP   0.000 mm
+  J12.2    0.000 mm
+  D27.2    0.000 mm
+  D25.2    0.000 mm
+  D23.2    0.000 mm
+  D21.2    0.000 mm
+  D19.2    0.000 mm
+  D18.2    0.000 mm
+  D17.2    0.000 mm
+  D16.2    0.000 mm
+  D15.2    0.000 mm
+  D12.2    0.000 mm
+  D11.1    0.000 mm
+  D1.2     0.000 mm
+  C9.2     0.000 mm
+  C8.2     0.000 mm
+  C76.2    0.000 mm
+  C75.2    0.000 mm
+  C73.2    0.000 mm
+  C72.2    0.000 mm
+  C71.2    0.000 mm
+  C70.2    0.000 mm
+  C69.2    0.000 mm
+  C68.2    0.000 mm
+  C67.2    0.000 mm
+  C66.2    0.000 mm
+  C65.2    0.000 mm
+  C64.2    0.000 mm
+  C63.2    0.000 mm
+  C60.2    0.000 mm
+  C58.2    0.000 mm
+  C57.2    0.000 mm
+  C55.2    0.000 mm
+  C54.2    0.000 mm
+  C52.2    0.000 mm
+  C51.2    0.000 mm
+  C50.2    0.000 mm
+  C49.2    0.000 mm
+  C48.2    0.000 mm
+  C47.2    0.000 mm
+  C46.2    0.000 mm
+  C45.2    0.000 mm
+  C44.2    0.000 mm
+  C43.2    0.000 mm
+  C42.2    0.000 mm
+  C41.2    0.000 mm
+  C40.2    0.000 mm
+  C39.2    0.000 mm
+  C38.2    0.000 mm
+  C37.2    0.000 mm
+  C35.2    0.000 mm
+  C33.2    0.000 mm
+  C32.2    0.000 mm
+  C31.2    0.000 mm
+  C24.2    0.000 mm
+  C23.2    0.000 mm
+  C22.2    0.000 mm
+  C20.2    0.000 mm
+  C2.2     0.000 mm
+  C18.2    0.000 mm
+  C1.2     0.000 mm
+pairs (two-pad parts with both pads on IC pins)
+  R32   R32.1 1.035 mm, R32.2 3.273 mm, difference 2.238 mm
+fronts (IC signal pins with no free 2.0 mm channel straight out or at 45 degrees)

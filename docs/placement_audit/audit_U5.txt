@@ -1,0 +1,226 @@
+warning: no courtyard read for NT1
+rules: track width 0.200 mm (flag), clearance 0.150 mm (flag), via diameter 0.600 mm (flag), copper to edge 0.300 mm (flag)
+rules: 2 nets are differential pairs (USB_DN, USB_DP); the checks route them as single tracks, at least the pair width wide, and do not check their coupling or gap
+rules: custom rules in E0005_controller.kicad_dru are not evaluated; the flagged values are what was checked
+pins (IC pin -> nearest small-part pad on the same net)
+  pin   3 +3V3            1.632 mm to L3.2
+  pin   8 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/BUCK_MODE  0.872 mm to R14.1
+  pin   4 /Power: USB-C, U_IN, charger, 5 V buck, 3V3/BUCK_SW_3V3  0.650 mm to L3.1
+  pin   6 V5              0.481 mm to C23.1  GROUND PAD FACES PIN
+  pin   7 V5              0.415 mm to C23.1
+parts (small-part pad -> nearest IC pin on the same net)
+  C43.1   +3V3           90.980 mm to pin 3
+  C35.1   +3V3           89.040 mm to pin 3
+  C36.1   +3V3           87.886 mm to pin 3
+  R142.1  V5             87.685 mm to pin 7
+  R35.1   +3V3           87.305 mm to pin 3
+  R40.1   +3V3           83.386 mm to pin 3
+  R38.1   +3V3           81.805 mm to pin 3
+  R42.1   +3V3           80.242 mm to pin 3
+  R44.1   +3V3           76.508 mm to pin 3
+  R41.1   +3V3           74.925 mm to pin 3
+  R37.1   +3V3           72.467 mm to pin 3
+  R89.1   +3V3           70.261 mm to pin 3
+  R45.1   +3V3           70.154 mm to pin 3
+  R36.1   +3V3           70.103 mm to pin 3
+  R43.1   +3V3           68.396 mm to pin 3
+  R124.1  V5             67.917 mm to pin 7
+  R122.1  V5             67.325 mm to pin 7
+  C60.1   V5             67.291 mm to pin 7
+  R58.1   +3V3           66.806 mm to pin 3
+  R57.1   +3V3           66.758 mm to pin 3
+  R88.1   +3V3           65.958 mm to pin 3
+  C57.1   V5             60.447 mm to pin 7
+  R59.1   +3V3           60.242 mm to pin 3
+  C45.1   +3V3           59.863 mm to pin 3
+  R93.1   +3V3           59.243 mm to pin 3
+  R92.1   +3V3           58.934 mm to pin 3
+  R90.1   +3V3           58.308 mm to pin 3
+  C42.1   +3V3           57.513 mm to pin 3
+  R86.1   +3V3           55.812 mm to pin 3
+  R117.1  V5             55.469 mm to pin 7
+  R87.1   +3V3           53.496 mm to pin 3
+  R115.1  V5             53.297 mm to pin 7
+  C54.1   V5             50.789 mm to pin 7
+  R79.1   +3V3           49.725 mm to pin 3
+  R84.1   +3V3           48.027 mm to pin 3
+  R78.1   +3V3           46.695 mm to pin 3
+  R76.1   +3V3           46.459 mm to pin 3
+  R62.1   +3V3           46.394 mm to pin 3
+  C44.1   +3V3           46.221 mm to pin 3
+  R110.1  V5             45.782 mm to pin 7
+  R77.1   +3V3           44.455 mm to pin 3
+  R85.1   +3V3           43.783 mm to pin 3
+  R82.1   +3V3           43.482 mm to pin 3
+  R108.1  V5             43.118 mm to pin 7
+  R75.1   +3V3           42.908 mm to pin 3
+  R73.1   +3V3           41.990 mm to pin 3
+  R63.1   +3V3           40.135 mm to pin 3
+  R64.1   +3V3           40.093 mm to pin 3
+  R66.1   +3V3           39.811 mm to pin 3
+  R72.1   +3V3           39.644 mm to pin 3
+  R103.1  V5             39.169 mm to pin 7
+  R74.1   +3V3           38.591 mm to pin 3
+  R69.1   +3V3           37.679 mm to pin 3
+  R65.1   +3V3           37.652 mm to pin 3
+  R96.1   V5             37.259 mm to pin 7
+  C51.1   V5             37.256 mm to pin 7
+  R70.1   +3V3           36.923 mm to pin 3
+  R83.1   +3V3           36.842 mm to pin 3
+  R101.1  V5             36.346 mm to pin 7
+  R68.1   +3V3           35.414 mm to pin 3
+  R80.1   +3V3           34.654 mm to pin 3
+  R53.1   +3V3           34.528 mm to pin 3
+  R67.1   +3V3           34.298 mm to pin 3
+  R81.1   +3V3           33.922 mm to pin 3
+  R94.1   V5             33.680 mm to pin 7
+  R71.1   +3V3           33.541 mm to pin 3
+  R13.1   +3V3           33.281 mm to pin 3
+  C48.1   V5             31.757 mm to pin 7
+  R51.1   +3V3           24.968 mm to pin 3
+  R12.1   +3V3           22.535 mm to pin 3
+  R144.1  +3V3           21.122 mm to pin 3
+  R153.1  V5             19.335 mm to pin 7
+  R155.1  V5             19.018 mm to pin 7
+  R49.1   +3V3           15.957 mm to pin 3
+  L1.2    V5             14.682 mm to pin 6
+  C76.1   V5             11.199 mm to pin 6
+  R47.1   +3V3            9.211 mm to pin 3
+  C75.1   V5              8.647 mm to pin 6
+  C24.1   +3V3            4.334 mm to pin 3
+  L3.2    +3V3            1.632 mm to pin 3
+  C22.1   V5              1.607 mm to pin 7
+  R14.1   /Power: USB-C, U_IN, charger, 5 V buck, 3V3/BUCK_MODE  0.872 mm to pin 8
+  L3.1    /Power: USB-C, U_IN, charger, 5 V buck, 3V3/BUCK_SW_3V3  0.650 mm to pin 4
+  C23.1   V5              0.415 mm to pin 7
+ground (ground pad -> nearest legal via site, None = no site within 1.2 mm)
+  C36.2    0.993 mm
+  C59.2    0.303 mm
+  C56.2    0.303 mm
+  C53.2    0.303 mm
+  SW3.2    0.000 mm
+  SW3.2    0.000 mm
+  SW2.2    0.000 mm
+  SW2.2    0.000 mm
+  SW1.2    0.000 mm
+  SW1.2    0.000 mm
+  RT2.2    0.000 mm
+  RT1.2    0.000 mm
+  R98.2    0.000 mm
+  R97.2    0.000 mm
+  R95.2    0.000 mm
+  R20.2    0.000 mm
+  R19.2    0.000 mm
+  R154.2   0.000 mm
+  R152.2   0.000 mm
+  R150.2   0.000 mm
+  R145.2   0.000 mm
+  R143.2   0.000 mm
+  R141.2   0.000 mm
+  R14.2    0.000 mm
+  R139.2   0.000 mm
+  R137.2   0.000 mm
+  R136.2   0.000 mm
+  R134.2   0.000 mm
+  R130.2   0.000 mm
+  R129.2   0.000 mm
+  R126.2   0.000 mm
+  R125.2   0.000 mm
+  R123.2   0.000 mm
+  R119.2   0.000 mm
+  R118.2   0.000 mm
+  R116.2   0.000 mm
+  R112.2   0.000 mm
+  R111.2   0.000 mm
+  R11.2    0.000 mm
+  R109.2   0.000 mm
+  R105.2   0.000 mm
+  R104.2   0.000 mm
+  R102.2   0.000 mm
+  R1.2     0.000 mm
+  Q7.2     0.000 mm
+  Q6.2     0.000 mm
+  Q5.2     0.000 mm
+  Q4.2     0.000 mm
+  Q3.2     0.000 mm
+  Q14.2    0.000 mm
+  Q12.2    0.000 mm
+  Q11.2    0.000 mm
+  NT1.2    0.000 mm
+  J9.MP    0.000 mm
+  J9.MP    0.000 mm
+  J9.2     0.000 mm
+  J8.MP    0.000 mm
+  J8.MP    0.000 mm
+  J8.2     0.000 mm
+  J7.MP    0.000 mm
+  J7.MP    0.000 mm
+  J7.2     0.000 mm
+  J6.MP    0.000 mm
+  J6.MP    0.000 mm
+  J6.2     0.000 mm
+  J12.MP   0.000 mm
+  J12.MP   0.000 mm
+  J12.2    0.000 mm
+  D27.2    0.000 mm
+  D25.2    0.000 mm
+  D23.2    0.000 mm
+  D21.2    0.000 mm
+  D19.2    0.000 mm
+  D18.2    0.000 mm
+  D17.2    0.000 mm
+  D16.2    0.000 mm
+  D15.2    0.000 mm
+  D12.2    0.000 mm
+  D11.1    0.000 mm
+  D1.2     0.000 mm
+  C9.2     0.000 mm
+  C8.2     0.000 mm
+  C76.2    0.000 mm
+  C75.2    0.000 mm
+  C73.2    0.000 mm
+  C72.2    0.000 mm
+  C71.2    0.000 mm
+  C70.2    0.000 mm
+  C69.2    0.000 mm
+  C68.2    0.000 mm
+  C67.2    0.000 mm
+  C66.2    0.000 mm
+  C65.2    0.000 mm
+  C64.2    0.000 mm
+  C63.2    0.000 mm
+  C60.2    0.000 mm
+  C58.2    0.000 mm
+  C57.2    0.000 mm
+  C55.2    0.000 mm
+  C54.2    0.000 mm
+  C52.2    0.000 mm
+  C51.2    0.000 mm
+  C50.2    0.000 mm
+  C49.2    0.000 mm
+  C48.2    0.000 mm
+  C47.2    0.000 mm
+  C46.2    0.000 mm
+  C45.2    0.000 mm
+  C44.2    0.000 mm
+  C43.2    0.000 mm
+  C42.2    0.000 mm
+  C41.2    0.000 mm
+  C40.2    0.000 mm
+  C39.2    0.000 mm
+  C38.2    0.000 mm
+  C37.2    0.000 mm
+  C35.2    0.000 mm
+  C33.2    0.000 mm
+  C32.2    0.000 mm
+  C31.2    0.000 mm
+  C24.2    0.000 mm
+  C23.2    0.000 mm
+  C22.2    0.000 mm
+  C20.2    0.000 mm
+  C2.2     0.000 mm
+  C18.2    0.000 mm
+  C1.2     0.000 mm
+pairs (two-pad parts with both pads on IC pins)
+  L3    L3.1 0.650 mm, L3.2 1.632 mm, difference 0.982 mm
+fronts (IC signal pins with no free 2.0 mm channel straight out or at 45 degrees)
