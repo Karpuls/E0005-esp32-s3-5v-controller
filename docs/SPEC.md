@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **v1.0 — FROZEN for hardware** (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
-| Date | 2026-10-27 (v0.1, v0.2, v1.0) |
+| Status | **v1.1 — FROZEN for hardware** (v1.1: schematic-review corrections, lead; PlaceRoute to confirm) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
+| Date | 2026-10-27 (v0.1, v0.2, v1.0, v1.1) |
 | Scope | **PCB only.** Enclosure and firmware are out of scope; §8 lists only the firmware rules the hardware relies on. |
 | Reference design | **E0003** (`../E0003 - ESP32 control box mainboard`, spec v1.5, order-ready). E0005 reuses its MCU, battery, protection, gauge, I²C, LCD, switch and button blocks, its footprints/libraries and its DigiKey parts. **Only what "5 V only" forces is changed** (§1.1). |
 | Sister designs | E0001 (fader driver, 4 per box) and E0002 (haptic knob, 1 per box) are **not part of this job**. E0005 keeps their connectors and pinouts with **+5 V** on the power pins. **E0001 rev C and E0002 rev B need 6–9 V (PBUS) and will not work on E0005; 5 V revisions are needed later (out of scope).** §6 is the host-interface spec they will need. |
@@ -15,6 +15,7 @@
 | v0.1 | First draft from the lead brief (owner option A: plain 5 V USB, no PD) and E0003 v1.5 |
 | v0.2 | PlaceRoute review: (1) **U_IN limit in three levels, 0.50 A at reset** / 1.37 A / 2.81 A, two FET legs on TCA9535 P06/P07; **VBUS budget rule** (U_IN + charger IINDPM ≤ source) in §8.3. (2) U_IN behaviour after ITIMER confirmed from TPS25947 SLVSFC9C §7.3.5.3, §7.3.8 and Table 7-3, §5.1 and §5.2 made consistent. (3) U_IN thermal check, copper reservation (§5.6.1). (4) V5 bulk and USB-unplug dip (§5.1.1); V5 bulk raised to 6 × 47 µF. (5) BQ25887 per-cell ADC as the fallback battery-level source (§8.11). FLT of U_IN is low during normal load sharing (§8.9). |
 | **v1.0** | **Owner answers (all as recommended), spec frozen:** Q1 keep the **MAX17205** gauge; Q2 **drop the BQ29209**; Q3 keep E0003's port limits (**E0001 ≤ 0.6 A, E0002 ≤ 2.0 A, firmware budget 4.4 A**); Q4 **"off" with USB plugged in = board stays on from USB and charges**; Q5 private GitHub repo `Karpuls/E0005-esp32-s3-5v-controller`, pushed at every milestone. |
+| **v1.1** | Schematic-review corrections (lead, from the Phase 2 checks): (1) **TPS56637 output filter inside datasheet Table 4 (SLVSEG1A, 5 V row): L 3.3 µH, V5 effective C ≤ 100 µF** (v1.0 had 2.2 µH and ≈ 200 µF): V5 bulk is now 2 × 47 µF + the 10 µF eFuse/3V3 input caps ≈ 85–95 µF effective. (2) **Port eFuse UVLO 1 M / 402 k → 4.19 V rising / 3.80 V falling** (was 4.49/4.08 V), to keep the USB-unplug dip margin with the smaller C (§5.1.1, recomputed). (3) **Low-pack derating rule** §8.6: V5 load ≤ 3.0 A below a 6.8 V pack. (4) **PWR_HOLD rule** §8.5: TPS56637's 200 Ω SW discharge (datasheet §7.3.9) is on whenever EN is low, drawing ≈ 25 mA from USB, so PWR_HOLD stays high while USB is attached and a battery is fitted; ≈ 25 mA remains in USB-only/no-battery (buck VIN back-fed, §13). (5) Schematic deviations D-1…D-5 accepted (`docs/schematic_notes.md`). TPS56637 OVP at 125 % ≈ 6.0 V is above USB's 5.5 V max on V5. |
 
 ---
 
@@ -32,7 +33,7 @@
 | 3V3 | **TPS629210** 1 A buck from V5 (as E0003, now from V5) | A port fault never resets the MCU |
 | Pack protection | **S-8252AAG** + 2 × **PSMN2R0-30YLDX** + **10 A fuse F1** (as E0003) | Hardware-only OV/UV/short; works with no firmware |
 | Battery level (measured by the ESP32) | **MAX17205** fuel gauge, stack-only, 5 mΩ sense (as E0003) + BQ25887 per-cell ADC | SoC %, remaining time, pack voltage/current; per-cell voltages from the charger ADC |
-| Ports | 4 × E0001 (JST-GH 4p) + 1 × E0002 (JST-GH 6p), **+5 V**, one **TPS259470A** eFuse each (OVLO 6.0 V, UVLO 4.1 V, I_LIM as E0003), PCA9548A mux | Same blocks as E0003 with 5 V thresholds |
+| Ports | 4 × E0001 (JST-GH 4p) + 1 × E0002 (JST-GH 6p), **+5 V**, one **TPS259470A** eFuse each (OVLO 6.0 V, UVLO 3.8 V, I_LIM as E0003), PCA9548A mux | Same blocks as E0003 with 5 V thresholds |
 | LCD | **Adafruit 4311** on EYESPI J10 (as E0003) | |
 | Switches | 4 × JST-GH 2p, pull-up + RC + ESD (as E0003) | |
 | On/off | Power button → **soft power latch on the buck EN** + GPIO21; BOOT, RESET (as E0003, latch new) | "Off" = buck off, ≈ 35 µA drain; no ship-mode charger needed |
@@ -46,7 +47,7 @@
 | — | **TPS56637** 2S → 5 V buck + **USB input eFuse** (6th TPS259470A) | New 5 V system rail V5 |
 | TVS2200DRVR on VBUS (BOM exception, LCSC) | **SMF9.0A** (already a common part) | VBUS is 5 V now; clamps 15.4 V < 20 V BQ25887 abs max; BOM exception gone |
 | BQ29209 balancer + secondary OV, Q10/BAL_EN, OV2 FET | **removed** (owner Q2, v1.0) | BQ25887 balances (≈ 110 mA, measured with charge paused) and has its own cell OVP |
-| Port eFuses OVLO 10 V / UVLO 5.8 V, SMF9.0A port TVS | OVLO **6.0 V** / UVLO **4.1 V**, **SMF5.0A** port TVS | 5 V ports |
+| Port eFuses OVLO 10 V / UVLO 5.8 V, SMF9.0A port TVS | OVLO **6.0 V** / UVLO **3.8 V**, **SMF5.0A** port TVS | 5 V ports |
 | Silkscreen "PBUS 6–9 V" | **"5V"** + port number + "E0001"/"E0002" | Brief |
 | MID → ESP32 GPIO4 divider | **removed**; GPIO4 = **V5_SENSE** | BQ25887 ADC gives both cell voltages |
 | 3V3 buck from VSYS | from **V5** | |
@@ -104,7 +105,7 @@ Firmware · enclosure · USB-PD · USB OTG/source · 5 V revisions of E0001/E000
         ╠═► TPS629210 ─► +3V3: ESP32-S3, PCA9548A, TCA9535, LCD, pull-ups
         ╠═► V5_SENSE divider ─► GPIO4
         ║
-        ├────────┬────────┬────────┬────────┐   each: TPS259470A, OVLO 6.0 V, UVLO 4.1 V, EN ← expander (off at reset)
+        ├────────┬────────┬────────┬────────┐   each: TPS259470A, OVLO 6.0 V, UVLO 3.8 V, EN ← expander (off at reset)
      eFuse1   eFuse2   eFuse3   eFuse4   eFuse5
      ≤1.00 A  ≤1.00 A  ≤1.00 A  ≤1.00 A  2.0 A nom
      J1 GH4   J2 GH4   J3 GH4   J4 GH4   J5 GH6        silkscreen "5V" + port + E0001/E0002
@@ -162,25 +163,26 @@ Unchanged from E0003 §4: native USB-Serial/JTAG on GPIO19/20 (no UART pads), FS
 | **Worst plausible** (4 × 0.6 A + 2.0 A + 3V3 peak) | **4.85 A** | **23.3 W** | **4.0 A / 3.4 A** |
 | Hardware worst case (all eFuses at max, multi-fault) | 6.65 A | 32 W | 5.4 A / 4.7 A |
 
-- **V5 is sized for 6 A continuous:** TPS56637 6 A rating, valley current limit 6.3–8.6 A (output limit ≈ 7–9 A); copper ≥ 3 mm or pours; inductor Isat ≥ 9 A. Worst plausible (4.85 A) has 1.15 A margin. The hardware worst case is a multi-fault case: the buck current limit, then the port UVLO, are the backstops.
+- **V5 is sized for 6 A continuous:** TPS56637 6 A rating, valley current limit 6.3–8.6 A (output limit ≈ 7–9 A); copper ≥ 3 mm or pours; inductor 3.3 µH, Isat ≥ 9 A (datasheet Table 4). Worst plausible (4.85 A) has 1.15 A margin. The hardware worst case is a multi-fault case: the buck current limit, then the port UVLO, are the backstops.
 - **Buck dropout:** t_OFF(min) 300 ns max at 500 kHz → D_max ≈ 85 %, so V5 holds 4.80 V down to a pack of ≈ 5.9 V at 5 A (≈ 5.7 V light load). Firmware sheds the ports at 6.4 V (§8.6), so the ports never see the dropout region.
 - **Battery current** ≤ 4.0 A worst plausible, ≤ ≈ 9 A by the buck current limit: inside F1 10 A, S-8252 OC ≈ 17–21 A, P50B 60 A. There is no charger BATFET in the discharge path any more, so **E0003's O-1 gap (6–20 A) is closed by the buck current limit**; a short on BAT+ itself is still covered by the S-8252 short detection and F1.
 - **Runtime** (≈ 32 Wh usable): idle ≈ 29 h, typical active ≈ 8.5 h, continuous operating peak ≈ 2.3 h.
 
-### 5.1.1 V5 bulk and the USB-unplug transient
-**Bulk on V5:** 6 × 47 µF / 16 V X5R 1210 (4 at the buck output, 2 at the port group) + 10 µF / 25 V 0805 at the five port eFuse inputs and the 3V3 buck input = **282 µF nominal, ≈ 200 µF effective at 5 V** (DC-bias derating ≈ 35 % on the 1210s, ≈ 40 % on the 0805s; the value used below). The peripherals' own capacitance sits behind the port eFuses (reverse blocking) and does not help V5.
+### 5.1.1 V5 bulk and the USB-unplug transient (v1.1)
+**Bulk on V5 (limited by the buck):** TPS56637 datasheet Table 4, 5 V row: **L 3.3 µH, effective C_OUT 20–100 µF** (typ 30 µF), feed-forward R8 20 kΩ + C9 100–220 pF. V5 therefore carries **2 × 47 µF / 16 V X5R 1210 at the buck output + 10 µF / 25 V 0805 at the five port eFuse inputs and the 3V3 buck input ≈ 85–95 µF effective at 5 V** (DC-bias derating ≈ 35 % on the 1210s, ≈ 40 % on the 0805s; the exact table is in `docs/schematic_notes.md`). **85 µF is used below.** The peripherals' capacitance sits behind the port eFuses (reverse blocking) and does not help V5.
 
-**Event:** USB pulled at the worst plausible load, **4.85 A on V5**, battery fitted, buck idle in Eco-mode (inductor current 0).
-1. V5 falls from ≈ 4.95 V to the buck set point 4.80 V: 0.15 V × 200 µF / 4.85 A ≈ 6 µs. U_IN's reverse blocking opens within 1 µs (t_RCB), so V5 does not discharge into VBUS.
-2. The buck (D-CAP3, no compensation delay) fires back-to-back on-pulses at minimum off-time (t_OFF(min) **300 ns max**; t_ON = V_OUT / (V_IN × 500 kHz)). Its inductor current ramps at an average S ≈ (net rise per cycle) / (t_ON + t_OFF). The extra dip is ΔV ≈ I² / (2 × C × S).
+**Event:** USB pulled while the battery is fitted and the buck is idle in Eco-mode (inductor current 0).
+1. V5 falls from ≈ 4.95 V to the buck set point 4.79 V: at 4.85 A ≈ 3 µs. U_IN's reverse blocking opens within 1 µs (t_RCB).
+2. The buck (D-CAP3) fires back-to-back on-pulses at minimum off-time (t_OFF(min) **300 ns max**; t_ON = V_OUT / (V_IN × 500 kHz)); with 3.3 µH the inductor current ramps at an average S = net rise per cycle / (t_ON + t_OFF). Extra dip ΔV ≈ I² / (2 × C × S).
 
-| Pack voltage | Average slew S | Ramp to 4.85 A | Dip below 4.80 V | **V5 minimum** | Margin to port UVLO (4.08 V typ, 4.17 V max) |
-|---|---|---|---|---|---|
-| 7.4 V (nominal) | ≈ 0.55 A/µs | ≈ 9 µs | ≈ 0.11 V | **≈ 4.69 V** | 0.52 V |
-| **6.4 V (firmware ports-off threshold)** | ≈ 0.24 A/µs | ≈ 20 µs | ≈ 0.25 V | **≈ 4.55 V** | **0.38 V** |
-| 6.0 V (below the ports-off threshold) | ≈ 0.12 A/µs | ≈ 42 µs | ≈ 0.51 V | ≈ 4.29 V | 0.12 V — not a use case: the ports are already off below 6.4 V, and with only the 3V3 load (0.45 A) the dip is < 10 mV |
+| Pack | V5 load | S | Ramp | Dip | **V5 min** | Margin to port UVLO falling (3.80 V typ, **3.93 V max**) |
+|---|---|---|---|---|---|---|
+| 7.4 V | 4.85 A | 0.37 A/µs | 13 µs | 0.38 V | **4.42 V** | 0.49 V |
+| 6.8 V | 4.85 A | 0.25 A/µs | 20 µs | 0.57 V | **4.23 V** | 0.30 V |
+| **6.4 V** | **3.0 A** (§8.6 derating below 6.8 V) | 0.16 A/µs | 19 µs | 0.33 V | **4.47 V** | 0.54 V |
+| 6.4 V | 4.85 A (not allowed by §8.6) | 0.16 A/µs | 30 µs | 0.86 V | 3.94 V | ≈ 0 — this is why §8.6 exists |
 
-**The port UVLO does not trip on a USB unplug in any allowed operating state.** The numbers use the worst t_OFF(min); with the typical 200 ns the dips are about 30 % smaller. The 3V3 rail is unaffected (TPS629210 holds 3.3 V down to ≈ 3.5 V in). Plug-in is benign: V5 steps up from 4.80 V to ≈ 5.0 V through U_IN's dVdt ramp. Checked on the bench at first bring-up (§11.3).
+**The port UVLO does not trip on a USB unplug in any allowed state.** With the typical t_OFF(min) 200 ns the dips are ≈ 35 % smaller. The 3V3 rail is unaffected (TPS629210 at 100 % duty holds 3.3 V down to ≈ 3.5 V in). Plug-in is benign (V5 steps up to ≈ 5.0 V through U_IN's dVdt). Bench check at bring-up (§11.3).
 
 ### 5.2 USB-only operation and current budget (no battery)
 
@@ -195,7 +197,7 @@ The board reads the source's Rp level on CC1/CC2 (ESP32 ADC, §5.6) and sets U_I
 
 **What happens when USB can't supply the load (no battery):**
 1. Firmware budget first (§8.2): it knows the Rp level and limits fader moves / E0002 torque over I²C; it watches V5_SENSE.
-2. If the load still exceeds U_IN's limit for > ITIMER (≈ 18 ms), **U_IN regulates its current at I_LIM** (it does not turn off, §5.1). With no buck to make up the difference, V5 sags, and at **4.08 V the port eFuses' UVLO cuts all ports**. V5 recovers; the 3V3 buck (works down to ≈ 3.5 V in, 100 % duty) keeps the MCU running. The ports come back only when firmware re-enables them (≥ 4.49 V rising and EN).
+2. If the load still exceeds U_IN's limit for > ITIMER (≈ 18 ms), **U_IN regulates its current at I_LIM** (it does not turn off, §5.1). With no buck to make up the difference, V5 sags, and at **3.80 V the port eFuses' UVLO cuts all ports**. V5 recovers; the 3V3 buck (works down to ≈ 3.5 V in, 100 % duty) keeps the MCU running. The ports come back only when firmware re-enables them (≥ 4.19 V rising and EN).
 3. If the source trips before our limit (e.g. a 500 mA port overloaded): VBUS collapses, the board resets, and firmware restarts in the "Rp default" low-power mode.
 
 With a battery fitted, step 2 never happens below the 4.4 A budget: the buck takes over at 4.80 V.
@@ -239,7 +241,7 @@ Topology, mux, pull-ups, cable length (≤ 1.0 m, 26 AWG), series 220 Ω + TPD2E
 |---|---|---|
 | R_ILM | 3.83 kΩ (J1–J4), 1.65 kΩ (J5) | 0.87 A typ (0.74–1.00 A); 2.03 A typ (1.80–2.20 A) — as E0003 |
 | **OVLO** | **1 MΩ / 249 kΩ 1 %** | **6.02 V rising / 5.47 V falling** (≈ 5.85–6.25 V with tolerances): above USB's 5.5 V max, below the 6.5 V the 5 V peripherals must withstand (§6) |
-| **EN/UVLO** | **1 MΩ / 365 kΩ 1 %**; 2N7002 pulls EN low (gate ← TCA9535 P00–P04, 100 k pull-up → **off at reset**) | **4.49 V rising / 4.08 V falling** |
+| **EN/UVLO** | **1 MΩ / 402 kΩ 1 %** (v1.1); 2N7002 pulls EN low (gate ← TCA9535 P00–P04, 100 k pull-up → **off at reset**) | **4.19 V rising / 3.80 V falling** (4.09–4.31 V / 3.72–3.93 V at the corners; rising max < 4.72 V battery V5 min) |
 | ITIMER / dVdt | 22 nF (≈ 18 ms) / 1.8 nF (≈ 1 V/ms, ≈ 5 ms ramp) | as E0003 |
 | FLT | → TCA9535 P10–P14, 10 k pull-up | |
 | Port TVS | **SMF5.0A** after the eFuse | 5.0 V stand-off, 6.4 V min breakdown |
@@ -278,7 +280,7 @@ In load sharing U_IN sits in current limit with V5 held by the buck, so it dissi
 | Stacked corners, 1.62 W | **129 °C** (25 °C margin) | 161 °C → TSD: the buck takes the load and U_IN auto-retries (§5.1) |
 
 **Decision:** keep **2.81 A** and the **4.80 V** set point, and reserve this copper at placement:
-- U_IN on F.Cu, **≈ 15 × 12 mm keep area** including its passives. Keep the BQ25887, the 1 µH and 2.2 µH inductors and the TPS56637 ≥ 5 mm away (they heat the same copper).
+- U_IN on F.Cu, **≈ 15 × 12 mm keep area** including its passives. Keep the BQ25887, the 1 µH and 3.3 µH inductors and the TPS56637 ≥ 5 mm away (they heat the same copper).
 - **IN (VBUS) pins → F.Cu pour ≥ 80 mm²** (e.g. 10 × 8 mm) right at the pads; **OUT (V5) pins → F.Cu pour ≥ 80 mm²**, which joins the V5 rail.
 - **≥ 6 vias per pour** (0.3 mm drill / 0.6 mm pad), each ≥ 0.15 mm copper-to-copper from any pad, to the same net on In2 (V5 pour) and B.Cu (VBUS pour ≥ 100 mm²). **GND pin** to the In1 plane with ≥ 2 vias off the pad.
 - No thermal-relief spokes on the U_IN pads (solid zone connection).
@@ -287,7 +289,8 @@ In load sharing U_IN sits in current limit with V5 held by the buck, so it dissi
 
 ### 5.7 2S → 5 V buck — **TI TPS56637** (VQFN-HR-10 3 × 3) [new]
 - VIN = BAT+ (5.6–8.4 V; 4.5–28 V part), **V_OUT 4.80 V** (FB 0.6 V: 100 kΩ / 14.3 kΩ class, exact values at capture), 500 kHz, D-CAP3, **MODE to GND → Eco-mode** (pulse-skipping, no reverse current: required for the diode-OR).
-- **Inductor 2.2 µH, Isat ≥ 9 A**: reuse E0003's **Bourns SRP7028A-2R2M** (8 A rated, 14 A sat, 20 mΩ). V5 bulk: **6 × 47 µF / 16 V X5R 1210** (CL32A476KOJNNNE, as E0003), 4 at the buck output and 2 at the port group, plus 10 µF / 25 V at each eFuse input and the 3V3 buck input (§5.1.1). Input 2 × 10 µF/25 V + 100 nF.
+- **Inductor 3.3 µH, Isat ≥ 9 A, Irms ≥ 7 A** (datasheet Table 4; datasheet part Vishay IHLP3232DZER3R3M11, final part in the schematic BOM). Ripple at 8.4 V ≈ 1.25 A p-p, peak ≈ 6.6 A at 6 A. V5 bulk: **2 × 47 µF / 16 V X5R 1210** (CL32A476KOJNNNE) at the buck output plus 10 µF / 25 V at each eFuse input and the 3V3 buck input, **≤ 100 µF effective in total** (§5.1.1). Feed-forward 20 kΩ + C9 per Table 4.
+- **OVP** at 125 % of 4.79 V ≈ 6.0 V: above USB's 5.5 V max on V5, so USB holding V5 high never trips it. **SW discharge** (200 Ω, datasheet §7.3.9) is on whenever EN is low: see §8.5. Input 2 × 10 µF/25 V + 100 nF.
 - **EN** ← soft power latch (§5.9) through a divider from BAT+: **UVLO ≈ 5.4 V rising** (EN 1.18 V rising, 1.04 V falling), EN pin ≤ 2 V at 8.4 V (abs max 6 V).
 - **PG** (open drain) → TCA9535 P17, 10 k to 3V3.
 - Shutdown current 2 µA.
@@ -340,7 +343,7 @@ MP = GND. Cables 1:1, 26 AWG, ≤ 1.0 m.
 |---|---|---|
 | +5V normal range | **4.70–5.25 V** (USB 4.9–5.1 V, battery 4.80 V ± 1.5 %) | **operate fully at 4.2–5.5 V at its connector** (after ≤ 1 m cable: E0002 at 2 A loses ≈ 0.39 V, E0001 at 0.6 A ≈ 0.21 V) |
 | Over-voltage | eFuse **OVLO 5.85–6.25 V** | **withstand ≥ 6.5 V continuous** |
-| Under-voltage | eFuse UVLO 4.08 V falling / 4.49 V rising | brown out cleanly below 4.0 V |
+| Under-voltage | eFuse UVLO 3.80 V falling / 4.19 V rising | brown out cleanly below 3.7 V |
 | Turn-on | off at host reset; one port at a time; ≈ 1 V/ms ramp | input capacitance ≤ 220 µF; motor disabled until the host enables it over I²C |
 | Current, E0001 (GH4) | eFuse 0.74–1.00 A | **≤ 0.6 A** continuous and peak (owner Q3) |
 | Current, E0002 (GH6) | eFuse 2.03 A typ (1.80–2.20 A), ≈ 18 ms blanking | **≤ 2.0 A** continuous and peak (owner Q3) |
@@ -406,8 +409,8 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
    - Re-read CC after every attach; on detach go back to the reset settings.
    - With a battery fitted, a U_IN level below the system load is fine: the buck makes up the difference (§5.1).
 4. **Charging:** CD low only with a detected battery: **gauge pack voltage 5.0–8.6 V and both BQ25887 cell readings 2.5–4.3 V**. ICHG 2.0 A, VREG 8.40 V, IINDPM = source limit − system draw, VINDPM 4.6 V. Service or disable the BQ25887 watchdog (160 s). Keep CB_CHG_DIS = 1.
-5. **Off:** long press → ports off → PWR_HOLD low. On USB the MCU stays up (charge display or deep sleep).
-6. **Low battery:** ports off at 3.2 V/cell under load (6.4 V pack), PWR_HOLD low at 3.0 V/cell.
+5. **Off and PWR_HOLD:** long press → ports off → PWR_HOLD low. **While USB is attached and a battery is fitted, keep PWR_HOLD high** (also in "off", owner Q4): with EN low the TPS56637 SW discharge (200 Ω) would draw ≈ 25 mA from USB; with EN high and V5 held by USB the buck idles in Eco-mode and the battery is not used (ports off). On USB detach in "off", drop PWR_HOLD. In USB-only/no-battery the ≈ 25 mA stays (buck VIN back-fed, §13).
+6. **Low battery:** **below a 6.8 V pack (under load), limit the V5 load to ≤ 3.0 A** (port budget ≤ 2.5 A; keeps the USB-unplug dip clear of the port UVLO, §5.1.1); ports off at 3.2 V/cell (6.4 V pack); PWR_HOLD low at 3.0 V/cell.
 7. **Temperature:** ports off above 60 °C; charging JEITA 0–60 °C.
 8. **Gauge:** as E0003 §8.8 (stack-only, shadow RAM in development, one NV write in production).
 9. **Mux** and **port eFuse faults:** as E0003 §8.9–8.10. **USBIN_FLT_N low is normal during load sharing** (U_IN at its limit, §5.1): with a battery, it means the battery is supplying the difference, so reduce charger IINDPM and keep the port budget; without a battery it means overload, so shed ports. If it stays low while V5_SENSE shows V5 > 4.9 V (USB not limiting), treat it as a U_IN thermal shutdown and drop to the next lower U_IN level for ≥ 10 s.
@@ -418,7 +421,7 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 
 ## 9. Mechanical (PCB only)
 - **Stack-up:** 4-layer 1.6 mm, JLC **JLC04161H-3313** (as E0003; 90 Ω USB pair). L1 parts/signals/power pours, L2 solid GND, L3 V5 + BAT+ pours and slow signals, L4 GND, holder lugs, protection parts.
-- **Outline ≈ 125 × 65 mm, 4 × M3, E0003 edge plan** (reuse `E0003_Outline_125x65_4xM3` and the Keystone 1121 footprint/STEP): USB-C + power stage (U_IN, BQ25887 + 1 µH, TPS56637 + 2.2 µH, 3V3) on the **west** side off the cells; ports J1–J5 on the **north** edge with eFuse/TVS/ESD and "5V" labels; ESP32-S3 with the antenna keep-out at the **east** edge (≥ 15 mm to the cans); switches, J12, power button and EYESPI on the **south** edge; holders on the bottom.
+- **Outline ≈ 125 × 65 mm, 4 × M3, E0003 edge plan** (reuse `E0003_Outline_125x65_4xM3` and the Keystone 1121 footprint/STEP): USB-C + power stage (U_IN, BQ25887 + 1 µH, TPS56637 + 3.3 µH, 3V3) on the **west** side off the cells; ports J1–J5 on the **north** edge with eFuse/TVS/ESD and "5V" labels; ESP32-S3 with the antenna keep-out at the **east** edge (≥ 15 mm to the cans); switches, J12, power button and EYESPI on the **south** edge; holders on the bottom.
 - High-current paths: BAT+ → F1 → buck VIN, buck → V5 → port eFuses, and VBUS → U_IN → V5 carry up to ≈ 6 A: pours on two layers or ≥ 3 mm with via stitching. R_SENSE Kelvin to the gauge.
 - Bottom standoffs ≥ 25 mm; top parts ≤ 12 mm (as E0003).
 - House rules in R8: no test points, no vias in pads, 45° tracks, `.kicad_dru` with JLC + no-via-on-pad rules.
@@ -426,7 +429,7 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 ---
 
 ## 10. BOM plan (DigiKey-preferred; common parts from E0003 `bom/common_parts_across_projects.*`)
-**Reused from E0003 (same MPN):** ESP32-S3-WROOM-1-N16R2 · TPS629210 + DFE252012PD-2R2M=P2 · S-8252AAG-M6T1U · 2 × PSMN2R0-30YLDX · MAX17205G+ · 5 mΩ sense · F1 Littelfuse 0452010.MRL · PCA9548APW · TCA9535PWR · **TPS259470ARPWR × 6** (5 ports + U_IN) · 2N7002-7-F (5 port EN + 2 U_IN legs + latch hold) · BAT54W,135 · USBLC6-2SC6 · TPD2E2U06DRLR × 5 · PESD5V0L1UL,315 × 5 · **SMF9.0A × 1** (VBUS) · Semitec 103AT-2 × 2 · Keystone 1121 × 2 · SM04B-GHS-TB × 4 · SM06B-GHS-TB(LF)(SN) · SM02B-GHS-TB × 5 · FH12-18S-0.5SH(55) · USB4105-GF-A · **SRP7028A-2R2M** (now the 5 V buck inductor) · LEDs LTST-C191K* · 47 µF 1210 CL32A476KOJNNNE (V5 bulk × 6) · all common passives (100 nF GRM155R71H104KE14D, 10 µF TMK212BBJ106MG-T, 22 µF CL21A226KQCLRNC, 1 nF GRM155R71H102KA01D, 47 nF GRM155R71H473KE14D, 4.7 k RK73H1ETTP4701F, Yageo RC0402 resistors).
+**Reused from E0003 (same MPN):** ESP32-S3-WROOM-1-N16R2 · TPS629210 + DFE252012PD-2R2M=P2 · S-8252AAG-M6T1U · 2 × PSMN2R0-30YLDX · MAX17205G+ · 5 mΩ sense · F1 Littelfuse 0452010.MRL · PCA9548APW · TCA9535PWR · **TPS259470ARPWR × 6** (5 ports + U_IN) · 2N7002-7-F (5 port EN + 2 U_IN legs + latch hold) · BAT54W,135 · USBLC6-2SC6 · TPD2E2U06DRLR × 5 · PESD5V0L1UL,315 × 5 · **SMF9.0A × 1** (VBUS) · Semitec 103AT-2 × 2 · Keystone 1121 × 2 · SM04B-GHS-TB × 4 · SM06B-GHS-TB(LF)(SN) · SM02B-GHS-TB × 5 · FH12-18S-0.5SH(55) · USB4105-GF-A · LEDs LTST-C191K* · 47 µF 1210 CL32A476KOJNNNE (V5 bulk × 2, charger SNS × 2) · all common passives (100 nF GRM155R71H104KE14D, 10 µF TMK212BBJ106MG-T, 22 µF CL21A226KQCLRNC, 1 nF GRM155R71H102KA01D, 47 nF GRM155R71H473KE14D, 4.7 k RK73H1ETTP4701F, Yageo RC0402 resistors).
 
 **New:**
 | Ref (planned) | Part | Qty | DigiKey (2026-10-27) | Note |
@@ -445,9 +448,9 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 ## 11. Schematic-capture checks
 1. BQ25887 reference schematic (datasheet §9.2): caps, BTST, REGN, TS divider for 103AT-2 JEITA, ILIM; MID 300 Ω and CBSET with the low-side protector (B− vs GND offset; CB_CHG_DIS).
 2. BQ25887 behaviour with CD high and no battery; with the buck back-feed (BAT+ ≈ 4.3 V) and the gauge.
-3. TPS56637 Eco-mode light-load behaviour with V5 held above its set point by USB (no sinking, no output overshoot when USB is pulled); USB-unplug dip at full load per §5.1.1 (bench, first bring-up); FB divider for 4.80 V; EN divider with the 4 µA hysteresis current.
+3. TPS56637 Eco-mode light-load behaviour with V5 held above its set point by USB (no sinking, no output overshoot when USB is pulled); USB-unplug dip at full load per §5.1.1 (bench, first bring-up); FB divider for 4.80 V; EN divider with the 4 µA hysteresis current; loop stability with the Table 4 L/C and feed-forward (load-step test).
 4. U_IN TPS259470A: R_ILM legs with the 2N7002s; thermal case in §5.6.1 (copper and vias as reserved there); start-up into the V5 bulk caps (dVdt).
-5. Port eFuse OVLO/UVLO dividers at the corners (5.5 V never trips OVLO; battery 4.80 V − tolerances stays above UVLO rising 4.49 V + tolerance).
+5. Port eFuse OVLO/UVLO dividers at the corners (5.5 V never trips OVLO; battery 4.72 V min stays above UVLO rising 4.31 V max).
 6. CC sense: 10 kΩ + ADC leakage does not shift the Rd (5.1 kΩ) reading beyond the Type-C windows.
 7. Soft power latch: Q_PL VGS at 8.4 V, button + PWR_HOLD logic, GPIO21 clamping, behaviour with USB present.
 8. As E0003 §11: P50B test fit in the 1121, EYESPI pin order, ESP32-S3 pin check, NTC mounting, MAX17205 tie-offs.
@@ -483,7 +486,8 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 | Weak USB source (< 4.88 V) lets the buck carry the load while charging | Efficiency loss only; firmware sees it on the gauge |
 | U_IN heating in current limit with the buck holding V5 | ≤ 1.40 W worst case → T_J ≤ 124 °C with the §5.6.1 copper (≤ 144 °C even at JEDEC θJA); at TSD the buck takes the load and U_IN auto-retries |
 | No charging from a plain USB host port (Rp default) | VBUS budget rule §8.3; charge from a 1.5 A / 3 A USB-C source |
-| V5 dip on USB unplug at full load and low battery | 6 × 47 µF bulk; ports already shed at 6.4 V pack (§5.1.1) |
+| V5 dip on USB unplug at full load and low battery | UVLO 3.80 V, ≤ 3.0 A below 6.8 V pack (§8.6), bench check (§5.1.1) |
+| TPS56637 SW discharge ≈ 25 mA (0.12 W) whenever EN is low and V5 is up | PWR_HOLD rule §8.5; remains in USB-only/no-battery (≈ 5 % of the 0.5 A default budget); chip temperature checked at bring-up |
 | V5 at 4.80 V on battery + 1 m cable at 2 A → 4.4 V at E0002 | §6.2 requires peripherals to work from 4.2 V |
 | Buck dropout below ≈ 5.9 V pack at full load | Firmware ports-off at 6.4 V |
 | BQ25887 balancing current (≈ 108 mA) vs a strongly mismatched pair | Matched-pair cells; S-8252 per-cell OV is the hard stop |
