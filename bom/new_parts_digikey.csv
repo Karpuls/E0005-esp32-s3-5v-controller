@@ -1,5 +1,5 @@
 MPN,Manufacturer,SupplierPN,Stock,Lifecycle,UnitUSD,Checked,Note
-BQ25887RGET,Texas Instruments,296-53518-2-ND,211,Active,6.62,2026-10-27,"STOCK EXCEPTION: DigiKey returns only the T&R listing 296-53518-2-ND (211 pcs, MOQ 250); cut-tape PN 296-53518-1-ND not found by the lookup. Buy BQ25887RGER cut tape (SPEC: 10 911 on reel) or confirm RGET cut tape at order time"
+BQ25887RGER,Texas Instruments,296-53517-1-ND,10911,Active,5.61,2026-10-27,"Cut tape 296-53517-1-ND (DigiKey API resolves it to the BQ25887RGER product page, 10 911 in stock; T&R is 296-53517-2-ND). Replaces RGET (T&R only, 211 pcs, MOQ 250) per PlaceRoute."
 TPS56637RPAR,Texas Instruments,296-TPS56637RPARTR-ND,14313,Active,2.71,2026-10-27,"Only the T&R listing returned (14 313, MOQ 3000); cut tape (CT) PN not confirmed by the lookup: check at order time"
 IHLP2525CZER1R0M01,Vishay Dale,541-1006-1-ND,38987,Active,1.11,2026-10-27,"1 uH 11 A rated / 22 A sat, 10 mOhm max (TR 541-1006-2-ND)"
 RMCF2512FT39R0,Stackpole Electronics Inc,RMCF2512FT39R0CT-ND,34038,Active,0.25,2026-10-27,39R 1% 1 W 2512 (TR RMCF2512FT39R0TR-ND)

@@ -14242,7 +14242,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BQ25887RGET"
+		(property "Value" "BQ25887RGER"
 			(at 119.38 220.98 0)
 			(effects
 				(font
@@ -14278,7 +14278,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "BQ25887RGET"
+		(property "MPN" "BQ25887RGER"
 			(at 127 243.84 0)
 			(effects
 				(font
@@ -14305,7 +14305,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier PN" "296-53518-2-ND"
+		(property "Supplier PN" "296-53517-1-ND"
 			(at 127 243.84 0)
 			(effects
 				(font

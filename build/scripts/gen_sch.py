@@ -207,7 +207,7 @@ def sheet_power():
 
     # ---- BQ25887 charger
     sh.rect(0, 64, 100, 116, C_PWR, 'CHARGER BQ25887 (I2C0 0x6A): 5 V USB -> 2S boost, 1.5 MHz, balancing')
-    sh.place('Battery_Management:BQ25887RGE', 'U2', 'BQ25887RGET', 46, 92, 0, refpos=(43, 82, 'left'),
+    sh.place('Battery_Management:BQ25887RGE', 'U2', 'BQ25887RGER', 46, 92, 0, refpos=(43, 82, 'left'),
              valpos=(43, 83, 'left'))
     sh.nets('U2', {'23': 'VBUS', '2': 'CHG_STAT', '1': 'CHG_PG_N', '5': 'I2C0_SCL', '4': 'I2C0_SDA',
                    '6': 'CHG_INT_N', '24': 'CHG_PSEL', '3': 'CHG_CD', '15': 'CHG_SNS', '16': 'CHG_SNS',
@@ -639,7 +639,7 @@ def sheet_ports():
 # ------------------------------------------------------------------ purchasing fields
 import csv
 E0003 = '/home/karpulis/KiCad/E0003 - ESP32 control box mainboard'   # reference data (read only)
-MPN_BY_REF = {'U1': 'ESP32-S3-WROOM-1-N16R2', 'U2': 'BQ25887RGET', 'U4': 'USBLC6-2SC6',
+MPN_BY_REF = {'U1': 'ESP32-S3-WROOM-1-N16R2', 'U2': 'BQ25887RGER', 'U4': 'USBLC6-2SC6',
               'U5': 'TPS629210DRLR', 'U6': 'S-8252AAG-M6T1U', 'U8': 'PCA9548APW,118',
               'U9': 'TCA9535PWR', 'U15': 'MAX17205G+T', 'U17': 'TPS56637RPAR', 'J10': 'FH12-18S-0.5SH(55)',
               'J11': 'USB4105-GF-A', 'L1': 'IHLP3232DZER3R3M11', 'L2': 'IHLP2525CZER1R0M01', 'L3': 'DFE252012PD-2R2M=P2', 'F1': '0452010.MRL', 'Q1': 'PSMN2R0-30YLDX',

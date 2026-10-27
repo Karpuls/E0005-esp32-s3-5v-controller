@@ -130,7 +130,7 @@ E0003 references are kept for every part that stays (same generation order; remo
 - **Off drain** (latch off: no current in R148/R149, R151/R152): BQ25887 12 µA + MAX17205 ≈ 12 µA + S-8252 ≈ 6 µA + TPS56637 2 µA ≈ **32 µA** (SPEC §5.9).
 
 ### 7. DigiKey stock for every new part — done, see `bom/notes.md`
-All new parts checked with pcbparts `digikey_get_part` on 2026-10-27 (one call each; E0003 parts reused without re-query). Exceptions: BQ25887RGET (T&R listing only, 211 pcs), 14.3k (0 stock, replaced).
+All new parts checked with pcbparts `digikey_get_part` on 2026-10-27 (one call each; E0003 parts reused without re-query). Exceptions: BQ25887RGET (T&R listing only, 211 pcs; closed: U2 changed to BQ25887RGER cut tape 296-53517-1-ND after the schematic review), 14.3k (0 stock, replaced).
 
 ### 8. ESP32-S3 pin check (changed pins) — done
 | GPIO | Module pin | Net | Check |

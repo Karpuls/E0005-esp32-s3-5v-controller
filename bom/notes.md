@@ -11,7 +11,7 @@
 ## New parts (all DigiKey, Active)
 | Ref | MPN | DigiKey | Stock 2026-10-27 | Note |
 |---|---|---|---|---|
-| U2 | BQ25887RGET | 296-53518-2-ND | 211 (T&R, MOQ 250) | **stock exception, see below** |
+| U2 | BQ25887RGER | 296-53517-1-ND (cut tape) | 10 911 | changed from RGET after the schematic review (PlaceRoute) |
 | U17 | TPS56637RPAR | 296-TPS56637RPARTR-ND | 14 313 (T&R) | cut-tape PN to confirm at order |
 | L2 | IHLP2525CZER1R0M01 (Vishay) | 541-1006-1-ND | 38 987 | 1 µH, 11 A / 22 A sat, 10 mΩ; KiCad `L_Vishay_IHLP-2525` (charger) |
 | L1 | **IHLP3232DZER3R3M11** (Vishay) | 541-1352-1-ND | 5 904 | **SPEC v1.1:** 3.3 µH, 10.5 A rated / 9.7 A sat, 14.9 mΩ, 8.64 × 8.18 × 4.0 mm; TPS56637 datasheet part; KiCad `L_Vishay_IHLP-3232` (buck). Replaces SRP7028A-2R2M |
@@ -24,7 +24,7 @@
 | R148, R155 | RC0402FR-0739KL (39k), RC0402FR-0720KL (20k) | 311-39.0KLRCT-ND, 311-20.0KLRCT-ND | not re-queried | E0002 common parts |
 
 ## Stock exceptions / substitutions
-1. **BQ25887RGET (U2):** the DigiKey lookup shows only the T&R listing 296-53518-2-ND, 211 pcs, MOQ 250 (no cut-tape result). SPEC §3/§10 noted **BQ25887RGER** with 10 911 on reel. Action at order time: buy RGER as cut tape / Digi-Reel (same RGE package and footprint) or confirm an RGET cut-tape listing. The schematic MPN stays BQ25887RGET (SPEC part).
+1. **Closed — U2 is now BQ25887RGER, cut tape 296-53517-1-ND (10 911 in stock).** Previous note on BQ25887RGET (U2): the DigiKey lookup shows only the T&R listing 296-53518-2-ND, 211 pcs, MOQ 250 (no cut-tape result). SPEC §3/§10 noted **BQ25887RGER** with 10 911 on reel. Action at order time: buy RGER as cut tape / Digi-Reel (same RGE package and footprint) or confirm an RGET cut-tape listing. The schematic MPN stays BQ25887RGET (SPEC part).
 2. **14.3k (RC0402FR-0714K3L): 0 stock** → TPS56637 FB changed to **69.8k / 10.0k** (4.788 V), schematic notes D-2.
 3. **SNS caps:** no common 22 µF ≥ 16 V part → 2 × 47 µF/16 V 1210 CL32A476KOJNNNE (the V5 bulk part), schematic notes D-1.
 4. **Carried over from E0003 (unchanged):** SM04B-GHS-TB (J1–J4) and SM02B-GHS-TB (J6–J9, J12) on **LCSC** (DigiKey 0 stock on 2026-10-18); EYESPI cable Adafruit 5239 direct; Molicel P50B from nkon.nl / akkuteile.de.

@@ -443,7 +443,7 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 **New:**
 | Ref (planned) | Part | Qty | DigiKey (2026-10-27) | Note |
 |---|---|---|---|---|
-| U2 | **TI BQ25887RGET** | 1 | 296-53518-2-ND, 211 in stock (RGER reel 10 911) | charger |
+| U2 | **TI BQ25887RGER** (cut tape) | 1 | 296-53517-1-ND, 10 911 in stock (RGET is T&R only, 211 pcs, MOQ 250) | charger (PlaceRoute, after the schematic review) |
 | U4 | **TI TPS56637RPAR** | 1 | 296-TPS56637RPARTR-ND, 14 313 | 2S → 5 V buck; check a cut-tape listing at BOM time |
 | L2 | 1 µH, Isat ≥ 5 A, ≤ 20 mΩ (Vishay IHLP-2525CZ-1R0 class) | 1 | at BOM time | charger inductor |
 | R_CB | 39 Ω 1 % 2512 1 W | 1 | at BOM time | balancing |
