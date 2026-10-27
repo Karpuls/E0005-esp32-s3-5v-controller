@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate lib/E0003.kicad_sym (project symbols) and lib/E0003.pretty footprints.
+"""Generate lib/E0005.kicad_sym (project symbols) and lib/E0005.pretty footprints.
 
-Pin tables from the datasheets: TPS629210 (SLUSEJ8 Table 6-1), BQ29209 (SLUSA75 Pin Functions),
+Pin tables from the datasheets: TPS629210 (SLUSEJ8 Table 6-1), TPS56637 (SLVSEG1A Pin Functions),
 TPS259470L RPW (SLVSFC9C Table 5-1), MAX17205 TDFN-14 (MAX17201-MAX17215 p.23), ABLIC S-8252 SOT-23-6
 (Table 6), PSMN2R0-30YLDX LFPAK56 (1-3 S, 4 G, mb/5 D).
 """
@@ -69,18 +69,18 @@ syms.append(symbol('TPS629210', 'TPS629210DRL', 'Package_TO_SOT_SMD:SOT-583-8',
     + side([('output', '4', 'SW'), ('input', '3', 'VOS'), ('input', '1', 'FB/VSET'),
             ('open_collector', '2', 'PG')], 15.24, 180, 5.08)
     + gnd(['5'], 0, -10.16), 'SOT?583*'))
-# BQ29209 --------------------------------------------------------------
-syms.append(symbol('BQ29209', 'BQ29209DRB', 'Package_SON:VSON-8-1EP_3x3mm_P0.65mm_EP1.65x2.4mm',
-    'https://www.ti.com/lit/ds/symlink/bq29209.pdf',
-    '2-series Li-ion overvoltage protector with automatic cell balancing, OV 4.30 V, VSON-8',
-    'battery protection balancing 2S', (-7.62, 7.62, 7.62, -7.62),
-    side([('input', '1', 'VC2'), ('input', '2', 'VC1'), ('passive', '3', 'VC1_CB'), ('passive', '4', 'CD')],
-         -10.16, 0, 3.81)
-    + [pin('power_in', '7', 'VDD', 0, 10.16, 270)]
-    + side([('output', '8', 'OUT'), ('input', '6', '~{CB_EN}')], 10.16, 180, 2.54)
-    + gnd(['5', '9'], 0, -10.16), 'VSON*3x3mm*P0.65mm*'))
+# TPS56637 (E0005) ---------------------------------------------------
+syms.append(symbol('TPS56637', 'TPS56637RPAR', 'E0005:TI_RPA0010A_VQFN-HR-10_3x3mm',
+    'https://www.ti.com/lit/ds/symlink/tps56637.pdf',
+    '4.5-28 V input, 6 A synchronous buck, D-CAP3, Eco-mode/FCCM (MODE), PG, VQFN-HR-10 3x3 (RPA)',
+    'buck regulator step-down D-CAP3', (-10.16, 7.62, 10.16, -7.62),
+    side([('power_in', '8', 'VIN'), ('input', '1', 'EN'), ('input', '10', 'MODE')], -12.7, 0, 5.08)
+    + side([('output', '6', 'SW'), ('passive', '7', 'BOOT'), ('input', '2', 'FB'), ('open_collector', '4', 'PG')],
+           12.7, 180, 5.08)
+    + [pin('power_in', '9', 'PGND', -2.54, -10.16, 90), pin('power_in', '3', 'AGND', 2.54, -10.16, 90),
+       pin('no_connect', '5', 'NC', 10.16, -7.62, 180, hide=True, length=0)], '*RPA0010A*'))
 # TPS259470L -----------------------------------------------------------
-syms.append(symbol('TPS259470L', 'TPS259470ARPW', 'E0003:TI_RPW0010A_VQFN-HR-10_2x2mm_P0.475mm',
+syms.append(symbol('TPS259470L', 'TPS259470ARPW', 'E0005:TI_RPW0010A_VQFN-HR-10_2x2mm_P0.475mm',
     'https://www.ti.com/lit/ds/symlink/tps25947.pdf',
     'eFuse 2.7-23 V 5.5 A, adjustable OVLO/UVLO, current limit, ITIMER, reverse blocking, VQFN-HR-10 2x2 (TPS259470A auto-retry / L latch-off)',
     'eFuse hot swap current limit', (-10.16, 7.62, 10.16, -10.16),
@@ -117,9 +117,9 @@ syms.append(symbol('PSMN2R0-30YLDX', 'PSMN2R0-30YLDX', 'Package_TO_SOT_SMD:LFPAK
      pin('passive', '1', 'S', 0, -7.62, 90), pin('passive', '2', 'S', 0, -7.62, 90, hide=True),
      pin('passive', '3', 'S', 0, -7.62, 90, hide=True)], 'LFPAK56*', ref='Q'))
 
-lib = [S('kicad_symbol_lib'), [S('version'), 20251024], [S('generator'), 'e0003_make_symlib'],
+lib = [S('kicad_symbol_lib'), [S('version'), 20251024], [S('generator'), 'e0005_make_symlib'],
        [S('generator_version'), '10.0']] + syms
-open(os.path.join(PROJ, 'lib', 'E0003.kicad_sym'), 'w').write(dump(lib) + '\n')
+open(os.path.join(PROJ, 'lib', 'E0005.kicad_sym'), 'w').write(dump(lib) + '\n')
 
 # ---------------------------------------------------------------- footprints
 def fp_text(kind, txt, x, y, layer, hide=False):
@@ -142,7 +142,7 @@ def smd(num, x, y, w, h):
             [S('layers'), 'F.Cu', 'F.Mask', 'F.Paste'], [S('roundrect_rratio'), 0.1]]
 
 def footprint(name, desc, items, attr='smd'):
-    return [S('footprint'), name, [S('version'), 20241229], [S('generator'), 'e0003_make_symlib'],
+    return [S('footprint'), name, [S('version'), 20241229], [S('generator'), 'e0005_make_symlib'],
             [S('generator_version'), '10.0'], [S('layer'), 'F.Cu'],
             [S('descr'), desc], [S('tags'), name], [S('attr'), S(attr)]] + items + [[S('embedded_fonts'), S('no')]]
 
@@ -160,7 +160,7 @@ it += [rect(-1.0, -1.0, 1.0, 1.0, 'F.Fab', 0.1), rect(-1.45, -1.45, 1.45, 1.45, 
        line(-1.11, 1.35, -0.5, 1.35, 'F.SilkS'),
        [S('fp_circle'), [S('center'), -1.35, -1.25], [S('end'), -1.27, -1.25],
         [S('stroke'), [S('width'), 0.16], [S('type'), S('solid')]], [S('fill'), S('yes')], [S('layer'), 'F.SilkS']]]
-open(os.path.join(PROJ, 'lib', 'E0003.pretty', 'TI_RPW0010A_VQFN-HR-10_2x2mm_P0.475mm.kicad_mod'), 'w').write(dump(
+open(os.path.join(PROJ, 'lib', 'E0005.pretty', 'TI_RPW0010A_VQFN-HR-10_2x2mm_P0.475mm.kicad_mod'), 'w').write(dump(
     footprint('TI_RPW0010A_VQFN-HR-10_2x2mm_P0.475mm',
               'TI RPW0010A VQFN-HR-10 2x2 mm (TPS25947), land pattern per TI example SLVSFC9C p.73', it)) + '\n')
 
@@ -170,7 +170,22 @@ def tht(num, x, shape):
             [S('layers'), '*.Cu', '*.Mask']]
 it = [fp_text('Reference', 'REF**', 1.27, -1.6, 'F.SilkS'), fp_text('Value', 'NTC_THT', 1.27, 1.6, 'F.Fab'),
       tht('1', 0, 'rect'), tht('2', 2.54, 'circle'), rect(-1.0, -1.0, 3.54, 1.0, 'F.CrtYd')]
-open(os.path.join(PROJ, 'lib', 'E0003.pretty', 'NTC_Leaded_THT_P2.54mm_Drill0.8mm.kicad_mod'), 'w').write(dump(
+open(os.path.join(PROJ, 'lib', 'E0005.pretty', 'NTC_Leaded_THT_P2.54mm_Drill0.8mm.kicad_mod'), 'w').write(dump(
     footprint('NTC_Leaded_THT_P2.54mm_Drill0.8mm', 'Leaded NTC bead (Semitec 103AT-2), 2 THT pads 2.54 mm, 0.8 mm drill', it,
               'through_hole')) + '\n')
+# TI RPA0010A (VQFN-HR-10, 3x3) for the TPS56637: pads from the SLVSEG1A land pattern example (4224047/A, top view;
+# pin 1 top-left, pins 1-4 on the left, 5-7 bottom, VIN 8 right with three fingers, PGND 9 top centre, SW 6 bottom centre).
+it = [fp_text('Reference', 'REF**', 0, -2.4, 'F.SilkS'), fp_text('Value', 'TI_RPA0010A', 0, 2.4, 'F.Fab')]
+it += [smd(str(n), -1.40, y, 0.60, 0.25) for n, y in ((1, -0.75), (2, -0.25), (3, 0.25), (4, 0.75))]
+it += [smd('10', -0.93, -1.40, 0.25, 0.60), smd('5', -0.93, 1.40, 0.25, 0.60), smd('7', 0.87, 1.40, 0.25, 0.60)]
+it += [smd('9', -0.20, -0.65, 0.40, 2.10), smd('6', 0.375, 0.85, 0.25, 1.70), smd('8', 0.95, -0.65, 0.40, 2.10)]
+it += [smd('8', 1.43, y, 0.56, 0.25) for y in (-0.75, -0.25, 0.25)]
+it += [rect(-1.5, -1.5, 1.5, 1.5, 'F.Fab', 0.1), rect(-1.95, -1.95, 1.95, 1.95, 'F.CrtYd'),
+       line(-1.61, -1.61, -1.2, -1.61, 'F.SilkS'), line(1.2, -1.61, 1.61, -1.61, 'F.SilkS'),
+       line(-1.61, 1.61, -1.2, 1.61, 'F.SilkS'), line(1.2, 1.61, 1.61, 1.61, 'F.SilkS'),
+       [S('fp_circle'), [S('center'), -1.85, -1.1], [S('end'), -1.77, -1.1],
+        [S('stroke'), [S('width'), 0.16], [S('type'), S('solid')]], [S('fill'), S('yes')], [S('layer'), 'F.SilkS']]]
+open(os.path.join(PROJ, 'lib', 'E0005.pretty', 'TI_RPA0010A_VQFN-HR-10_3x3mm.kicad_mod'), 'w').write(dump(
+    footprint('TI_RPA0010A_VQFN-HR-10_3x3mm',
+              'TI RPA0010A VQFN-HR-10 3x3 mm (TPS56637), land pattern per TI example SLVSEG1A (4224047/A)', it)) + '\n')
 print('ok')

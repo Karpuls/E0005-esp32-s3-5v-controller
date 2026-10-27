@@ -1,6 +1,6 @@
 (footprint "TI_RPW0010A_VQFN-HR-10_2x2mm_P0.475mm"
 	(version 20241229)
-	(generator "e0003_make_symlib")
+	(generator "e0005_make_symlib")
 	(generator_version "10.0")
 	(layer "F.Cu")
 	(descr "TI RPW0010A VQFN-HR-10 2x2 mm (TPS25947), land pattern per TI example SLVSFC9C p.73")

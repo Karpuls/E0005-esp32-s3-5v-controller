@@ -1,6 +1,6 @@
 (kicad_symbol_lib
 	(version 20251024)
-	(generator "e0003_make_symlib")
+	(generator "e0005_make_symlib")
 	(generator_version "10.0")
 	(symbol "TPS629210"
 		(exclude_from_sim no)
@@ -230,12 +230,12 @@
 		)
 		(embedded_fonts no)
 	)
-	(symbol "BQ29209"
+	(symbol "TPS56637"
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(property "Reference" "U"
-			(at -7.62 8.89 0)
+			(at -10.16 8.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -243,8 +243,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BQ29209DRB"
-			(at -7.62 11.43 0)
+		(property "Value" "TPS56637RPAR"
+			(at -10.16 11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -252,7 +252,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SON:VSON-8-1EP_3x3mm_P0.65mm_EP1.65x2.4mm"
+		(property "Footprint" "E0005:TI_RPA0010A_VQFN-HR-10_3x3mm"
 			(at 0 0 0)
 			(effects
 				(font
@@ -261,7 +261,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/bq29209.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps56637.pdf"
 			(at 0 0 0)
 			(effects
 				(font
@@ -270,7 +270,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "2-series Li-ion overvoltage protector with automatic cell balancing, OV 4.30 V, VSON-8"
+		(property "Description" "4.5-28 V input, 6 A synchronous buck, D-CAP3, Eco-mode/FCCM (MODE), PG, VQFN-HR-10 3x3 (RPA)"
 			(at 0 0 0)
 			(effects
 				(font
@@ -279,7 +279,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_keywords" "battery protection balancing 2S"
+		(property "ki_keywords" "buck regulator step-down D-CAP3"
 			(at 0 0 0)
 			(effects
 				(font
@@ -288,7 +288,7 @@
 				(hide yes)
 			)
 		)
-		(property "ki_fp_filters" "VSON*3x3mm*P0.65mm*"
+		(property "ki_fp_filters" "*RPA0010A*"
 			(at 0 0 0)
 			(effects
 				(font
@@ -297,10 +297,10 @@
 				(hide yes)
 			)
 		)
-		(symbol "BQ29209_0_1"
+		(symbol "TPS56637_0_1"
 			(rectangle
-				(start -7.62 7.62)
-				(end 7.62 -7.62)
+				(start -10.16 7.62)
+				(end 10.16 -7.62)
 				(stroke
 					(width 0.254)
 					(type default)
@@ -310,101 +310,11 @@
 				)
 			)
 		)
-		(symbol "BQ29209_1_1"
-			(pin input line
-				(at -10.16 3.81 0)
-				(length 2.54)
-				(name "VC2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at -10.16 1.27 0)
-				(length 2.54)
-				(name "VC1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at -10.16 -1.27 0)
-				(length 2.54)
-				(name "VC1_CB"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at -10.16 -3.81 0)
-				(length 2.54)
-				(name "CD"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
+		(symbol "TPS56637_1_1"
 			(pin power_in line
-				(at 0 10.16 270)
+				(at -12.7 5.08 0)
 				(length 2.54)
-				(name "VDD"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "7"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin output line
-				(at 10.16 2.54 180)
-				(length 2.54)
-				(name "OUT"
+				(name "VIN"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -420,9 +330,45 @@
 				)
 			)
 			(pin input line
-				(at 10.16 0 180)
+				(at -12.7 2.54 0)
 				(length 2.54)
-				(name "~{CB_EN}"
+				(name "EN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -12.7 0 0)
+				(length 2.54)
+				(name "MODE"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "10"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin output line
+				(at 12.7 5.08 180)
+				(length 2.54)
+				(name "SW"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -437,17 +383,17 @@
 					)
 				)
 			)
-			(pin power_in line
-				(at 0 -10.16 90)
+			(pin passive line
+				(at 12.7 2.54 180)
 				(length 2.54)
-				(name "GND"
+				(name "BOOT"
 					(effects
 						(font
 							(size 1.27 1.27)
 						)
 					)
 				)
-				(number "5"
+				(number "7"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -455,11 +401,46 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 0 -10.16 90)
+			(pin input line
+				(at 12.7 0 180)
 				(length 2.54)
-				(hide yes)
-				(name "GND"
+				(name "FB"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin open_collector line
+				(at 12.7 -2.54 180)
+				(length 2.54)
+				(name "PG"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -2.54 -10.16 90)
+				(length 2.54)
+				(name "PGND"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -467,6 +448,43 @@
 					)
 				)
 				(number "9"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 2.54 -10.16 90)
+				(length 2.54)
+				(name "AGND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin no_connect line
+				(at 10.16 -7.62 180)
+				(length 0)
+				(hide yes)
+				(name "NC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
 					(effects
 						(font
 							(size 1.27 1.27)

@@ -1,6 +1,6 @@
 (footprint "NTC_Leaded_THT_P2.54mm_Drill0.8mm"
 	(version 20241229)
-	(generator "e0003_make_symlib")
+	(generator "e0005_make_symlib")
 	(generator_version "10.0")
 	(layer "F.Cu")
 	(descr "Leaded NTC bead (Semitec 103AT-2), 2 THT pads 2.54 mm, 0.8 mm drill")
