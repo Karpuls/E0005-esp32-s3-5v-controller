@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **v0.2 — architecture approved by PlaceRoute**; owner questions §14 pending |
-| Date | 2026-10-27 |
+| Status | **v1.0 — FROZEN for hardware** (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
+| Date | 2026-10-27 (v0.1, v0.2, v1.0) |
 | Scope | **PCB only.** Enclosure and firmware are out of scope; §8 lists only the firmware rules the hardware relies on. |
 | Reference design | **E0003** (`../E0003 - ESP32 control box mainboard`, spec v1.5, order-ready). E0005 reuses its MCU, battery, protection, gauge, I²C, LCD, switch and button blocks, its footprints/libraries and its DigiKey parts. **Only what "5 V only" forces is changed** (§1.1). |
 | Sister designs | E0001 (fader driver, 4 per box) and E0002 (haptic knob, 1 per box) are **not part of this job**. E0005 keeps their connectors and pinouts with **+5 V** on the power pins. **E0001 rev C and E0002 rev B need 6–9 V (PBUS) and will not work on E0005; 5 V revisions are needed later (out of scope).** §6 is the host-interface spec they will need. |
@@ -14,6 +14,7 @@
 |---|---|
 | v0.1 | First draft from the lead brief (owner option A: plain 5 V USB, no PD) and E0003 v1.5 |
 | v0.2 | PlaceRoute review: (1) **U_IN limit in three levels, 0.50 A at reset** / 1.37 A / 2.81 A, two FET legs on TCA9535 P06/P07; **VBUS budget rule** (U_IN + charger IINDPM ≤ source) in §8.3. (2) U_IN behaviour after ITIMER confirmed from TPS25947 SLVSFC9C §7.3.5.3, §7.3.8 and Table 7-3, §5.1 and §5.2 made consistent. (3) U_IN thermal check, copper reservation (§5.6.1). (4) V5 bulk and USB-unplug dip (§5.1.1); V5 bulk raised to 6 × 47 µF. (5) BQ25887 per-cell ADC as the fallback battery-level source (§8.11). FLT of U_IN is low during normal load sharing (§8.9). |
+| **v1.0** | **Owner answers (all as recommended), spec frozen:** Q1 keep the **MAX17205** gauge; Q2 **drop the BQ29209**; Q3 keep E0003's port limits (**E0001 ≤ 0.6 A, E0002 ≤ 2.0 A, firmware budget 4.4 A**); Q4 **"off" with USB plugged in = board stays on from USB and charges**; Q5 private GitHub repo `Karpuls/E0005-esp32-s3-5v-controller`, pushed at every milestone. |
 
 ---
 
@@ -44,7 +45,7 @@
 | BQ25798 buck-boost NVDC charger, VSYS = PBUS 6–9 V | **BQ25887** boost charger (5 V → 2S), no system output | 5 V input only; the system no longer runs from a 2S rail |
 | — | **TPS56637** 2S → 5 V buck + **USB input eFuse** (6th TPS259470A) | New 5 V system rail V5 |
 | TVS2200DRVR on VBUS (BOM exception, LCSC) | **SMF9.0A** (already a common part) | VBUS is 5 V now; clamps 15.4 V < 20 V BQ25887 abs max; BOM exception gone |
-| BQ29209 balancer + secondary OV, Q10/BAL_EN, OV2 FET | **removed** (proposal, Q2 in §14) | BQ25887 balances (≈ 110 mA, measured with charge paused) and has its own cell OVP |
+| BQ29209 balancer + secondary OV, Q10/BAL_EN, OV2 FET | **removed** (owner Q2, v1.0) | BQ25887 balances (≈ 110 mA, measured with charge paused) and has its own cell OVP |
 | Port eFuses OVLO 10 V / UVLO 5.8 V, SMF9.0A port TVS | OVLO **6.0 V** / UVLO **4.1 V**, **SMF5.0A** port TVS | 5 V ports |
 | Silkscreen "PBUS 6–9 V" | **"5V"** + port number + "E0001"/"E0002" | Brief |
 | MID → ESP32 GPIO4 divider | **removed**; GPIO4 = **V5_SENSE** | BQ25887 ADC gives both cell voltages |
@@ -143,7 +144,7 @@ Unchanged from E0003 §4: native USB-Serial/JTAG on GPIO19/20 (no UART pads), FS
 - With a weak USB source (VBUS < ≈ 4.88 V under load) the buck carries part of the load while the charger charges the pack from USB. This only costs efficiency; firmware sees it in the gauge current.
 - The buck's high-side body diode can lift a battery-less BAT+ node to ≈ V5 − 0.6 V ≈ 4.3 V (µA leakage only). This is below the buck UVLO and below firmware's "battery present" threshold (§8.4).
 
-**Loads** (V5 ≈ 4.9 V; port caps as E0003, to be confirmed for the 5 V peripheral revisions, Q3)
+**Loads** (V5 ≈ 4.9 V; port caps as E0003, owner Q3 v1.0)
 | Load | Idle | Typical active | Operating peak | Cap / hard limit |
 |---|---|---|---|---|
 | ESP32-S3 (Wi-Fi) + logic + LCD on 3V3 | 0.10 A | 0.25 A | 0.60 A (TX burst + backlight) | 1 A (TPS629210) |
@@ -225,7 +226,7 @@ With a battery fitted, step 2 never happens below the 4.4 A budget: the buck tak
 **Unchanged from E0003 §5.4** (cells, Keystone 1121 holders and the mandatory P50B test fit, F1 10 A, S-8252AAG OV 4.30 / UV 2.80 / OC 0.150 V with 2 × PSMN2R0-30YLDX low-side, R_SENSE 5 mΩ between the FETs and GND, MAX17205 stack-only gauge with GND = PACK−, its series R and RC, NTC2 on the gauge, reverse-cell BAT54W clamps on the S-8252, reverse-cell LEDs, polarity marks).
 
 Changes:
-- **BQ29209, its series resistors and clamps, Q10/BAL_EN and the OV2 dual FET are removed** (proposal, Q2): the BQ25887 balances (above) and provides a second, independent cell-OV stop. Ladder (per cell): VREG 4.20 V → **S-8252AAG OV 4.30 V** (charge FET off) → **BQ25887 cell OVP ≈ 4.37 V** (charger stops). Discharge: firmware 3.2 V/cell under load → port UVLO / buck dropout → S-8252 UV 2.80 V → P50B 2.5 V.
+- **BQ29209, its series resistors and clamps, Q10/BAL_EN and the OV2 dual FET are removed** (owner Q2, v1.0): the BQ25887 balances (above) and provides a second, independent cell-OV stop. Ladder (per cell): VREG 4.20 V → **S-8252AAG OV 4.30 V** (charge FET off) → **BQ25887 cell OVP ≈ 4.37 V** (charger stops). Discharge: firmware 3.2 V/cell under load → port UVLO / buck dropout → S-8252 UV 2.80 V → P50B 2.5 V.
 - **The MID → GPIO4 divider is removed**; per-cell voltages come from the BQ25887 ADC (works in battery-only mode).
 - BAT+ (after F1) feeds the BQ25887 BAT/SNS, the TPS56637 VIN and the MAX17205 VBATT.
 - When the S-8252 FETs are open, the gauge powers down (as E0003) and V5 falls to USB-only operation.
@@ -299,7 +300,7 @@ Same circuit as E0003 §5.11 with VIN = V5 (3–17 V part). Works at 100 % duty 
 - **Soft power latch (new):** P-FET **Q_PL** (VDS ≥ 20 V, VGS ±12 V, SOT-23) from BAT+ to the buck EN divider, gate pulled to BAT+ by 1 MΩ. The gate is pulled low (via 10 kΩ) either by the button (PB_RAW, through a BAT54W) or by an N-FET driven by **PWR_HOLD (GPIO36)**, 100 k gate pull-down.
   - **On:** press → Q_PL on → buck on → 3V3 → firmware sets PWR_HOLD high within the press.
   - **Off:** long press, detected on **GPIO21** (PB_RAW via BAT54W, 10 k pull-up to 3V3, as E0003) → firmware drops PWR_HOLD → buck off.
-  - With USB plugged in, the MCU runs from USB whatever the latch state (§14 Q4); firmware decides whether the battery may supply (PWR_HOLD).
+  - With USB plugged in, the MCU runs from USB whatever the latch state (owner Q4, v1.0); firmware decides whether the battery may supply (PWR_HOLD).
   - **Off drain ≈ 32 µA**: BQ25887 12 µA + MAX17205 12 µA + S-8252 6 µA + buck 2 µA (≈ 0.25 Ah/year).
 - **BOOT** (GPIO0) and **RESET** (EN, 10 k / 1 µF): as E0003.
 - LEDs: green status (GPIO40), amber charge (BQ25887 STAT), 2 × red reverse-cell (as E0003).
@@ -341,8 +342,8 @@ MP = GND. Cables 1:1, 26 AWG, ≤ 1.0 m.
 | Over-voltage | eFuse **OVLO 5.85–6.25 V** | **withstand ≥ 6.5 V continuous** |
 | Under-voltage | eFuse UVLO 4.08 V falling / 4.49 V rising | brown out cleanly below 4.0 V |
 | Turn-on | off at host reset; one port at a time; ≈ 1 V/ms ramp | input capacitance ≤ 220 µF; motor disabled until the host enables it over I²C |
-| Current, E0001 (GH4) | eFuse 0.74–1.00 A | **≤ 0.6 A** continuous and peak (proposal, Q3) |
-| Current, E0002 (GH6) | eFuse 2.03 A typ (1.80–2.20 A), ≈ 18 ms blanking | **≤ 2.0 A** continuous and peak (proposal, Q3) |
+| Current, E0001 (GH4) | eFuse 0.74–1.00 A | **≤ 0.6 A** continuous and peak (owner Q3) |
+| Current, E0002 (GH6) | eFuse 2.03 A typ (1.80–2.20 A), ≈ 18 ms blanking | **≤ 2.0 A** continuous and peak (owner Q3) |
 | Total for all ports | firmware budget 4.4 A with battery; per §5.2 on USB only | — |
 | Back-feed | host eFuse blocks reverse current | must not source current into +5V |
 
@@ -437,7 +438,7 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 | D (ports) | **SMF5.0A** (Littelfuse) | 5 | at BOM time | replaces SMF9.0A at the ports |
 | Q_PL | P-FET 20 V, VGS ±12 V, SOT-23 | 1 | at BOM time | soft power latch |
 
-**Removed from E0003:** STUSB4500, BQ25798 + its inductor, BQ29209 (Q2), TVS2200DRVR (BOM exception gone), mid-point divider, Q10, OV2 FET.
+**Removed from E0003:** STUSB4500, BQ25798 + its inductor, BQ29209 (owner Q2), TVS2200DRVR (BOM exception gone), mid-point divider, Q10, OV2 FET.
 
 ---
 
@@ -464,6 +465,11 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 | Size | no strict limit |
 | Peripherals | E0001/E0002 5 V revisions out of scope |
 | House rules | §2.1 R8 |
+| Battery level (Q1) | **MAX17205 fuel gauge kept**; BQ25887 ADC as firmware fallback |
+| BQ29209 (Q2) | **Dropped**; the BQ25887 balances, S-8252 is the hardware cell OV/UV |
+| Port limits (Q3) | **E0001 ≤ 0.6 A, E0002 ≤ 2.0 A, firmware budget 4.4 A** (E0003 values) |
+| Off with USB (Q4) | **Board stays on from USB and charges** |
+| Repository (Q5) | Private GitHub `Karpuls/E0005-esp32-s3-5v-controller`, push at every milestone |
 | Placement / routing | Placement with the KiStack `layout-placement` scripts; routing by hand or script via IPC only (`kicad-layout`); **no autorouters of any kind** |
 
 ---
@@ -485,11 +491,11 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 
 ---
 
-## 14. Questions for the owner (one bundle)
-| # | Question | Recommendation |
+## 14. Owner questions — answered 2026-10-27 (all as recommended)
+| # | Question | Answer |
 |---|---|---|
-| **Q1** | **Battery level:** keep E0003's **MAX17205 fuel gauge** (SoC %, remaining time, pack current; read by the ESP32 over I²C), or measure only the pack voltage with a resistor divider on an ESP32 ADC pin (simpler, voltage-based estimate, ±5–10 % SoC)? | **Keep the MAX17205** (reviewed, accurate). The BQ25887 ADC adds per-cell voltages for free. |
-| **Q2** | **Drop the BQ29209** balancer/secondary-OV chip? The new charger balances the cells itself (≈ 110 mA) and stops charging on cell over-voltage; the S-8252 stays as the hardware cell OV/UV protector. | **Yes, drop it** (−1 IC, −1 FET, −10 passives; balancing becomes stronger). |
-| **Q3** | **Port current for the future 5 V peripherals:** keep E0003's numbers (E0001 ≤ 0.6 A, eFuse 0.74–1.00 A; E0002 ≤ 2.0 A, eFuse 2.0 A nominal) and the firmware budget of 4.4 A? Without a battery the ports get ≈ 2.3 A on a 5 V / 3 A charger and ≈ 0.9 A on 1.5 A. | **Yes** — keeps the eFuse parts and the 6 A rail sizing. |
-| **Q4** | **"Off" with USB plugged in:** the board then keeps running from USB (it charges and can show the charge state; the battery is not used). OK, or should "off" also cut USB power to the MCU and ports? | **OK as proposed** (simplest; firmware can sleep the MCU). |
-| **Q5** | **GitHub:** create `Karpuls/E0005-esp32-s3-5v-controller` (private, like E0003) and push at milestones? Local git commits happen anyway. | Yes, if you want an off-machine copy. |
+| **Q1** | **Battery level:** keep E0003's **MAX17205 fuel gauge** (SoC %, remaining time, pack current; read by the ESP32 over I²C), or measure only the pack voltage with a resistor divider on an ESP32 ADC pin (simpler, voltage-based estimate, ±5–10 % SoC)? | Owner: **Keep the MAX17205** |
+| **Q2** | **Drop the BQ29209** balancer/secondary-OV chip? The new charger balances the cells itself (≈ 110 mA) and stops charging on cell over-voltage; the S-8252 stays as the hardware cell OV/UV protector. | Owner: **Drop it** |
+| **Q3** | **Port current for the future 5 V peripherals:** keep E0003's numbers (E0001 ≤ 0.6 A, eFuse 0.74–1.00 A; E0002 ≤ 2.0 A, eFuse 2.0 A nominal) and the firmware budget of 4.4 A? Without a battery the ports get ≈ 2.3 A on a 5 V / 3 A charger and ≈ 0.9 A on 1.5 A. | Owner: **Yes** |
+| **Q4** | **"Off" with USB plugged in:** the board then keeps running from USB (it charges and can show the charge state; the battery is not used). OK, or should "off" also cut USB power to the MCU and ports? | Owner: **OK as proposed** |
+| **Q5** | **GitHub:** create `Karpuls/E0005-esp32-s3-5v-controller` (private, like E0003) and push at milestones? Local git commits happen anyway. | Owner: **Yes, private repo, push at every milestone** |
