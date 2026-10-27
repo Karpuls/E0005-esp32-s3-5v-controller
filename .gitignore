@@ -1,0 +1,11 @@
+# generated / intermediate
+build/*
+!build/scripts/
+*-backups/
+fp-info-cache
+*.kicad_prl
+_autosave-*
+~*.lck
+*.lck
+__pycache__/
+.backplane/
