@@ -72,7 +72,7 @@ def rule_area(name, pts, layers, copper=True, vias=True, tracks=True, pads=True,
 ANT = [(56.05, -24.0), (62.6, -24.0), (62.6, 24.0), (56.05, 24.0)]   # WROOM-1 antenna, all copper layers
 
 # U16 (U_IN) reservation (SPEC 5.6.1), User.Drawings: keep area, F.Cu IN/OUT pours, B.Cu VBUS area
-U16_KEEP = (-55.5, -26.6, -38.2, -19.0)          # U16 + C65, R133-R141, C66, C67, Q11, Q12
+U16_KEEP = (-55.7, -26.6, -38.2, -19.0)          # U16 + C65, R133-R141, C66, C67, Q11, Q12
 OUT_POUR = (-55.4, -31.8, -38.5, -26.6)          # V5 OUT F.Cu >= 80 mm2 (88)
 IN_POUR = [(-62.0, -25.2), (-55.5, -25.2), (-55.5, -21.5), (-46.5, -21.5), (-46.5, -17.6), (-62.0, -17.6)]
 #         IN F.Cu >= 80 mm2 (84): west block + south band to U16's IN bar south end

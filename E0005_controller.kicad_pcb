@@ -69437,7 +69437,7 @@
 		(uuid "3a9cf3d2-e531-4a25-b09d-7e50ad32ddc1")
 	)
 	(gr_rect
-		(start 94.5 73.4)
+		(start 94.3 73.4)
 		(end 111.8 81)
 		(stroke
 			(width 0.1)
