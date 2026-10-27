@@ -7,10 +7,23 @@ rt.NEWFRAME = True
 from rt import T, V, Z, rect
 F, B, I2 = 'F.Cu', 'B.Cu', 'In2.Cu'
 G = 'GND'
-# B columns -> band lanes (west)
-T('PORT1_OFF', 0.15, B, (8.75, -15.125), (9.4, -15.125), (9.4, -17.9), (8.0, -17.9))
-T('PORT2_OFF', 0.15, B, (7.95, -14.475), (9.8, -14.475), (9.8, -18.3), (8.0, -18.3))
-T('PORT4_OFF', 0.15, B, (7.95, -13.175), (10.2, -13.175), (10.2, -18.7), (8.0, -18.7))
+# P1/P2/P4_OFF: B columns x 9.4/9.8/10.2 -> short B lanes -> vias east of the x 7.6 3V3 riser -> F lanes west
+T('PORT1_OFF', 0.15, B, (8.75, -15.125), (9.4, -15.125), (9.4, -19.3), (8.6, -19.3)); V('PORT1_OFF', 8.6, -19.3)
+T('PORT2_OFF', 0.15, B, (7.95, -14.475), (9.8, -14.475), (9.8, -20.1), (8.2, -20.1)); V('PORT2_OFF', 8.2, -20.1)
+T('PORT4_OFF', 0.15, B, (7.95, -13.175), (10.2, -13.175), (10.2, -20.9), (8.6, -20.9)); V('PORT4_OFF', 8.6, -20.9)
+# PORT1_OFF: F lane y -19.3 west, R80.2 (pull-up, below the band) and Q3.1 (east of the BH1 peg)
+T('PORT1_OFF', 0.15, F, (8.6, -19.3), (-22.64, -19.3), 'R80.2')
+T('PORT1_OFF', 0.15, F, (-22.64, -19.3), (-22.3, -19.64), (-22.3, -24.4), (-23.2, -25.3), 'Q3.1')
+# PORT2_OFF: F lane y -20.1 west, north at x -7.6 into Q4.1
+T('PORT2_OFF', 0.15, F, (8.2, -20.1), (-8.8, -20.1), 'R82.2')
+# PORT4_OFF: F lane y -20.9 -> via -> B col x 4.0 -> via -> F into Q6.1 (west side)
+T('PORT4_OFF', 0.15, F, (8.6, -20.9), (4.3, -20.9)); V('PORT4_OFF', 4.3, -20.9)
+T('PORT4_OFF', 0.15, B, (4.3, -20.9), (4.0, -21.2), (4.0, -30.15), (4.4, -30.55)); V('PORT4_OFF', 4.4, -30.55)
+T('PORT4_OFF', 0.15, F, (4.4, -30.55), 'Q6.1')
+# PORT3_OFF: Q5.1 -> via -> B across the band -> via -> F to R84.2 (keeps F free for the west lanes)
+T('PORT3_OFF', 0.15, F, 'Q5.1', (5.6, -24.2)); V('PORT3_OFF', 5.6, -24.2)
+T('PORT3_OFF', 0.15, B, (5.6, -24.2), (5.6, -16.9)); V('PORT3_OFF', 5.6, -16.9)
+T('PORT3_OFF', 0.15, F, (5.6, -16.9), 'R84.2')
 # CHG_CD / USB_ILIM: F east from the pins under the U9 body, north out of the body top into the band, F lanes west
 for pin, xc, yl in (('U9.9', 12.2, -17.9), ('U9.10', 12.6, -18.3), ('U9.11', 13.0, -18.7)):
     p = rt.PADS_NEW[pin]
@@ -22,7 +35,13 @@ T('PORT5_OFF', 0.15, F, (21.2, -27.1), 'Q7.1')
 T('EXP_INT_N', 0.15, I2, (8.75, -17.28), (9.07, -17.6), (35.6, -17.6), (35.6, 5.71))   # In2 3V3 strip under the V5 band edge
 # EXP_INT_N from the R40.2 via (B) north between the CC sense vias, west to the In2 column
 T('EXP_INT_N', 0.15, B, (47.575, -11.5), (47.575, -17.25), (35.6, -17.25)); V('EXP_INT_N', 35.6, -17.25)
-# PORT2_EN link to Q4.3 on B (was an In2 column through the V5 band)
-T('PORT2_EN', 0.15, B, (-16.3, -17.3), (-16.0, -17.6), (-12.2, -17.6), (-12.2, -30.35), (-11.6, -30.95))
+# port 2: R101 (OVLO top V5, R101.2 EN) kept inside the port band: V5 via, EN via -> In2 to the EN tree via; EN tree via -> Q4.3 via
+T('V5', 0.3, F, 'R101.1', (-17.3, -25.0)); V('V5', -17.3, -25.0)
+T('PORT2_EN', 0.15, F, 'R101.2', (-16.1, -25.0)); V('PORT2_EN', -16.1, -25.0)
+T('PORT2_EN', 0.15, I2, (-16.1, -25.0), (-16.8, -25.7), (-16.8, -29.95))
+T('PORT2_EN', 0.15, I2, (-16.8, -29.95), (-11.6, -29.95), (-11.6, -30.95))
 # C57.1 (port-4 input bulk cap) V5 via right below the pad, inside the In2 V5 band
 T('V5', 0.4, F, 'C57.1', (19.8, -25.3)); V('V5', 19.8, -25.3)
+# C60 (port-5 bulk cap, below the band) V5 line up to a via in the In2 V5 band; R122.1 (port-5 OVLO divider) V5 via
+T('V5', 0.25, F, 'U14.5', (29.05, -27.0), (29.13, -26.92), (29.13, -16.4), (29.35, -16.18)); V('V5', 29.13, -24.3)
+T('V5', 0.25, F, 'R122.1', (26.8, -26.2), (26.8, -26.6))   # to the existing port-5 V5 via

@@ -48,8 +48,13 @@ def _X(p):
     return p if NEWFRAME else _xf(p)
 def ptx(a):
     """output-frame point: pads always via xf (old pad -> current pad); tuples via xf unless NEWFRAME"""
+    if isinstance(a, str):        # pads: current position (+ offset), never transformed
+        m = re.match(r'^([^+@]+)(?:@([-\d.]+),([-\d.]+))?$', a)
+        p = PADS_NEW[m.group(1)]
+        dx, dy = (float(m.group(2)), float(m.group(3))) if m.group(2) else (0.0, 0.0)
+        return (q(p['x'] + dx), q(p['y'] + dy))
     p = pt(a)
-    if isinstance(a, str) or not NEWFRAME:
+    if not NEWFRAME:
         p = _xf(p)
     return (q(p[0]), q(p[1]))
 
