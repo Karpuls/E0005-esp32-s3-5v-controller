@@ -17,3 +17,5 @@
 (rule "USB-C pegs" (condition "A.Parent == 'J11' && B.Parent == 'J11'") (constraint hole_clearance (min 0.1mm)))
 # Owner rule (2026-10-16): no vias on or under pads; >= 0.15 mm via-to-pad copper gap (different nets; EP thermal vias are same-net)
 (rule "Router via to pad" (condition "A.Type == 'Via' && B.Type == 'Pad'") (constraint clearance (min 0.15mm)))
+# Routing (2026-10-27): copper pours keep 0.2 mm from other-net copper (the JLC 0.09 mm rule above would otherwise set the pour gap)
+(rule "Pour clearance" (condition "A.Type == 'Zone' || B.Type == 'Zone'") (constraint clearance (min 0.2mm)))
