@@ -68674,6 +68674,11 @@
 			(uuid "d860aa35-8363-5a8d-bc6a-530eb78f855c")
 		)
 		(embedded_fonts no)
+		(fp_circle (center 38.15 0) (end 40.55 0) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "0bd061dc-0c74-4df9-a30e-c3e627cb810c"))
+		(fp_circle (center -38.15 0) (end -35.75 0) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "5ab1957b-ca74-4803-afe5-07f28f93caad"))
+		(fp_circle (center -27.6 -9) (end -25.3 -9) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "3984c28f-ab6c-4035-9b84-e14a28254412"))
+		(fp_circle (center 27.6 9) (end 29.9 9) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "c9bf3978-b363-4d6d-840e-9eed32c8a3be"))
+		(fp_circle (center 38.15 -9) (end 39.85 -9) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "54090dda-a9ca-4c45-9b5e-f90a1fb0c6aa"))
 		(model "${KIPRJMOD}/lib/E0005_mech.3dshapes/Keystone_1121_P50B.step"
 			(offset
 				(xyz 0 0 0)
@@ -68992,6 +68997,11 @@
 			(uuid "98ae1bc2-0ea6-5f4e-a745-1b06e813cb47")
 		)
 		(embedded_fonts no)
+		(fp_circle (center 38.15 0) (end 40.55 0) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "4481727c-5534-450e-8a3a-481522088dc4"))
+		(fp_circle (center -38.15 0) (end -35.75 0) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "75d836dc-a865-4a4e-8f2b-d9b7aa86442b"))
+		(fp_circle (center -27.6 -9) (end -25.3 -9) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "e9713815-b1e7-4b10-b4b0-149afa19cac4"))
+		(fp_circle (center 27.6 9) (end 29.9 9) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "7362345d-4cf3-41bd-add3-7f84fd3708ce"))
+		(fp_circle (center 38.15 -9) (end 39.85 -9) (stroke (width 0.05) (type solid)) (fill no) (layer "F.CrtYd") (uuid "8e799951-ca8d-4076-b481-b520bdd7af67"))
 		(model "${KIPRJMOD}/lib/E0005_mech.3dshapes/Keystone_1121_P50B.step"
 			(offset
 				(xyz 0 0 0)
