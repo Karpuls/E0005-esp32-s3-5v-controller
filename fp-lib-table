@@ -1,0 +1,5 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "E0005")(type "KiCad")(uri "${KIPRJMOD}/lib/E0005.pretty")(options "")(descr "E0005 electrical footprints (Schematics)"))
+	(lib (name "E0005_mech")(type "KiCad")(uri "${KIPRJMOD}/lib/E0005_mech.pretty")(options "")(descr "E0005 holders, outline (Router)"))
+)
