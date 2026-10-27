@@ -12,7 +12,9 @@ T('PORT1_OFF', 0.15, B, (8.75, -15.125), (9.4, -15.125), (9.4, -19.3), (8.6, -19
 T('PORT2_OFF', 0.15, B, (7.95, -14.475), (9.8, -14.475), (9.8, -20.1), (8.2, -20.1)); V('PORT2_OFF', 8.2, -20.1)
 T('PORT4_OFF', 0.15, B, (7.95, -13.175), (10.2, -13.175), (10.2, -20.9), (8.6, -20.9)); V('PORT4_OFF', 8.6, -20.9)
 # PORT1_OFF: F lane y -19.3 west, R80.2 (pull-up, below the band) and Q3.1 (east of the BH1 peg)
-T('PORT1_OFF', 0.15, F, (8.6, -19.3), (-22.64, -19.3), 'R80.2')
+T('PORT1_OFF', 0.15, F, (8.6, -19.3), (-22.64, -19.3)); V('PORT1_OFF', -22.64, -19.3)
+T('PORT1_OFF', 0.15, B, (-22.64, -19.3), (-23.4, -18.54), (-23.4, -16.99)); V('PORT1_OFF', -23.4, -16.99)
+T('PORT1_OFF', 0.15, F, (-23.4, -16.99), 'R80.2')
 T('PORT1_OFF', 0.15, F, (-22.3, -19.3), (-22.3, -24.4), (-23.2, -25.3), 'Q3.1')
 # PORT2_OFF: F lane y -20.1 west, north at x -7.6 into Q4.1
 T('PORT2_OFF', 0.15, F, (8.2, -20.1), (-8.8, -20.1), 'R82.2')
@@ -25,9 +27,11 @@ T('PORT3_OFF', 0.15, F, 'Q5.1', (5.6, -24.2)); V('PORT3_OFF', 5.6, -24.2)
 T('PORT3_OFF', 0.15, B, (5.6, -24.2), (5.6, -16.9)); V('PORT3_OFF', 5.6, -16.9)
 T('PORT3_OFF', 0.15, F, (5.6, -16.9), 'R84.2')
 # CHG_CD / USB_ILIM: F east from the pins under the U9 body, north out of the body top into the band, F lanes west
-for pin, xc, yl in (('U9.9', 12.2, -17.9), ('U9.10', 12.6, -18.3), ('U9.11', 13.0, -18.7)):
+for pin, xc, yl in (('U9.10', 12.6, -17.9), ('U9.11', 13.0, -18.5)):
     p = rt.PADS_NEW[pin]
     T(p['net'], 0.15, F, (10.6, p['y']), (xc, p['y']), (xc, yl), (8.0, yl))
+# CHG_CD: U9.9 -> F stub -> via (7.95,-11.875) -> In2 column x 6.2 (3V3 plane) south -> joins the U2 bundle in the centre (r_bundle)
+T('CHG_CD', 0.15, F, 'U9.9', (7.95, -11.875)); V('CHG_CD', 7.95, -11.875)
 # PORT5_OFF: eastmost B column, east in the band, via near Q7, F into Q7.1
 T('PORT5_OFF', 0.15, B, (8.75, -12.525), (13.0, -12.525), (13.0, -20.5), (21.2, -20.5), (21.2, -27.1)); V('PORT5_OFF', 21.2, -27.1)
 T('PORT5_OFF', 0.15, F, (21.2, -27.1), 'Q7.1')
@@ -45,3 +49,11 @@ T('V5', 0.4, F, 'C57.1', (19.8, -25.3)); V('V5', 19.8, -25.3)
 # C60 (port-5 bulk cap, below the band) V5 line up to a via in the In2 V5 band; R122.1 (port-5 OVLO divider) V5 via
 T('V5', 0.25, F, 'U14.5', (29.05, -27.0), (29.13, -26.92), (29.13, -16.4), (29.35, -16.18)); V('V5', 29.13, -24.3)
 T('V5', 0.25, F, (27.4, -26.2), (26.8, -26.2), (26.8, -26.6))   # to the existing port-5 V5 via
+# USB_ILIM_1A5 / _3A0: F lanes west in the band, B past the MID / D5 tracks, B columns north to the R139 / R141 gate resistors
+T('USB_ILIM_1A5', 0.15, F, (8.0, -17.9), (-35.5, -17.9)); V('USB_ILIM_1A5', -35.5, -17.9)
+T('USB_ILIM_1A5', 0.15, B, (-35.5, -17.9), (-39.6, -17.9), (-39.6, -33.55)); V('USB_ILIM_1A5', -39.6, -33.55)
+# (the via sits on the existing Q11.1 -> R139.1 track)
+T('USB_ILIM_3A0', 0.15, F, (8.0, -18.5), (-36.2, -18.5)); V('USB_ILIM_3A0', -36.2, -18.5)
+T('USB_ILIM_3A0', 0.15, B, (-36.2, -18.5), (-38.4, -18.5), (-38.4, -28.35)); V('USB_ILIM_3A0', -38.4, -28.35)
+T('USB_ILIM_3A0', 0.15, F, (-38.4, -28.35), (-38.7, -28.65), 'R141.1')
+T('PORT1_EN', 0.15, F, (-26.7, -25.94), (-26.4, -26.24))   # Q3 nudged 0.3 mm with the enlargement: extend into Q3.3
