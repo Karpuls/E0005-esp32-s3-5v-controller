@@ -7,7 +7,7 @@ import rt
 HERE = os.path.dirname(os.path.abspath(__file__))
 OBS = {'F.Cu': [], 'B.Cu': [], 'In2.Cu': [], 'In1.Cu': []}
 def _load():
-    for k, p in rt.PADS.items():
+    for k, p in rt.PADS_NEW.items():
         b = p['bb']; g = box(*b)
         Ls = ['F.Cu', 'B.Cu', 'In2.Cu', 'In1.Cu'] if p['thru'] else [l for l in (p['L'] or []) if l in OBS]
         for L in Ls:

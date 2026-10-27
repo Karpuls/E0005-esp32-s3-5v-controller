@@ -7,17 +7,26 @@ Z(net, layer, pts, name, prio=0, conn='full'|'thermal'|'pth', clr=0.2): copper p
 """
 import json, math, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
-B = json.load(open(os.path.join(HERE, 'board.json')))
-PADS = {}
-for f in B['fps']:
-    for p in f['pads']:
-        if p['n']:
-            k = '%s.%s' % (f['ref'], p['n'])
-            while k in PADS:
-                k += "'"
-            p['ref'] = f['ref']
-            PADS[k] = p
-FP = {f['ref']: f for f in B['fps']}
+import copy
+from xfm import D as _D
+B = json.load(open(os.path.join(HERE, 'board.json')))          # current board (after the 8 mm north enlargement)
+_MV = set(json.load(open(os.path.join(HERE, 'moved_refs.json'))))
+def _pads(b, old):
+    P = {}
+    for f in b['fps']:
+        for p in f['pads']:
+            if p['n']:
+                k = '%s.%s' % (f['ref'], p['n'])
+                while k in P:
+                    k += "'"
+                p = dict(p); p['ref'] = f['ref']
+                if old and f['ref'] in _MV:
+                    p['y'] += _D; p['bb'] = [p['bb'][0], p['bb'][1] + _D, p['bb'][2], p['bb'][3] + _D] if p['bb'] else None
+                P[k] = p
+    return P
+PADS = _pads(B, True)        # route modules work in the pre-enlargement frame; output goes through xfm.xf once
+PADS_NEW = _pads(B, False)   # current frame (probe / grid / view tools)
+FP = {f['ref']: (dict(f, y=f['y'] + _D) if f['ref'] in _MV else f) for f in B['fps']}   # old frame like PADS
 NETS = sorted({p['net'] for p in PADS.values() if p['net']})
 ITEMS = []
 NM = 1e6
@@ -32,6 +41,17 @@ def net(n):
 
 def q(v):  # snap to 1 nm grid
     return round(v * NM) / NM
+
+NEWFRAME = False   # modules written after the 8 mm north enlargement set rt.NEWFRAME = True (coordinates already final)
+from xfm import xf as _xf
+def _X(p):
+    return p if NEWFRAME else _xf(p)
+def ptx(a):
+    """output-frame point: pads always via xf (old pad -> current pad); tuples via xf unless NEWFRAME"""
+    p = pt(a)
+    if isinstance(a, str) or not NEWFRAME:
+        p = _xf(p)
+    return (q(p[0]), q(p[1]))
 
 def pt(a):
     if isinstance(a, str):
@@ -65,7 +85,7 @@ def T(n, w, layer, *pts, bend='d'):
         pn = padnet(a)
         if pn is not None and pn != n:
             raise ValueError('pad %s is on %s, not %s' % (a, pn, n))
-    P = [pt(a) for a in pts]
+    P = [ptx(a) for a in pts]
     bends = bend if isinstance(bend, (list, tuple)) else [bend] * (len(P) - 1)
     out = [P[0]]
     for i in range(1, len(P)):
@@ -77,7 +97,9 @@ def T(n, w, layer, *pts, bend='d'):
 
 def V(n, x, y=None, dia=0.6, drill=0.3):
     if y is None:
-        x, y = pt(x)
+        x, y = ptx(x)
+    else:
+        x, y = _X((x, y))
     ITEMS.append(dict(k='v', net=net(n), p=(q(x), q(y)), d=dia, dr=drill))
 
 def VS(n, pts, **kw):
@@ -85,7 +107,7 @@ def VS(n, pts, **kw):
         V(n, p[0], p[1], **kw)
 
 def Z(n, layer, pts, name, prio=0, conn='full', clr=0.2, minw=0.2, spoke=0.4):
-    ITEMS.append(dict(k='z', net=net(n) if n else None, L=layer, pts=[pt(p) for p in pts], name=name,
+    ITEMS.append(dict(k='z', net=net(n) if n else None, L=layer, pts=[ptx(p) for p in pts], name=name,
                       prio=prio, conn=conn, clr=clr, minw=minw, spoke=spoke))
 
 def rect(x0, y0, x1, y1):

@@ -2,4 +2,5 @@
 	(version 7)
 	(lib (name "E0005")(type "KiCad")(uri "${KIPRJMOD}/lib/E0005.pretty")(options "")(descr "E0005 electrical footprints (Schematics)"))
 	(lib (name "E0005_mech")(type "KiCad")(uri "${KIPRJMOD}/lib/E0005_mech.pretty")(options "")(descr "E0005 holders, outline (Router)"))
+	(lib (name "E0005_board")(type "KiCad")(uri "${KIPRJMOD}/lib/E0005_board.pretty")(options "")(descr "E0005 board-only parts added during routing (mounting holes of the enlarged outline)"))
 )
