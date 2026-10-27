@@ -6757,25 +6757,25 @@
 	)
 	(wire
 		(pts
-			(xy 416.56 185.42)
-			(xy 416.56 182.88)
+			(xy 416.56 193.04)
+			(xy 416.56 190.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ca1a313e-7158-525b-95c5-65aeb1e66d2f")
+		(uuid "eb787ef6-91a3-5c39-b418-363068583f5b")
 	)
 	(wire
 		(pts
-			(xy 416.56 190.5)
-			(xy 416.56 193.04)
+			(xy 416.56 198.12)
+			(xy 416.56 200.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fc6a8d60-06ad-552a-beac-312c1aaa60b9")
+		(uuid "fe1761d5-1f68-55e8-8ef7-4e8d1a835c59")
 	)
 	(wire
 		(pts
@@ -6842,50 +6842,6 @@
 			(type default)
 		)
 		(uuid "c99d01ca-ba66-5c69-bb6c-855d4d5eb71b")
-	)
-	(wire
-		(pts
-			(xy 482.6 185.42)
-			(xy 482.6 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f9972002-28a6-5483-adef-cec141ab6daa")
-	)
-	(wire
-		(pts
-			(xy 482.6 190.5)
-			(xy 482.6 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0bdb1769-c777-5dee-88ab-d91d2ab454cb")
-	)
-	(wire
-		(pts
-			(xy 492.76 185.42)
-			(xy 492.76 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea4f7d1c-7c94-50aa-bac9-a0c8d74ed996")
-	)
-	(wire
-		(pts
-			(xy 492.76 190.5)
-			(xy 492.76 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ebcb5476-894e-5313-b9a8-2cf08b5cb2e1")
 	)
 	(wire
 		(pts
@@ -6982,7 +6938,7 @@
 		)
 		(uuid "4a974e37-a0a9-53ce-b106-dfcee1a9d83c")
 	)
-	(text "(no reverse current: V5 diode-OR with U_IN). L1 2.2 uH, 4 x 47 uF here + 2 at the ports (SPEC 5.1.1)."
+	(text "(no reverse current). Table 4 5 V row: L1 3.3 uH; V5 total ~88 uF effective (2 x 47 uF + 6 x 10 uF), <= 100 uF."
 		(exclude_from_sim no)
 		(at 274.32 276.86 0)
 		(effects
@@ -6992,7 +6948,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "337c4753-bc08-5623-a6c9-65a671d580e5")
+		(uuid "1438ecdd-25cb-540e-b04d-13e6318b211a")
 	)
 	(text "EN 200k / 53.6k from Q_PL: 5.38 V rising (5.76 V max), 4.30 V falling (Ip 1 uA, Ih 4 uA); 1.99 V at 8.4 V."
 		(exclude_from_sim no)
@@ -8460,24 +8416,24 @@
 		)
 	)
 	(label "BUCK_BOOT"
-		(at 416.56 182.88 90)
+		(at 416.56 190.5 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "c1c6b027-7396-58cd-86f7-482bf162bb94")
+		(uuid "4edb4539-e74a-57a4-86f7-5a3863f52068")
 	)
 	(label "BUCK_SW"
-		(at 416.56 193.04 270)
+		(at 416.56 200.66 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "f790c8e6-4eba-5280-8ac5-7a4a4ecec14f")
+		(uuid "2e0c0afa-877d-5b2b-904f-fd597e6456a7")
 	)
 	(label "BUCK_SW"
 		(at 433.07 185.42 180)
@@ -19750,7 +19706,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 416.56 187.96 0)
+		(at 416.56 195.58 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -19759,7 +19715,7 @@
 		(dnp no)
 		(uuid "f35e5f7d-5921-5c5a-994e-1c07724cd612")
 		(property "Reference" "C74"
-			(at 418.338 187.325 0)
+			(at 418.338 194.945 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19768,7 +19724,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 418.338 189.865 0)
+			(at 418.338 197.485 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19777,7 +19733,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19786,7 +19742,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19795,7 +19751,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19804,7 +19760,7 @@
 			)
 		)
 		(property "Voltage" "50V"
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19813,7 +19769,7 @@
 			)
 		)
 		(property "MPN" "GRM155R71H104KE14D"
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19822,7 +19778,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19831,7 +19787,7 @@
 			)
 		)
 		(property "Supplier" "DigiKey"
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19840,7 +19796,7 @@
 			)
 		)
 		(property "Supplier PN" "490-10700-1-ND"
-			(at 416.56 187.96 0)
+			(at 416.56 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19881,7 +19837,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2uH"
+		(property "Value" "3.3uH"
 			(at 441.96 189.484 90)
 			(effects
 				(font
@@ -19889,7 +19845,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Bourns_SRP7028A_7.3x6.6mm"
+		(property "Footprint" "Inductor_SMD:L_Vishay_IHLP-3232"
 			(at 441.96 185.42 0)
 			(effects
 				(font
@@ -19907,7 +19863,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "2.2 uH, 8 A rated / 14 A Isat, 20 mOhm, shielded (5 V buck)"
+		(property "Description" "3.3 uH, 10.5 A rated / 9.7 A Isat, 14.9 mOhm, shielded (5 V buck, TPS56637 Table 4)"
 			(at 441.96 185.42 0)
 			(effects
 				(font
@@ -19916,7 +19872,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "SRP7028A-2R2M"
+		(property "MPN" "IHLP3232DZER3R3M11"
 			(at 441.96 185.42 0)
 			(effects
 				(font
@@ -19925,7 +19881,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Bourns Inc."
+		(property "Manufacturer" "Vishay Dale"
 			(at 441.96 185.42 0)
 			(effects
 				(font
@@ -19943,7 +19899,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier PN" "SRP7028A-2R2MCT-ND"
+		(property "Supplier PN" "541-1352-1-ND"
 			(at 441.96 185.42 0)
 			(effects
 				(font
@@ -20528,500 +20484,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 482.6 187.96 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a2ced494-203e-5a1b-bf10-42a69f191e37")
-		(property "Reference" "C77"
-			(at 484.378 187.325 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "47uF"
-			(at 484.378 189.865 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage" "16V"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CL32A476KOJNNNE"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier" "DigiKey"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier PN" "1276-3376-1-ND"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "aa229e46-b4c9-59ef-a359-699bd866bb73")
-		)
-		(pin "2"
-			(uuid "1a72f038-708d-5a89-898c-e7e63b15a3de")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "C77")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VDD")
-		(at 482.6 182.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "fe4825e5-daa7-5cfa-b972-6dd8bb9f5822")
-		(property "Reference" "#PWR2073"
-			(at 482.6 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "V5"
-			(at 482.6 179.324 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 482.6 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 482.6 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 482.6 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d79eb40c-06af-5eb1-901c-226550fb3ced")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2073")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 482.6 193.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6ac1e1dd-d880-5d80-9d2e-3c97feb48c0f")
-		(property "Reference" "#PWR2074"
-			(at 482.6 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 482.6 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 482.6 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 482.6 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 482.6 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9530236e-d36f-5dea-8d48-f9374b70a3a7")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2074")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 492.76 187.96 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "420cdcb0-996e-5ea3-89a4-175429683324")
-		(property "Reference" "C78"
-			(at 494.538 187.325 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "47uF"
-			(at 494.538 189.865 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage" "16V"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CL32A476KOJNNNE"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier" "DigiKey"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier PN" "1276-3376-1-ND"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d44e4218-b206-5ed6-82a9-f3407943ddaf")
-		)
-		(pin "2"
-			(uuid "461a0d37-d31e-5a5a-8a21-67e0336e2ec2")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "C78")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VDD")
-		(at 492.76 182.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c3f20a31-d4f2-5009-8c54-a21333ae100f")
-		(property "Reference" "#PWR2075"
-			(at 492.76 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "V5"
-			(at 492.76 179.324 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 492.76 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 492.76 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 492.76 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6691d075-bee3-5e1b-a81a-90d891fd1083")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2075")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 492.76 193.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a9aa0352-4949-5bcc-a32e-1a2abbe531a0")
-		(property "Reference" "#PWR2076"
-			(at 492.76 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 492.76 196.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 492.76 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 492.76 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 492.76 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a683071e-84f1-5b7e-8ddf-c94f54bd4c4a")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2076")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small_US")
 		(at 457.2 218.44 0)
 		(unit 1)
@@ -21136,8 +20598,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "9c5c56e2-f7f8-5249-9e31-108da7e09157")
-		(property "Reference" "#PWR2077"
+		(uuid "fe4825e5-daa7-5cfa-b972-6dd8bb9f5822")
+		(property "Reference" "#PWR2073"
 			(at 457.2 208.28 0)
 			(effects
 				(font
@@ -21182,12 +20644,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5fe84cbf-b618-5fc4-86d6-4a54d39528fd")
+			(uuid "d79eb40c-06af-5eb1-901c-226550fb3ced")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2077")
+					(reference "#PWR2073")
 					(unit 1)
 				)
 			)
@@ -21308,8 +20770,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "0d7f4e16-1d47-5f2b-9922-8d5fd11fee2e")
-		(property "Reference" "#PWR2078"
+		(uuid "6ac1e1dd-d880-5d80-9d2e-3c97feb48c0f")
+		(property "Reference" "#PWR2074"
 			(at 457.2 231.14 0)
 			(effects
 				(font
@@ -21354,12 +20816,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "44c5d908-93b5-5c08-a651-cfed3ae7cbe3")
+			(uuid "9530236e-d36f-5dea-8d48-f9374b70a3a7")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2078")
+					(reference "#PWR2074")
 					(unit 1)
 				)
 			)
@@ -21478,8 +20940,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "360e5ffd-acae-58f0-a045-5b1ba2248d1e")
-		(property "Reference" "#PWR2079"
+		(uuid "c3f20a31-d4f2-5009-8c54-a21333ae100f")
+		(property "Reference" "#PWR2075"
 			(at 469.9 223.52 0)
 			(effects
 				(font
@@ -21524,12 +20986,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "92e605a9-c2fd-5820-b7d3-12e35db6cc02")
+			(uuid "6691d075-bee3-5e1b-a81a-90d891fd1083")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2079")
+					(reference "#PWR2075")
 					(unit 1)
 				)
 			)
@@ -21772,8 +21234,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b0e5a104-7111-5c83-917a-fbfd17e87446")
-		(property "Reference" "#PWR2080"
+		(uuid "a9aa0352-4949-5bcc-a32e-1a2abbe531a0")
+		(property "Reference" "#PWR2076"
 			(at 81.28 340.36 0)
 			(effects
 				(font
@@ -21818,12 +21280,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a85bbaa7-5271-5f20-8c60-c0bdf16d2f79")
+			(uuid "a683071e-84f1-5b7e-8ddf-c94f54bd4c4a")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2080")
+					(reference "#PWR2076")
 					(unit 1)
 				)
 			)
@@ -21838,8 +21300,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "3ec0459e-9d47-5358-b8da-1d6c39f822d4")
-		(property "Reference" "#PWR2081"
+		(uuid "9c5c56e2-f7f8-5249-9e31-108da7e09157")
+		(property "Reference" "#PWR2077"
 			(at 101.6 360.68 0)
 			(effects
 				(font
@@ -21884,12 +21346,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2abae510-7311-5897-8bf1-0d212128e44e")
+			(uuid "5fe84cbf-b618-5fc4-86d6-4a54d39528fd")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2081")
+					(reference "#PWR2077")
 					(unit 1)
 				)
 			)
@@ -21904,8 +21366,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "9be99552-b922-5331-88fe-ce51c06a15ac")
-		(property "Reference" "#PWR2082"
+		(uuid "0d7f4e16-1d47-5f2b-9922-8d5fd11fee2e")
+		(property "Reference" "#PWR2078"
 			(at 124.46 347.98 0)
 			(effects
 				(font
@@ -21950,12 +21412,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "c6415079-8fa4-57e3-aceb-abef949f352d")
+			(uuid "44c5d908-93b5-5c08-a651-cfed3ae7cbe3")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2082")
+					(reference "#PWR2078")
 					(unit 1)
 				)
 			)
@@ -22085,8 +21547,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "37ee6897-2863-5037-a204-8ae943b85e40")
-		(property "Reference" "#PWR2083"
+		(uuid "360e5ffd-acae-58f0-a045-5b1ba2248d1e")
+		(property "Reference" "#PWR2079"
 			(at 25.4 340.36 0)
 			(effects
 				(font
@@ -22131,12 +21593,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3ca6f594-1e3d-5cd9-a33e-dfa3ad712838")
+			(uuid "92e605a9-c2fd-5820-b7d3-12e35db6cc02")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2083")
+					(reference "#PWR2079")
 					(unit 1)
 				)
 			)
@@ -22151,8 +21613,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "2c92dbc8-f9fc-5638-929d-e955cd7bcce5")
-		(property "Reference" "#PWR2084"
+		(uuid "b0e5a104-7111-5c83-917a-fbfd17e87446")
+		(property "Reference" "#PWR2080"
 			(at 25.4 350.52 0)
 			(effects
 				(font
@@ -22197,12 +21659,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a5f8f953-c753-575a-af05-a6937b5e59f8")
+			(uuid "a85bbaa7-5271-5f20-8c60-c0bdf16d2f79")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2084")
+					(reference "#PWR2080")
 					(unit 1)
 				)
 			)
@@ -22332,8 +21794,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "411c56c9-bf59-5583-a441-1137d55c1501")
-		(property "Reference" "#PWR2085"
+		(uuid "3ec0459e-9d47-5358-b8da-1d6c39f822d4")
+		(property "Reference" "#PWR2081"
 			(at 35.56 340.36 0)
 			(effects
 				(font
@@ -22378,12 +21840,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "f2a0804e-b742-524b-8043-1ee47fd3fb28")
+			(uuid "2abae510-7311-5897-8bf1-0d212128e44e")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2085")
+					(reference "#PWR2081")
 					(unit 1)
 				)
 			)
@@ -22398,8 +21860,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "99fa2d0f-5f83-5699-a89e-d09c390fcabe")
-		(property "Reference" "#PWR2086"
+		(uuid "9be99552-b922-5331-88fe-ce51c06a15ac")
+		(property "Reference" "#PWR2082"
 			(at 35.56 350.52 0)
 			(effects
 				(font
@@ -22444,12 +21906,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "4ada8616-27b5-5e1b-97fc-ec4ccc268a43")
+			(uuid "c6415079-8fa4-57e3-aceb-abef949f352d")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2086")
+					(reference "#PWR2082")
 					(unit 1)
 				)
 			)
@@ -22570,8 +22032,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "80b37952-b228-55b2-bfbb-74fc4da2a6a6")
-		(property "Reference" "#PWR2087"
+		(uuid "37ee6897-2863-5037-a204-8ae943b85e40")
+		(property "Reference" "#PWR2083"
 			(at 50.8 363.22 0)
 			(effects
 				(font
@@ -22616,12 +22078,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9ad6c4cc-4d07-5c5d-880b-ed93e3fd8e9d")
+			(uuid "3ca6f594-1e3d-5cd9-a33e-dfa3ad712838")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2087")
+					(reference "#PWR2083")
 					(unit 1)
 				)
 			)
@@ -22740,8 +22202,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c58bb406-78f5-5020-909e-871b76c7ae38")
-		(property "Reference" "#PWR2088"
+		(uuid "2c92dbc8-f9fc-5638-929d-e955cd7bcce5")
+		(property "Reference" "#PWR2084"
 			(at 181.61 340.36 0)
 			(effects
 				(font
@@ -22786,12 +22248,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "d67a92e0-8e5a-59b5-bddd-500d29d94876")
+			(uuid "a5f8f953-c753-575a-af05-a6937b5e59f8")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2088")
+					(reference "#PWR2084")
 					(unit 1)
 				)
 			)
@@ -22921,8 +22383,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "172c2deb-ed2d-53ef-ba09-ef55418605f2")
-		(property "Reference" "#PWR2089"
+		(uuid "411c56c9-bf59-5583-a441-1137d55c1501")
+		(property "Reference" "#PWR2085"
 			(at 198.12 340.36 0)
 			(effects
 				(font
@@ -22967,12 +22429,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b532f6e1-bd2a-5cb5-a0cc-0a417cd58037")
+			(uuid "f2a0804e-b742-524b-8043-1ee47fd3fb28")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2089")
+					(reference "#PWR2085")
 					(unit 1)
 				)
 			)
@@ -22987,8 +22449,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "f952ffe5-4b2f-5a80-9a44-1cb37686af50")
-		(property "Reference" "#PWR2090"
+		(uuid "99fa2d0f-5f83-5699-a89e-d09c390fcabe")
+		(property "Reference" "#PWR2086"
 			(at 198.12 350.52 0)
 			(effects
 				(font
@@ -23033,12 +22495,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "18d3d34a-a0c2-557a-9c0f-194c3b847eb0")
+			(uuid "4ada8616-27b5-5e1b-97fc-ec4ccc268a43")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2090")
+					(reference "#PWR2086")
 					(unit 1)
 				)
 			)
@@ -23053,8 +22515,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "87913050-8ada-5d0a-96de-0571488bc44c")
-		(property "Reference" "#FLG2091"
+		(uuid "f825fe58-0605-5a02-9b27-3311b62cf353")
+		(property "Reference" "#FLG2087"
 			(at 218.44 337.82 0)
 			(effects
 				(font
@@ -23099,12 +22561,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b7d204f9-8209-5e46-afdf-b5a88d01607d")
+			(uuid "95233575-f6c2-543b-a5d9-3e88d0827682")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#FLG2091")
+					(reference "#FLG2087")
 					(unit 1)
 				)
 			)
@@ -23119,8 +22581,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "f45a421f-3d4e-5096-83cf-cea498144e79")
-		(property "Reference" "#PWR2092"
+		(uuid "c58bb406-78f5-5020-909e-871b76c7ae38")
+		(property "Reference" "#PWR2088"
 			(at 218.44 340.36 0)
 			(effects
 				(font
@@ -23165,12 +22627,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3d36517d-ab34-5b91-90eb-e174a0cc3140")
+			(uuid "d67a92e0-8e5a-59b5-bddd-500d29d94876")
 		)
 		(instances
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176"
-					(reference "#PWR2092")
+					(reference "#PWR2088")
 					(unit 1)
 				)
 			)

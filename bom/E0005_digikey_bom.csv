@@ -11,8 +11,8 @@ DigiKey,2,schematic,C32 C33,0.47uF,C_0402_1005Metric,GRM155R61A474KE15D,Murata E
 DigiKey,1,schematic,C37,1uF,C_0402_1005Metric,CL05A105KP5NNNC,Samsung Electro-Mechanics,1276-1076-1-ND,911254,Active,0.09,61,,no,E0003 data 2026-10-18.
 DigiKey,6,schematic,C46 C49 C52 C55 C58 C66,1.8nF,C_0402_1005Metric,C0402C182K5RACTU,KEMET,399-C0402C182K5RACTUCT-ND,9731,Active,0.44,17,,no,E0003 data 2026-10-18.
 DigiKey,6,schematic,C47 C50 C53 C56 C59 C67,22nF,C_0402_1005Metric,GRM155R71H223KA12D,Murata Electronics,490-3884-1-ND,244845,Active,0.1,17,,no,E0003 data 2026-10-18.
-DigiKey,8,schematic,C61 C62 C69 C70 C75 C76 C77 C78,47uF,C_1210_3225Metric,CL32A476KOJNNNE,Samsung Electro-Mechanics,1276-3376-1-ND,256510,Active,0.76,61,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
 DigiKey,2,schematic,C63 C64,1nF,C_0402_1005Metric,GRM155R71H102KA01D,Murata Electronics,490-1303-1-ND,4189153,Active,0.1,21,,no,E0003 data 2026-10-18.
+DigiKey,4,schematic,C69 C70 C75 C76,47uF,C_1210_3225Metric,CL32A476KOJNNNE,Samsung Electro-Mechanics,1276-3376-1-ND,256510,Active,0.76,61,,no,E0003 data 2026-10-18. Approved substitute; schematic field already updated
 DigiKey,1,schematic,C79,100pF,C_0402_1005Metric,GRM1555C1H101JA01D,Murata Electronics,490-5922-1-ND,107905,Active,0.11 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. 100 pF C0G (TR 490-5922-2-ND)"
 DigiKey,1,schematic,D1,SMF9.0A,D_SOD-123F,SMF9.0A,Littelfuse Inc.,F5755CT-ND,2437,Active,0.47,20,,no,E0003 data 2026-10-18.
 DigiKey,1,schematic,D2,amber,LED_0603_1608Metric,LTST-C191KSKT,Lite-On Inc.,160-1448-1-ND,852866,Active,0.14,14,,no,E0003 data 2026-10-18. 590 nm yellow-amber
@@ -29,7 +29,7 @@ DigiKey,1,schematic,J5,SM06B-GHS-TB,JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizon
 LCSC,5,schematic,J6 J7 J8 J9 J12,SM02B-GHS-TB,JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal,SM02B-GHS-TB,JST,LCSC C189893 (SM02B-GHS-TB(LF)(SN)),29910 (LCSC),Active,0.51 USD @5 (LCSC),,,no,E0003 data 2026-10-18. DigiKey stock 0 on 2026-10-18 (DigiKey PN 455-1564-1-ND); LCSC min order 5 BOM EXCEPTION (not DigiKey)
 DigiKey,1,schematic,J10,FH12-18S-0.5SH,Hirose_FH12-18S-0.5SH_1x18-1MP_P0.50mm_Horizontal,FH12-18S-0.5SH(55),Hirose Electric Co Ltd,HFJ118CT-ND,5602,Active,2.08,16,,no,E0003 data 2026-10-18.
 DigiKey,1,schematic,J11,USB4105-GF-A,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,USB4105-GF-A,GCT,2073-USB4105-GF-ACT-ND,97080,Active,0.7,7,,no,E0003 data 2026-10-18.
-DigiKey,1,schematic,L1,2.2uH,L_Bourns_SRP7028A_7.3x6.6mm,SRP7028A-2R2M,Bourns Inc.,SRP7028A-2R2MCT-ND,5578,Active,1.02,18,,no,"E0003 data 2026-10-18. Irated 8 A, Isat 14 A, DCR 20 mR max, 7.3x6.6x3.0 mm; KiCad footprint exists. Lower-DCR alt: Wuerth 74439344022 (10.5 mR, 6.65x6.45x3.3, needs land pattern). Coilcraft XAL7030-222 not carried by DigiKey"
+DigiKey,1,schematic,L1,3.3uH,L_Vishay_IHLP-3232,IHLP3232DZER3R3M11,Vishay Dale,541-1352-1-ND,5904,Active,1.29 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. 3.3 uH 10.5 A rated / 9.7 A sat, 14.9 mOhm max, 8.64 x 8.18 x 4.0 mm; TPS56637 datasheet part (TR 541-1352-2-ND)"
 DigiKey,1,schematic,L2,1uH,L_Vishay_IHLP-2525,IHLP2525CZER1R0M01,Vishay Dale,541-1006-1-ND,38987,Active,1.11 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. 1 uH 11 A rated / 22 A sat, 10 mOhm max (TR 541-1006-2-ND)"
 DigiKey,1,schematic,L3,2.2uH,L_1008_2520Metric,DFE252012PD-2R2M=P2,Murata Electronics,490-DFE252012PD-2R2M=P2CT-ND,8950,Active,0.36,21,,no,E0003 data 2026-10-18. Per TPS629210 datasheet table 9-4
 DigiKey,2,schematic,Q1 Q2,PSMN2R0-30YLDX,LFPAK56,PSMN2R0-30YLDX,Nexperia USA Inc.,1727-2218-1-ND,3965,Active,1.29,16,,no,"E0003 data 2026-10-18. With ~5 mR total the S-8252 OC trip is ~30 A, F1 10 A is the real limit (notes.md)"
@@ -54,7 +54,7 @@ DigiKey,2,schematic,R55 R56,33R,R_0402_1005Metric,RC0402FR-0733RL,YAGEO,311-33.0
 DigiKey,1,schematic,R60,0R,R_0402_1005Metric,RC0402JR-070RL,YAGEO,311-0.0JRCT-ND,1032165,Active,0.09,22,DNP,no,E0003 data 2026-10-18.
 DigiKey,10,schematic,R80 R82 R84 R86 R88 R139 R141 R142 R143 R150,100k,R_0402_1005Metric,RC0402FR-07100KL,YAGEO,311-100KLRCT-ND,6147223,Active,0.09,22,,no,E0003 data 2026-10-18.
 DigiKey,12,schematic,R94 R96 R101 R103 R108 R110 R115 R117 R122 R124 R133 R135,1M 1%,R_0402_1005Metric,RC0402FR-071ML,YAGEO,311-1.00MLRCT-ND,961162,Active,0.09,22,,no,E0003 data 2026-10-18.
-DigiKey,5,schematic,R95 R102 R109 R116 R123,365k 1%,R_0402_1005Metric,RC0402FR-07365KL,YAGEO,YAG3133CT-ND,7547,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
+DigiKey,5,schematic,R95 R102 R109 R116 R123,402k 1%,R_0402_1005Metric,RC0402FR-07402KL,YAGEO,YAG3151CT-ND,514706,Active,0.11 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. port EN/UVLO (SPEC v1.1)"
 DigiKey,6,schematic,R97 R104 R111 R118 R125 R136,249k 1%,R_0402_1005Metric,RC0402FR-07249KL,YAGEO,311-249KLRCT-ND,93250,Active,0.10 USD @1,,,no,"NEW in E0005, DigiKey checked 2026-10-27. "
 DigiKey,5,schematic,R98 R105 R112 R119 R138,3.83k 1%,R_0402_1005Metric,RC0402FR-073K83L,YAGEO,311-3.83KLRCT-ND,121495,Active,0.09,22,,no,E0003 data 2026-10-18.
 DigiKey,10,schematic,R99 R100 R106 R107 R113 R114 R120 R121 R127 R128,220R,R_0402_1005Metric,RC0402FR-07220RL,YAGEO,311-220LRCT-ND,959135,Active,0.09,22,,no,E0003 data 2026-10-18.

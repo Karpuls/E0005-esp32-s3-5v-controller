@@ -275,21 +275,22 @@ def sheet_power():
     sh.net(ub, '10', 'GND', 1)
     for i, (v, fp_, ex) in enumerate((('10uF', C0805, V25), ('10uF', C0805, V25), ('100nF', C0402, V50))):
         C(sh, v, 134 + 4 * i, 70, 'BAT+', 'GND', fp=fp_, extra=ex, ref=new('C'))
-    C(sh, '100nF', 160, 70, 'BUCK_BOOT', 'BUCK_SW', extra=V50, ref=new('C'))
-    sh.place('Device:L', 'L1', '2.2uH', 170, 69, 90, fp='Inductor_SMD:L_Bourns_SRP7028A_7.3x6.6mm',
+    C(sh, '100nF', 160, 73, 'BUCK_BOOT', 'BUCK_SW', extra=V50, ref=new('C'))
+    sh.place('Device:L', 'L1', '3.3uH', 170, 69, 90, fp='Inductor_SMD:L_Vishay_IHLP-3232',
              refpos=(170, 67.5, None), valpos=(170, 70.6, None),
-             desc='2.2 uH, 8 A rated / 14 A Isat, 20 mOhm, shielded (5 V buck)')
+             desc='3.3 uH, 10.5 A rated / 9.7 A Isat, 14.9 mOhm, shielded (5 V buck, TPS56637 Table 4)')
     sh.net('L1', '1', 'BUCK_SW', 2)
     sh.net('L1', '2', 'V5', 2)
-    for i in range(4):
+    for i in range(2):   # SPEC v1.1: only 2 x 47 uF on V5 (Table 4: <= 100 uF effective in total)
         C(sh, '47uF', 178 + 4 * i, 70, 'V5', 'GND', fp=C1210, extra=V16, ref=new('C'))
+    NEW['C'] += 2        # C77/C78 (v1.0 buck bulk) left unused so C79 keeps its number
     divider(sh, '69.8k 1%', '10k 1%', 176, 82, 'V5', 'BUCK_FB', 'GND', side='left', refs=(new('R'), new('R')))
     rff, cff = new('R'), new('C')
     R(sh, '20k', 183, 86, 'V5', None, horiz=True, ref=rff)
     C(sh, '100pF', 188, 86, None, 'BUCK_FB', horiz=True, ref=cff, L=2)
     sh.wire(sh.pin(rff, '2'), sh.pin(cff, '1'))
     sh.notes(['FB 69.8k/10k: 0.6 x (1 + 6.98) = 4.79 V. FF 20k + 100 pF (Table 4, 5 V row). MODE = GND -> Eco-mode',
-              '(no reverse current: V5 diode-OR with U_IN). L1 2.2 uH, 4 x 47 uF here + 2 at the ports (SPEC 5.1.1).',
+              '(no reverse current). Table 4 5 V row: L1 3.3 uH; V5 total ~88 uF effective (2 x 47 uF + 6 x 10 uF), <= 100 uF.',
               'EN 200k / 53.6k from Q_PL: 5.38 V rising (5.76 V max), 4.30 V falling (Ip 1 uA, Ih 4 uA); 1.99 V at 8.4 V.',
               'Latch: Q_PL AO3401A (-30 V, +-12 V), 39k gate-source -> VGS -6.7 V at 8.4 V. Press: PB_RAW low -> D13',
               '(MCU sheet) pulls PL_PULL -> Q_PL on -> buck on -> firmware sets PWR_HOLD (GPIO36). Off: PWR_HOLD low.',
@@ -596,7 +597,7 @@ def sheet_ports():
         P = 'PORT%d' % n
         sh.nets(u, {'5': 'V5', '6': 'V5_%d' % n, '1': P + '_EN', '2': P + '_OVLO', '7': P + '_DVDT',
                     '4': P + '_FLT_N', '3': None, '9': P + '_ILM', '10': P + '_ITIMER', '8': 'GND'}, L=2)
-        divider(sh, '1M 1%', '365k 1%', x0 + 1, 78, 'V5', P + '_EN', 'GND')
+        divider(sh, '1M 1%', '402k 1%', x0 + 1, 78, 'V5', P + '_EN', 'GND')
         divider(sh, '1M 1%', '249k 1%', x0 + 12, 78, 'V5', P + '_OVLO', 'GND')
         fet(sh, 'Q%d' % (2 + n), x0 + 4, 108, P + '_OFF', P + '_EN', 'GND')
         C(sh, '1.8nF', x0 + 10, 116, P + '_DVDT', 'GND', extra=V50)
@@ -629,12 +630,9 @@ def sheet_ports():
                      valpos=(x0 + 38, 123, None), desc='E0001 port (5 V): 1 +5V 2 SCL 3 SDA 4 GND')
             sh.nets(j, {'1': 'V5_%d' % n, '2': P + '_SCL_C', '3': P + '_SDA_C', '4': 'GND', 'MP': 'GND'}, L=2)
         sh.notes(['Silkscreen: "5V" + "%d" + "%s"' % (n, 'E0002' if big else 'E0001'),
-                  'I_LIM %s; OVLO 6.02/5.47 V; UVLO 4.49/4.08 V' % ('2.03 A (1.80-2.20)' if big else '0.87 A (0.74-1.00)')],
+                  'I_LIM %s; OVLO 6.02/5.47 V; UVLO 4.19/3.80 V' % ('2.03 A (1.80-2.20)' if big else '0.87 A (0.74-1.00)')],
                  x0, 151, C_PORT)
-    sh.rect(234, 72, 262, 156, C_PORT, 'V5 BULK')
-    C(sh, '47uF', 240, 90, 'V5', 'GND', fp=C1210, extra=V16)
-    C(sh, '47uF', 246, 90, 'V5', 'GND', fp=C1210, extra=V16)
-    sh.notes(['2 x 47 uF/16 V on V5', 'next to the eFuse group', '(+4 at the buck output).'], 236, 100, C_PORT)
+    # E0003's 2 x 47 uF port bulk (C61/C62) removed in SPEC v1.1 (TPS56637 C_OUT <= 100 uF effective)
     return sh
 
 
@@ -644,7 +642,7 @@ E0003 = '/home/karpulis/KiCad/E0003 - ESP32 control box mainboard'   # reference
 MPN_BY_REF = {'U1': 'ESP32-S3-WROOM-1-N16R2', 'U2': 'BQ25887RGET', 'U4': 'USBLC6-2SC6',
               'U5': 'TPS629210DRLR', 'U6': 'S-8252AAG-M6T1U', 'U8': 'PCA9548APW,118',
               'U9': 'TCA9535PWR', 'U15': 'MAX17205G+T', 'U17': 'TPS56637RPAR', 'J10': 'FH12-18S-0.5SH(55)',
-              'J11': 'USB4105-GF-A', 'L1': 'SRP7028A-2R2M', 'L2': 'IHLP2525CZER1R0M01', 'L3': 'DFE252012PD-2R2M=P2', 'F1': '0452010.MRL', 'Q1': 'PSMN2R0-30YLDX',
+              'J11': 'USB4105-GF-A', 'L1': 'IHLP3232DZER3R3M11', 'L2': 'IHLP2525CZER1R0M01', 'L3': 'DFE252012PD-2R2M=P2', 'F1': '0452010.MRL', 'Q1': 'PSMN2R0-30YLDX',
               'Q2': 'PSMN2R0-30YLDX', 'BH1': '1121', 'BH2': '1121', 'RT1': '103AT-2', 'RT2': '103AT-2'}
 MPN_BY_VALUE = {   # (value, footprint fragment[, voltage]) -> MPN
     ('0R', 'R_0402'): 'RC0402JR-070RL', ('33R', 'R_0402'): 'RC0402FR-0733RL', ('100R', 'R_0402'): 'RC0402FR-07100RL',
@@ -661,7 +659,7 @@ MPN_BY_VALUE = {   # (value, footprint fragment[, voltage]) -> MPN
     ('30.1k 1%', 'R_0402'): 'RC0402FR-0730K1L',
     # new in E0005 (DigiKey checked 2026-10-27, bom/new_parts_digikey.csv)
     ('5.1k 1%', 'R_0402'): 'RC0402FR-075K1L', ('390k 1%', 'R_0402'): 'RC0402FR-07390KL',
-    ('249k 1%', 'R_0402'): 'RC0402FR-07249KL', ('365k 1%', 'R_0402'): 'RC0402FR-07365KL',
+    ('249k 1%', 'R_0402'): 'RC0402FR-07249KL', ('402k 1%', 'R_0402'): 'RC0402FR-07402KL',
     ('6.65k 1%', 'R_0402'): 'RC0402FR-076K65L', ('2.32k 1%', 'R_0402'): 'RC0402FR-072K32L',
     ('374R 1%', 'R_0402'): 'RC0402FR-07374RL', ('300R', 'R_0402'): 'RC0402FR-07300RL',
     ('39R 1% 1W', 'R_2512'): 'RMCF2512FT39R0', ('69.8k 1%', 'R_0402'): 'RC0402FR-0769K8L',

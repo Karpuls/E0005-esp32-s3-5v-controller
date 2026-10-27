@@ -5399,7 +5399,7 @@
 		)
 		(uuid "e1ac88db-a77c-57fe-9855-da48fe937990")
 	)
-	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.49/4.08 V"
+	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.19/3.80 V"
 		(exclude_from_sim no)
 		(at 15.24 396.24 0)
 		(effects
@@ -5409,7 +5409,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "636552d0-133e-553a-8397-5f2ca2bdb983")
+		(uuid "f3ead9e6-f9d8-5e43-802e-3fdcf2b3f64f")
 	)
 	(rectangle
 		(start 127 193.04)
@@ -5937,7 +5937,7 @@
 		)
 		(uuid "faacdb45-4d28-5bf2-a4d9-59987686fae6")
 	)
-	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.49/4.08 V"
+	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.19/3.80 V"
 		(exclude_from_sim no)
 		(at 132.08 396.24 0)
 		(effects
@@ -5947,7 +5947,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "7076341a-c2b5-564d-b0bb-346d15064b33")
+		(uuid "4840477d-fc74-5907-96bf-a8eca847d9d0")
 	)
 	(rectangle
 		(start 243.84 193.04)
@@ -6475,7 +6475,7 @@
 		)
 		(uuid "2e5957a8-1642-5d9e-89f7-db5c940f3126")
 	)
-	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.49/4.08 V"
+	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.19/3.80 V"
 		(exclude_from_sim no)
 		(at 248.92 396.24 0)
 		(effects
@@ -6485,7 +6485,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "810abb4b-a3c8-5b20-b923-aafb10f8db09")
+		(uuid "11244f75-157c-57b4-8094-15c705849fe8")
 	)
 	(rectangle
 		(start 360.68 193.04)
@@ -7013,7 +7013,7 @@
 		)
 		(uuid "c8b68871-1e71-5e3b-b59f-104e80676aac")
 	)
-	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.49/4.08 V"
+	(text "I_LIM 0.87 A (0.74-1.00); OVLO 6.02/5.47 V; UVLO 4.19/3.80 V"
 		(exclude_from_sim no)
 		(at 365.76 396.24 0)
 		(effects
@@ -7023,7 +7023,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "71d6a3c2-697c-5d01-8599-676f9c8c9b86")
+		(uuid "b813ee86-4f6c-5285-847f-4a510c5fc21c")
 	)
 	(rectangle
 		(start 477.52 193.04)
@@ -7595,7 +7595,7 @@
 		)
 		(uuid "c16e29fc-9f81-5286-a127-6161a661d493")
 	)
-	(text "I_LIM 2.03 A (1.80-2.20); OVLO 6.02/5.47 V; UVLO 4.49/4.08 V"
+	(text "I_LIM 2.03 A (1.80-2.20); OVLO 6.02/5.47 V; UVLO 4.19/3.80 V"
 		(exclude_from_sim no)
 		(at 482.6 396.24 0)
 		(effects
@@ -7605,115 +7605,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a5f4f42a-2a23-501e-9fa1-babc783571a8")
-	)
-	(rectangle
-		(start 604.52 193.04)
-		(end 675.64 406.4)
-		(stroke
-			(width 0.3)
-			(type dash)
-			(color 205 100 0 1)
-		)
-		(fill
-			(type color)
-			(color 205 100 0 0.05)
-		)
-		(uuid "6c6074a3-5679-5292-a83a-dc61a7fed1d9")
-	)
-	(text "V5 BULK"
-		(exclude_from_sim no)
-		(at 607.06 197.612 0)
-		(effects
-			(font
-				(size 2 2)
-				(thickness 0.4)
-				(bold yes)
-				(color 205 100 0 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "7816c6a6-aa1e-5054-8c1c-a40d06ea3b34")
-	)
-	(wire
-		(pts
-			(xy 619.76 236.22)
-			(xy 619.76 233.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cc7250c1-3ae1-59f7-a2b1-08b5a1498e84")
-	)
-	(wire
-		(pts
-			(xy 619.76 241.3)
-			(xy 619.76 243.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5ac2500d-c7b7-5132-85cf-279b8191383b")
-	)
-	(wire
-		(pts
-			(xy 635 236.22)
-			(xy 635 233.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3532adf6-4661-55d9-a1a2-cf1103c888a0")
-	)
-	(wire
-		(pts
-			(xy 635 241.3)
-			(xy 635 243.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67441e3b-235a-5757-a979-45f19d332837")
-	)
-	(text "2 x 47 uF/16 V on V5"
-		(exclude_from_sim no)
-		(at 609.6 264.16 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 205 100 0 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "307229b4-bb2e-5500-af07-d41de056b643")
-	)
-	(text "next to the eFuse group"
-		(exclude_from_sim no)
-		(at 609.6 266.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 205 100 0 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "b53c4fec-0975-5e80-9ea1-27c0d4876769")
-	)
-	(text "(+4 at the buck output)."
-		(exclude_from_sim no)
-		(at 609.6 269.24 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 205 100 0 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "09ceb555-783f-5a51-a8b8-e1b176eb6039")
+		(uuid "1f193e81-ba73-50d6-9c19-5c7012e72be6")
 	)
 	(global_label "MUX_RST_N"
 		(shape passive)
@@ -16855,7 +16747,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "365k 1%"
+		(property "Value" "402k 1%"
 			(at 19.558 222.885 0)
 			(effects
 				(font
@@ -16891,7 +16783,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-07365KL"
+		(property "MPN" "RC0402FR-07402KL"
 			(at 17.78 220.98 0)
 			(effects
 				(font
@@ -16918,7 +16810,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier PN" "YAG3133CT-ND"
+		(property "Supplier PN" "YAG3151CT-ND"
 			(at 17.78 220.98 0)
 			(effects
 				(font
@@ -19565,7 +19457,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "365k 1%"
+		(property "Value" "402k 1%"
 			(at 136.398 222.885 0)
 			(effects
 				(font
@@ -19601,7 +19493,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-07365KL"
+		(property "MPN" "RC0402FR-07402KL"
 			(at 134.62 220.98 0)
 			(effects
 				(font
@@ -19628,7 +19520,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier PN" "YAG3133CT-ND"
+		(property "Supplier PN" "YAG3151CT-ND"
 			(at 134.62 220.98 0)
 			(effects
 				(font
@@ -22275,7 +22167,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "365k 1%"
+		(property "Value" "402k 1%"
 			(at 253.238 222.885 0)
 			(effects
 				(font
@@ -22311,7 +22203,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-07365KL"
+		(property "MPN" "RC0402FR-07402KL"
 			(at 251.46 220.98 0)
 			(effects
 				(font
@@ -22338,7 +22230,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier PN" "YAG3133CT-ND"
+		(property "Supplier PN" "YAG3151CT-ND"
 			(at 251.46 220.98 0)
 			(effects
 				(font
@@ -24985,7 +24877,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "365k 1%"
+		(property "Value" "402k 1%"
 			(at 370.078 222.885 0)
 			(effects
 				(font
@@ -25021,7 +24913,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-07365KL"
+		(property "MPN" "RC0402FR-07402KL"
 			(at 368.3 220.98 0)
 			(effects
 				(font
@@ -25048,7 +24940,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier PN" "YAG3133CT-ND"
+		(property "Supplier PN" "YAG3151CT-ND"
 			(at 368.3 220.98 0)
 			(effects
 				(font
@@ -27695,7 +27587,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "365k 1%"
+		(property "Value" "402k 1%"
 			(at 486.918 222.885 0)
 			(effects
 				(font
@@ -27731,7 +27623,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-07365KL"
+		(property "MPN" "RC0402FR-07402KL"
 			(at 485.14 220.98 0)
 			(effects
 				(font
@@ -27758,7 +27650,7 @@
 				(hide yes)
 			)
 		)
-		(property "Supplier PN" "YAG3133CT-ND"
+		(property "Supplier PN" "YAG3151CT-ND"
 			(at 485.14 220.98 0)
 			(effects
 				(font
@@ -29953,500 +29845,6 @@
 			(project "E0005_controller"
 				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942"
 					(reference "#PWR5121")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 619.76 238.76 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "05cc0b49-b35e-596e-93ef-586b96c6f439")
-		(property "Reference" "C61"
-			(at 621.538 238.125 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "47uF"
-			(at 621.538 240.665 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage" "16V"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CL32A476KOJNNNE"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier" "DigiKey"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier PN" "1276-3376-1-ND"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5abd4442-255e-525c-8373-217119fdbfc0")
-		)
-		(pin "2"
-			(uuid "7b7ed00e-602a-52ac-aa69-d0fb8475186b")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942"
-					(reference "C61")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VDD")
-		(at 619.76 233.68 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0a79d35f-3679-5e39-bfc9-63b728f5735d")
-		(property "Reference" "#PWR5122"
-			(at 619.76 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "V5"
-			(at 619.76 230.124 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 619.76 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 619.76 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 619.76 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dd02e0fe-28d5-57e8-a322-7c1e97000612")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942"
-					(reference "#PWR5122")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 619.76 243.84 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "dc2c11b1-3f71-5737-b032-ac3321e78d80")
-		(property "Reference" "#PWR5123"
-			(at 619.76 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 619.76 247.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 619.76 243.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 619.76 243.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 619.76 243.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "51107985-df8e-5a06-8649-870eced274fa")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942"
-					(reference "#PWR5123")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 635 238.76 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "83e2302e-681c-53c7-bc80-618feed172d7")
-		(property "Reference" "C62"
-			(at 636.778 238.125 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "47uF"
-			(at 636.778 240.665 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage" "16V"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CL32A476KOJNNNE"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier" "DigiKey"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Supplier PN" "1276-3376-1-ND"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "94508258-deb1-5d63-b39e-af421059943a")
-		)
-		(pin "2"
-			(uuid "fd3af9e7-9d7d-58d7-a133-e279bbf00b35")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942"
-					(reference "C62")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VDD")
-		(at 635 233.68 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a29c4109-936a-5329-bf70-df610cda3be2")
-		(property "Reference" "#PWR5124"
-			(at 635 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "V5"
-			(at 635 230.124 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 635 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 635 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 635 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a972b88a-10b9-5a75-8a24-b7cacbb1a336")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942"
-					(reference "#PWR5124")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 635 243.84 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "74763399-56fc-5a22-aedf-7aacdd10f6d7")
-		(property "Reference" "#PWR5125"
-			(at 635 238.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 635 247.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 635 243.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 635 243.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 635 243.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "28578fbf-a1fc-5bd5-be9e-68915c30b86a")
-		)
-		(instances
-			(project "E0005_controller"
-				(path "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942"
-					(reference "#PWR5125")
 					(unit 1)
 				)
 			)
