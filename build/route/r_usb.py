@@ -4,7 +4,7 @@ The D+ path is drawn by hand; D- is its parallel offset (left of travel, travell
 A two-bump accordion on D+ near U1 compensates the D- detour under pin 14 into pin 13."""
 import math
 from rt import T, V, PADS
-F = 'F.Cu'
+F, B = 'F.Cu', 'B.Cu'
 W, PITCH = 0.19, 0.39
 DP, DN = 'USB_DP', 'USB_DN'
 
@@ -48,3 +48,11 @@ T(DP, W, F, *dp_pts)
 # D- : pad 13 -> under pin 14 -> offset line -> R3.2
 dn_pts = ['U1.13', (39.32, dn[0][1]), (dn[0][0], dn[0][1])] + dn[1:-1] + [(dn[-1][0], dn[-1][1]), (-45.6 - 0.0, 5.1), 'R3.2']
 T(DN, W, F, *dn_pts)
+# ---------------- USB-C side: J11 A6/A7 straight in, B6/B7 tied with small vias + B.Cu; U4 ESD pass-through; R2.1 / R3.1
+DPC, DNC = 'USB_DP_C', 'USB_DN_C'
+T(DPC, W, F, 'J11.A6', (-53.0, 4.25), (-52.6, 3.85), (-52.3, 3.55), 'U4.1', 'U4.6', (-48.2, 3.55), (-47.85, 3.9), 'R2.1')
+T(DNC, W, F, 'J11.A7', (-53.6, 4.75), (-52.7, 4.75), (-52.3, 5.15), (-52.0, 5.45), 'U4.3', 'U4.4', (-48.2, 5.45), (-47.85, 5.1), 'R3.1')
+V(DNC, -53.6, 4.75, dia=0.45, drill=0.3); V(DNC, -53.6, 3.75, dia=0.45, drill=0.3)
+V(DPC, -53.0, 4.25, dia=0.45, drill=0.3); V(DPC, -53.0, 5.25, dia=0.45, drill=0.3)
+T(DNC, 0.2, F, 'J11.B7', (-53.6, 3.75)); T(DNC, 0.2, B, (-53.6, 3.75), (-53.6, 4.75))
+T(DPC, 0.2, F, 'J11.B6', (-53.0, 5.25)); T(DPC, 0.2, B, (-53.0, 5.25), (-53.0, 4.25))
