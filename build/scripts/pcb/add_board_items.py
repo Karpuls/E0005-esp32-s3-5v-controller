@@ -106,7 +106,7 @@ def items():
     out.append(text('J5 E0002', 33.65, -28.3, S, 1.0, 0.15, 90, width=0.75))
     # cell polarity, top (E0003 positions; CELL2 + moved off the 3V3 buck)
     out.append(text('CELL1 -', -28.55, -9.45, S))
-    out.append(text('CELL2 +', -35.15, 9.9, S))
+    out.append(text('CELL2 +', -37.6, 10.1, S))
     out.append(text('CELL1 +', 36.15, -16.05, S))
     out.append(text('CELL2 -', 36.15, 16.05, S))
     # cell polarity, bottom (mirrored), board label

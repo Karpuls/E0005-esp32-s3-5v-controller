@@ -24,7 +24,7 @@ from pcb_kpcb import OX, OY, load_fp, _copy, _flip_tree, _find, fnum  # noqa: E4
 from pcb_sexp import parse, dump, Sym  # noqa: E402
 
 H, TH, CW = 1.0, 0.15, 0.95
-PAD_CLR, SILK_CLR, EDGE_CLR, TXT_CLR = 0.25, 0.2, 0.35, 0.15
+PAD_CLR, SILK_CLR, EDGE_CLR, TXT_CLR = 0.25, 0.3, 0.35, 0.25
 PRIORITY = ['U1', 'U2', 'U17', 'U16', 'U5', 'U4', 'U6', 'U8', 'U9', 'U15', 'L1', 'L2', 'F1', 'Q1', 'Q2', 'R20', 'R147',
             'J11', 'J1', 'J2', 'J3', 'J4', 'J5', 'J10', 'SW1', 'SW2', 'SW3', 'D1', 'D2', 'D11']
 
