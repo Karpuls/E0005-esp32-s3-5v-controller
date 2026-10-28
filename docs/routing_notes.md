@@ -28,8 +28,8 @@
 | Net / class | Current | Copper |
 |---|---|---|
 | VBUS (USB-C → U16/U2) | ≤ 3 A | F/B/In2 pours; 0.4–0.6 mm links (≤ 3 mm long) |
-| V5 (U16 / buck → ports) | ≤ 6 A total; ports ≤ 1 A (×4) and 2 A | In2 V5 plane (band + west column), B.Cu V5 bus pour, F.Cu pours at each eFuse; 0.25–1.0 mm local links (cap / divider / sense) |
-| BAT+ / B_N / FET_D / SNS_P (pack path) | ≤ 9 A discharge, 2.2 A charge | F/B/In2 pours, F1 and Q1/Q2 copper, R20 Kelvin sense 0.15 mm |
+| V5 (U16 / buck → ports) | 4.6 A design; ports 1 A (×4) and 2.5 A | In2 V5 plane (band + west column), B.Cu west-edge V5 strap + V5 bus pour, F.Cu pours at each eFuse; 0.25–1.0 mm local links (cap / divider / sense) |
+| BAT+ / B_N / FET_D / SNS_P (pack path) | 5 A design (9 A fault only, until F1 opens); 2 A charge | F/B/In2 pours, F1 and Q1/Q2 copper, R20 Kelvin sense 0.15 mm |
 | CHG_SW, BUCK_SW, BUCK_SW_3V3 | switch nodes | short F.Cu pours, 0.4–0.5 mm |
 | +3V3 | ≤ 1 A | In2 3V3 plane; 0.2–0.4 mm tracks |
 | MID / CELL2_P (balancing, cell link) | ≤ 0.3 A | 0.25–0.5 mm and pours |
@@ -52,41 +52,52 @@
   in JLC's impedance calculator for **JLC04161H-3313** (L1 over L2, 0.0994 mm prepreg) when ordering, and adjust W/S if JLC
   gives a different answer.
 
-## Current paths, IPC-2152 (PlaceRoute fix round)
-Method: the narrowest neck is the widest-path bottleneck through the net's copper on each layer, between the named terminals.
-It is measured on the refilled zones plus tracks, pads and vias (`/tmp/neck.py`). Where a path runs on several layers in
-parallel, the cross-section is the sum (In2 0.5 oz counts as half the width of 1 oz). ΔT is the IPC-2152 curve fit
-A[mil²] = (117.555·ΔT^−0.913 + 1.15)·I^(0.84·ΔT^−0.018 + 1.159). Copper is 1 oz (35 µm) outer and 0.5 oz (17.5 µm) inner.
-This is the long-conductor figure with no plane or spreading credit. For necks only a few mm long it overstates the rise, but it is
-given as asked.
+## Current paths, IPC-2152 (design currents per the owner, 2026-10-28)
+Design currents:
+- pack path 5 A (buck input at 6 A out from a 6.4 V pack; the 2 A charge never flows at the same time; 9 A only in a fault, until F1 opens);
+- V5 4.6 A (ports 4.4 A + the 3V3 rail);
+- VBUS 3 A;
+- J5 2.5 A;
+- J1–J4 1 A each.
 
-| Net (current) | Narrowest neck | Layer / copper | ΔT (fit) | Note |
-|---|---|---|---|---|
-| VBUS (3 A) | 0.30 mm × 2.4 mm | U16 pin 5 itself (F, 1 oz) | (pin) | pin-limited; the pour reaches the full pin length |
-| VBUS (3 A) | 0.60 mm, ≈ 0.5 mm long | J11 A4/B9, A9/B4 pads → 2 vias (F, 1 oz) | 62 °C | the connector pad width; one via per pad pair |
-| VBUS (3 A) | 1.90 mm (cross-section 3.87 mm) | In2 column J11 → y −13, ≈ 15 mm long (0.5 oz) | 32 °C (13 °C on the cross-section) | |
-| VBUS (3 A) | 0.95 mm F + 3.0 mm B in parallel | F pour / B pour, via rows → U16 (≈ 13 mm) | 5.9 °C combined | 15 vias in the F pour |
-| V5 (6 A) | 0.30 mm × 2.4 mm | U16 pin 6 (F) | (pin) | USB source only, ≤ 3 A |
-| V5 (6 A) | 1.60 mm, ≈ 2 mm long | L1.2 → buck vias (F, 1 oz) | 112 °C | short; C75/C76 and 4 vias sit in it |
-| **V5 (6 A)** | **1.30 mm widest path; total cross-section 4.39 mm** | **In2 west strip x −62.5…−57.6, buck → port band, ≈ 30 mm long (0.5 oz)** | **66 °C** on the cross-section | **open: see below** |
-| Pack B_N (9 A) | 2.38 mm F + 2.38 mm In2 | BH1.2 lug → Q1 source (≈ 4 mm) | 108 °C | |
-| Pack FET_D (9 A) | 5.40 mm F + 5.25 mm In2 | Q1 drain → Q2 drain | 33 °C | |
-| Pack SNS_P (9 A) | 2.38 mm F + 1.30 mm In2 | Q2 source → R20.1 (≈ 3 mm) | ≈ 150 °C | |
-| CELL2_P (9 A) | 3.50 mm F + 3.07 mm In2 | BH2.1 lug → F1.1 | 62 °C | |
-| BAT+ (9 A) | 1.70 mm (F) | F1.2 → U17 pin 8 (≈ 3 mm), In2 strip in parallel only from C18 | off the fit (> 200 °C) | open |
-| J5 / V5_5 (2.5 A) | 0.30 mm pin, then 0.97 mm | U14 pin 6 → J5.1/J5.2 pour (F) | 20 °C (pour) | pin-limited |
-| J1–J4 / V5_1–4 (1 A each) | 0.30 mm pin, then 0.92 mm | U10–U13 pin 6 → Jn.1 pour (F) | 2.6 °C (pour), 9.4 °C at the pin | |
+Method:
+- **Cross-section** is the smallest total copper width across the current path on refilled zones, summed over the layers in
+  parallel, with In2 (0.5 oz) counted at half width (`/tmp/xcomb.py`, `/tmp/vcomb.py`).
+- **Neck** is the widest-path bottleneck on one layer (`/tmp/neck.py`).
+- ΔT is the IPC-2152 curve fit A[mil²] = (117.555·ΔT^−0.913 + 1.15)·I^(0.84·ΔT^−0.018 + 1.159), on 1 oz-equivalent copper
+  (35 µm outer, 17.5 µm inner).
+- This is the long-conductor figure with no plane or spreading credit, so it is conservative for the short necks.
 
-**Open item (needs a decision): the high-current paths do not meet a 10 °C IPC-2152 rise.** The worst are V5 at 6 A,
-which has only the In2 west strip from the buck to the port band, and the pack path at 9 A (B_N / SNS_P / BAT+ necks).
-- Why V5 is limited: the USBIN_FLT_N In2 lane at y −24 cuts the east channel, the VBUS In2 zone takes x −57.6…−44, and the
-  J11 shield slots sit in the strip. Six GND stitching vias at x −61 were taken out of the strip this round, which raised the
-  widest path from 0.72 to 1.30 mm.
-- Possible fixes, not done this round because they go beyond a fix round:
-  - move USBIN_FLT_N off In2 to open the east channel (≈ +4 mm);
-  - add a B.Cu V5 strap along the west edge;
-  - order 2 oz inner copper;
-  - or derate the port total.
+| Net (design current) | Smallest cross-section (1 oz equivalent) | Where | ΔT (fit) |
+|---|---|---|---|
+| **V5 (4.6 A)** | **4.65 mm** = In2 7.14 mm + B.Cu strap 1.08 mm | at the J11 shell slots (y ≈ 0), the narrowest place on the buck → port band path | **12.7 °C** |
+| V5, rest of the column | In2 ≥ 9 mm + B.Cu strap 2.85–4.15 mm | y −30 … +12 | < 9 °C |
+| Pack BAT+ (5 A) | 5.44 mm (F) | F1.2 → U17 VIN pins (pour between them) | **12.8 °C** |
+| Pack BAT+ at the pins | 2.1 mm | the U17 pin-8 column itself (pin-limited, < 0.6 mm long) | (pin) |
+| Pack SNS_P (5 A) | 4.3 mm F + 3.8 mm In2 (eq 6.2 mm); F alone 4.3 mm | Q2 source pins → R20.1 (≈ 1.1 mm long) | **11.0 °C** (≈ 17 °C on F alone) |
+| Pack B_N (5 A) | 4.05 mm F + 4.05 mm In2 (eq 6.07 mm) | BH1.2 lug → Q1 source | 11.3 °C |
+| Pack FET_D (5 A) | 5.40 mm F + 5.25 mm In2 (eq 8.0 mm) | Q1 drain → Q2 drain | 8.2 °C |
+| CELL2_P (5 A) | 6.65 mm F + 6.1 mm In2 (eq 9.7 mm) | BH2.1 lug → F1.1 | 6.9 °C |
+| VBUS (3 A) | In2 3.87 mm (0.5 oz) | J11 → y −13 column | 13.3 °C |
+| VBUS (3 A) | 0.95 mm F + 3.0 mm B (eq 3.95 mm) | via rows → U16 pin 5 | 5.9 °C |
+| VBUS (3 A) | 0.60 mm, ≈ 0.5 mm long | the J11 A4/B9 and A9/B4 pads → their via | (connector pad) |
+| J5 / V5_5 (2.5 A) | 0.97 mm (F) | U14 pin 6 → J5.1/J5.2 pour; the pin itself is 0.30 mm wide | 20.0 °C (pour) |
+| J1–J4 / V5_1–4 (1 A each) | 0.92 mm (F) | U10–U13 pin 6 → Jn.1 pour; the pin itself is 0.30 mm wide | 2.6 °C (pour), 9.4 °C at the pin |
+
+Changes made for these numbers (2nd review of the fix round):
+- **USBIN_FLT_N** now crosses the In2 V5 west column on F.Cu (vias at (−39.0,−24.0) and (−44.6,−24.0)). Before, its In2 lane
+  at y −24 cut the column down to the west strip alone (4.39 mm).
+- **B.Cu V5 strap** `R_V5_STRAP_B` runs along the west edge from the buck area (y +12) to the port band. It is 4.15 mm wide for
+  y −30…−7, 2.85 mm for y −7…+9, and 1.0 mm past each J11 shell slot pair.
+  - North end: a B block over the 14 U16 V5-pour vias, overlapping `R_V5BUS_B`.
+  - South end: 6 vias to In2 V5, plus 8 more along the strap.
+  - Three GND stitching vias were removed to make room ((−61,5), (−61,−31), and the six at x −61 from the first pass).
+  - The strap stays west of the +3V3 / CHG_STAT B lanes and the C1/R1 GND via.
+- **SNS_P** F pour widened north (to y −10.0) and south (to y −14.75 east of Q2.4). The In2 copper only carries current past
+  the via column at x −17.55, because Q2's source pins leave no room for vias between them, so the F figure is the one
+  that counts.
+- **BAT+**: no change needed. The pour is 5.44 mm wide between F1.2 and U17. The 2.1 mm figure from the first pass was the
+  U17 VIN pin column itself, which no copper change can widen.
 
 ## Hot loops (PlaceRoute fix round)
 Loop area is the polygon cap+ → IC pin → IC GND pin → cap−, on pad centres.

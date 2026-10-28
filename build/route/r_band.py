@@ -80,8 +80,10 @@ T('PORT5_FLT_N', 0.15, B, (14.45, -12.525), (14.85, -12.125), (29.9, -12.125), (
 T('USBIN_FLT_N', 0.15, F, 'R90.2', (17.43, -13.5), (20.0, -13.5)); V('USBIN_FLT_N', 20.0, -13.5)
 T('USBIN_FLT_N', 0.15, B, (20.0, -13.5), (22.6, -13.5), (22.6, -23.7)); V('USBIN_FLT_N', 22.6, -23.7)
 T('USBIN_FLT_N', 0.15, F, (22.6, -23.7), (-21.5, -23.7)); V('USBIN_FLT_N', -21.5, -23.7)
-T('USBIN_FLT_N', 0.15, I2, (-21.5, -23.7), (-22.95, -25.15), (-26.6, -25.15), (-27.15, -24.6), (-32.8, -24.6), (-33.4, -24.0),
-  (-50.23, -24.0), (-50.23, -29.2))
+T('USBIN_FLT_N', 0.15, I2, (-21.5, -23.7), (-22.95, -25.15), (-26.6, -25.15), (-27.15, -24.6), (-32.8, -24.6), (-33.4, -24.0), (-39.0, -24.0)); V('USBIN_FLT_N', -39.0, -24.0)
+# (F hop across the In2 V5 west column x -44.6..-39.0: keeps that In2 channel whole for the V5 feed)
+T('USBIN_FLT_N', 0.15, F, (-39.0, -24.0), (-44.6, -24.0)); V('USBIN_FLT_N', -44.6, -24.0)
+T('USBIN_FLT_N', 0.15, I2, (-44.6, -24.0), (-49.83, -24.0), (-50.23, -24.4), (-50.23, -29.2))
 # CHG_PG_N: R92.2 -> F north of R92 -> via -> B north -> F band lane y -19.8 / -21.5 west -> B hop past the P1_OFF column ->
 # F y -19.9 south of the BH1 peg -> In2 west of the ILIM vias -> B column x -38.0 west of the BH1.2 holder pad ->
 # In2 hop under the MID B line -> B to the existing stub at (-40.6, 0.45)

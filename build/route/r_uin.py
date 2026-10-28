@@ -13,14 +13,14 @@ VS('V5', [(x, y) for x in (-54.0, -52.2, -50.4, -48.6, -46.8) for y in (-27.3, -
 # VBUS F -> B vias in the IN pour
 VS('VBUS', [(x, y) for x in (-56.4, -54.6, -52.8, -51.0, -49.2) for y in (-18.6, -15.0)])
 # --- UIN_EN: R134.1 <-> R133.2 diagonal, R133.2 -> via -> In2 -> via -> pin 1 corner pad
-T('UIN_EN', 0.15, F, 'R134.1', 'R134.1@-0.6,0', 'R134.1@-0.95,-0.35', 'R133.2@0.15,0')   # square exits
+T('UIN_EN', 0.15, F, 'R134.1@0,-0.21', (-52.2, -22.7), (-52.66, -23.16), 'R133.2@0.24,0')   # X of four pads: stubs + diagonal through the centre gap
 V('UIN_EN', -52.9, -24.45)
 T('UIN_EN', 0.15, F, 'R133.2', (-52.9, -24.45))
 T('UIN_EN', 0.15, I2, (-52.9, -24.45), (-52.9, -25.3), (-51.0, -25.3), (-50.5, -24.8))
 V('UIN_EN', -50.5, -24.8)
 T('UIN_EN', 0.15, F, (-50.5, -24.8), (-50.23, -24.53), 'U16.1\'')
 # --- UIN_OVLO: R135.2 <-> R136.1 diagonal, R136.1 -> via -> In2 -> via -> up to pin 2
-T('UIN_OVLO', 0.15, F, 'R136.1', 'R136.1@-0.6,0', 'R136.1@-0.95,-0.35', 'R135.2@0.15,0')   # square exits
+T('UIN_OVLO', 0.15, F, 'R136.1@0,-0.21', (-54.4, -22.7), (-54.86, -23.16), 'R135.2@0.24,0')   # X of four pads: stubs + diagonal through the centre gap
 V('UIN_OVLO', -54.0, -21.55)
 T('UIN_OVLO', 0.15, F, 'R136.1', (-54.0, -21.55))
 T('UIN_OVLO', 0.15, I2, (-54.0, -21.55), (-53.75, -21.3), (-51.1, -21.3))

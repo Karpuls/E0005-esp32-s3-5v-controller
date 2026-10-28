@@ -37,7 +37,7 @@ T(G, 0.2, F, 'U17.3', (-47.4, 12.75))            # AGND to PGND, single point at
 # BUCK_PG straight down beside the U17 pins to a via (keeps the C79/R155 gap free for the F feed-forward node)
 T('BUCK_PG', 0.15, F, 'U17.4', (-49.0, 13.25), (-49.0, 14.95)); V('BUCK_PG', -49.0, 14.95)
 T('BUCK_EN', 0.15, F, (-48.75, 11.75), (-49.25, 11.25), (-49.79, 11.25), 'R151.2')
-T('BUCK_EN', 0.15, F, 'R151.2', 'R151.2@0,-0.5', 'R151.2@-0.45,-0.95', 'R152.1@0,0.15')   # square exits
+T('BUCK_EN', 0.15, F, 'R151.2@-0.21,0', (-50.0, 10.3), (-50.46, 9.84), 'R152.1@0,0.24')   # X of four pads: stubs + diagonal through the centre gap
 T(G, 0.3, F, 'R152.2', (-49.79, 8.6)); V(G, -49.79, 8.6)
 # ---------------- soft-power latch
 T('Net-(Q13-D)', 0.2, F, 'R151.1', (-54.6, 10.7), (-56.2, 12.3), 'Q13.3')

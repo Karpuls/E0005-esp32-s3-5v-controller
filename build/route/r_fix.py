@@ -35,3 +35,13 @@ T('GND', 0.2, F, (-50.2, -1.2), (-50.2, -1.76)); V('GND', -50.2, -1.76, dia=0.45
 # U16 VBUS input: extra F.Cu VBUS pour vias right at the U16 input neck (PlaceRoute: >= 6 near the input)
 for v in ((-49.3, -28.9), (-48.0, -29.4), (-50.9, -28.3), (-52.5, -28.3), (-54.1, -28.6)):
     V('VBUS', *v)
+# V5 B.Cu strap along the west edge (buck area -> port band), in parallel with the In2 V5 west column.
+# North end opens into a B block over the U16 V5-pour vias (14) and joins R_V5BUS_B; south end and the length are stitched to In2 V5.
+from rt import Z
+Z('V5', 'B.Cu', [(-62.0, 12.0), (-62.0, -39.8), (-45.5, -39.8), (-45.5, -31.0), (-57.85, -31.0), (-57.85, -6.8), (-59.15, -6.8),
+                 (-59.15, 9.6), (-58.2, 9.6), (-58.2, 12.0)], 'R_V5_STRAP_B', prio=4)
+for p in ((-61.7, 10.3), (-60.7, 10.3), (-59.7, 10.3), (-58.7, 10.3), (-61.4, 11.5),             # south end (6)
+          (-61.7, -28.5), (-60.2, -28.5), (-58.7, -28.5),                                       # north end (+ the 14 U16 V5 vias)
+          (-61.7, -20.0), (-59.7, -20.0), (-61.7, -14.0), (-59.7, -14.0), (-61.2, -9.0),
+          (-60.2, -2.5), (-60.2, 3.0), (-60.2, 6.5)):
+    V('V5', *p)
