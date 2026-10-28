@@ -53,7 +53,7 @@ for n, (xv, y) in VW.items():
     xc = [l[3] for l in LN if l[0] == n][0]
     T(n, 0.15, I2, (xc, y), (xv, y)); V(n, xv, y)
 T('I2C1_SCL', 0.15, I2, (35.1, 14.05), (8.0, 14.05))
-T('I2C1_SDA', 0.15, I2, (34.8, 14.45), (2.0, 14.45))
+T('I2C1_SDA', 0.15, I2, (34.8, 14.45), (9.0, 14.45))   # continues west in r_band (jog around the R63 junction via)
 # GAUGE: In2 west y 10.85 -> col -11 north -> via (-11,-4.6) -> F -> R31.2
 T('GAUGE_ALRT_N', 0.15, I2, (36.6, 10.85), (-11.0, 10.85), (-11.0, -4.6)); V('GAUGE_ALRT_N', -11.0, -4.6)
 T('GAUGE_ALRT_N', 0.15, F, (-11.0, -4.6), (-11.96, -4.6), 'R31.2')
