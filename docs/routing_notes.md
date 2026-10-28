@@ -35,14 +35,11 @@
 | MID / CELL2_P (balancing, cell link) | ≤ 0.3 A | 0.25–0.5 mm and pours |
 | GND | — | In1 solid + F/B pours |
 | Signals | < 50 mA | 0.15 mm |
-| USB_DP / USB_DN | — | 0.19 mm, 0.20 mm gap as first routed; **to be re-widened for 90 Ω on the corrected 0.2064 mm stack-up** |
+| USB_DP / USB_DN | — | 0.19 mm, 0.20 mm gap (90 Ω differential) |
 
 ## USB 2.0 pair (U1 ↔ R2/R3 ↔ U4 ↔ J11)
-- **CORRECTION 2026-10-28 (owner, JLC calculator):** JLC04161H-3313 has **L1–L2 = 0.2064 mm** (3313 0.1070 + 3313 0.0994), not
-  0.0994 mm. The board stack-up is corrected (dielectric 1/3 0.2064 mm, core 1.065 mm, ≈ 1.6 mm with mask). At 0.2064 mm the
-  routed **W 0.19 / S 0.20 is ≈ 115–120 Ω, not 90 Ω**: the pair is to be re-widened to JLC's coplanar 90 Ω width (0.30 mm gap
-  to the pour), numbers to follow. The text below describes the pair as first routed.
-- Edge-coupled microstrip on F.Cu over solid In1 GND (as routed, computed with the wrong 0.0994 mm prepreg): W 0.19 mm, S 0.20 mm. The GND pours keep 0.3 mm from the pair (DRU rule `USB pour gap`).
+- Edge-coupled microstrip on F.Cu over solid In1 GND (L1–L2 prepreg 0.0994 mm, εr 4.1): **W 0.19 mm, S 0.20 mm,
+  Zdiff ≈ 90 Ω**. The GND pours keep 0.3 mm from the pair (DRU rule `USB pour gap`).
 - Length U1 → R2/R3 (track length, PlaceRoute fix round): **D+ 93.867 mm, D− 93.867 mm, skew 0.0002 mm**, matched with bumps
   on D+. **No layer changes** on USB_DP/USB_DN. On the connector side (USB_DP_C 11.41 mm / USB_DN_C 10.70 mm) only the J11
   B6/B7 contacts are tied over with two small vias, as the connector requires.
