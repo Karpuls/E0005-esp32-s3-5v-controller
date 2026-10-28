@@ -1,5 +1,5 @@
 Drill report for E0005_controller.kicad_pcb
-Created on 2026-10-28T15:44:07
+Created on 2026-10-28T16:46:57
 
 Copper Layer Stackup:
     =============================================================
@@ -12,13 +12,13 @@ Copper Layer Stackup:
 Drill file 'E0005_controller-PTH.drl' contains
     plated through holes:
     =============================================================
-    T1  0.300mm  0.0118"  (682 holes))
+    T1  0.300mm  0.0118"  (685 holes))
     T2  0.600mm  0.0236"  (4 holes)  (with 4 slots)
     T3  0.800mm  0.0315"  (4 holes))
     T4  1.300mm  0.0512"  (4 holes))
     T5  3.200mm  0.1260"  (4 holes))
 
-    Total plated holes count 698
+    Total plated holes count 701
 
 
 Drill file 'E0005_controller-NPTH.drl' contains

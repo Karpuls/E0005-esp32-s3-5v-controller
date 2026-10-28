@@ -4,7 +4,7 @@ Every image here is rendered **from the fab files themselves** (`gerbers/*.g*`, 
 
 - Script: `build/scripts/gerber_review.py`, run by `build/scripts/fab_export.sh`.
 - Numbers: `docs/gerber_review/gerber_review.json`.
-- Source board: SOURCE_COMMIT.
+- Source board: `50c434e`.
 
 Colours:
 - copper is orange, holes are black;
@@ -16,20 +16,20 @@ Colours:
 
 | # | Check | Result | Image |
 |---|---|---|---|
-| 1 | Copper on each layer matches the board renders `docs/images/routing_*.png` | **PASS.** Each layer was compared by eye with its board render: same pours, track bundles, via grid and planes. Copper coverage inside the outline: F 78.9 %, In1 92.5 %, In2 74.3 %, B 81.6 %. The In2 north strip (y 59.5–67) and the east strip are empty in both the gerber and the board render: no In2 zone there by design | `gerber_review/gerber_F_Cu.png`, `gerber_In1_Cu.png`, `gerber_In2_Cu.png`, `gerber_B_Cu.png` |
+| 1 | Copper on each layer matches the board renders `docs/images/routing_*.png` | **PASS.** Each layer was compared by eye with its board render: same pours, track bundles, via grid and planes. Copper coverage inside the outline: F 79.0 %, In1 92.5 %, In2 74.3 %, B 81.5 %. The In2 north strip (y 59.5–67) and the east strip are empty in both the gerber and the board render: no In2 zone there by design | `gerber_review/gerber_F_Cu.png`, `gerber_In1_Cu.png`, `gerber_In2_Cu.png`, `gerber_B_Cu.png` |
 | 2 | **In1 is solid GND** | **PASS.** In1 has 344 voids inside the outline. Every one lies within 1 mm of a drill hit (a via antipad or through-hole clearance) or is the 0.3 mm edge pullback. **0 voids elsewhere** and no tracks | `gerber_In1_Cu.png` |
 | 3 | **Antenna keep-out clear** (rule area x 206.05–212.6, y 76–124, all copper layers) | **PASS.** **0 copper pixels** inside the keep-out on F, In1, In2 and B (measured 0.1 mm inside its border). Only U1's silk outline and refs are near it | `gerber_zoom_antenna.png` (all 4 copper layers merged) |
 | 4a | Mask openings on pads only | **PASS.** F.Mask has 858 openings and B.Mask 24. Every opening has copper under it, except the 8 NPTH holes (USB-C pegs, holder pegs), which is correct | `gerber_F_mask_silk.png`, `gerber_B_mask_silk.png` |
-| 4b | **Vias tented** | **PASS** for the mask settings: the board has tenting front/back = yes, and 682 vias have **no mask opening of their own** on either side. 9 vias sit inside a pad opening:<br>- U2 EP: 6 vias (exempt EP thermal vias);<br>- U15 EP: 2 vias (exempt EP thermal vias);<br>- preliminary run: **one V5 via in L1's pad 2 (finding F-1)** | `gerber_F_mask_vias.png`, `gerber_B_mask_vias.png` |
-| 4c | Via-to-pad gap ≥ 0.15 mm (owner rule), measured from the gerbers | Preliminary run: **5 exceptions (finding F-2)**. On B, 0 vias are closer than 0.15 mm to a pad. Final run: FIX_RESULT | `gerber_F_mask_vias.png` |
+| 4b | **Vias tented** | **PASS** (final run, `50c434e`). The board has tenting front/back = yes, and the 685 vias have **no mask opening of their own** on either side. 8 vias sit inside a pad opening, all exempt EP thermal vias:<br>- U2 EP: 6 vias;<br>- U15 EP: 2 vias.<br>The preliminary run also had one V5 via in L1's pad 2 (finding F-1, now fixed) | `gerber_F_mask_vias.png`, `gerber_B_mask_vias.png` |
+| 4c | Via-to-pad gap ≥ 0.15 mm (owner rule), measured from the gerbers, any net | **PASS (final run):** 0 of 685 vias closer than 0.15 mm to a pad on F or B. The preliminary run had 5 exceptions (finding F-2, now fixed) | `gerber_F_mask_vias.png` |
 | 5a | Silkscreen legible, nothing on pads | **PASS.** Text is legible on both sides, and the bottom side is mirrored correctly (holder outlines, CELL ± labels, the "2 x 21700 P50B" and board-name lines). Silk inside openings: F 386 slivers, each ≤ 8 px (≤ 0.02 mm², the raster edge where KiCad subtracted the mask from the silk); B 0. No silk outside the board | `gerber_F_mask_silk.png`, `gerber_B_mask_silk.png` |
 | 5b | **"5V" next to every port J1–J5** | **PASS.** "5V Jn E0001" (J1–J4) and "5V J5 E0002" are present beside each connector (text at x 122.7 / 137.2 / 151.7 / 166.2 / 182.15, y 64.1; 616–678 silk px each) | `gerber_zoom_ports_5V.png` |
 | 6 | Board outline 125 × 73 mm, R3 corners, slots | **PASS.** Edge.Cuts is one closed outline, 125.1 × 73.1 mm over the 0.1 mm line, so **125.0 × 73.0 mm**. Corner radius measured at 3.07 mm (R3). J11's 4 shell slots are **plated 0.6 mm oval slots** in the PTH file (at x 90.50 / 94.83, y 100.18 / 108.82). There are no routed slots in Edge.Cuts | `gerber_zoom_J11.png`, `gerber_drill.png` |
-| 7 | Drills | **PASS.**<br>- PTH: 682 × 0.30 (vias), 4 × 0.60 slots (J11 shell), 4 × 0.80 (NTC leads), 4 × 1.30 (holder lugs at x 114.85 / 191.15, y 86.95 / 113.05), 4 × 3.20 (M3 at 4 mm corner inset).<br>- **NPTH**: 2 × 0.65 (USB-C pegs), **2 × 2.40 and 4 × 3.60 (holder locating pegs)**, all non-plated. | `gerber_drill.png` (green PTH, red NPTH); `reports/E0005_revA_drill_report.txt` |
+| 7 | Drills | **PASS.**<br>- PTH: 685 × 0.30 (vias), 4 × 0.60 slots (J11 shell), 4 × 0.80 (NTC leads), 4 × 1.30 (holder lugs at x 114.85 / 191.15, y 86.95 / 113.05), 4 × 3.20 (M3 at 4 mm corner inset).<br>- **NPTH**: 2 × 0.65 (USB-C pegs), **2 × 2.40 and 4 × 3.60 (holder locating pegs)**, all non-plated. | `gerber_drill.png` (green PTH, red NPTH); `reports/E0005_revA_drill_report.txt` |
 | 8 | Paste | F.Paste on SMD pads only. **B.Paste is empty**, which is correct: the bottom side has only the through-hole BH1/BH2 and RT1/RT2 | `gerber_paste.png` |
 
 ## Findings
-Both were found in the **preliminary run (board at `68121a4` / `c871ee5`)** and are **fixed in routing: commit FIX_COMMIT** (lead decision 2026-10-28; F-1 is a house-rule violation because L1 is not an EP, and F-2's vias move out of the Q1/Q2 tab gap). Routing also swept the whole board for same-net via-in-pad. The final run below re-checks both spots (FIX_RESULT).
+Both were found in the **preliminary run (board at `68121a4` / `c871ee5`)** and are **fixed in routing: commit `50c434e`** (lead decision 2026-10-28; F-1 is a house-rule violation because L1 is not an EP, and F-2's vias move out of the Q1/Q2 tab gap). Routing also swept the whole board for same-net via-in-pad. The final run below re-checks both spots (confirmed: 0 vias inside a non-EP pad opening and 0 vias within 0.15 mm of any pad on F or B (685 vias); the only vias in openings are the 6 U2 and 2 U15 EP thermal vias).
 
 > **Via-in-pad checks must cover same-net vias.** The `.kicad_dru` rule `Router via to pad` and DRC clearance only test *different* nets, and `e5qc` reported viapad 0 here. The gerber check in `gerber_review.py` is net-agnostic: it tests every 0.30 mm via hit against every mask opening (via inside an opening, or via copper < 0.15 mm from one). Use it, or a same-net pad-overlap check, for any future via-in-pad sweep.
 

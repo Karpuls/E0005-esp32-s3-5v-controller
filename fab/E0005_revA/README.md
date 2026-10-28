@@ -1,8 +1,8 @@
 # E0005 ESP32-S3 5 V controller board, rev A: fabrication package
 
-- Source: `E0005_controller.kicad_pcb` at commit SOURCE_COMMIT (sha256 prefix SOURCE_SHA), KiCad 10.99 (Backplane bp.4).
-- Generated on EXPORT_DATE by `build/scripts/fab_export.sh`. The script is deterministic: re-running it gives the same files apart from timestamps.
-- Routing approved by PlaceRoute at `68121a4`. The USB pair was then re-sized to JLC's 90 Ω width (see "Impedance control" below).
+- Source: `E0005_controller.kicad_pcb` at commit `50c434e` (sha256 prefix `6ef8de77dd03ea71`), KiCad 10.99 (Backplane bp.4).
+- Generated on 2026-10-28 by `build/scripts/fab_export.sh`. The script is deterministic: re-running it gives the same files apart from timestamps.
+- Routing is final and approved by PlaceRoute at `50c434e`. That includes the USB pair at JLC's 90 Ω width (`c871ee5`) and the same-net via-in-pad fixes F-1/F-2 (`50c434e`).
 - Gerber review: [`docs/gerber_review.md`](docs/gerber_review.md).
 
 ## Board
@@ -23,8 +23,8 @@
 - **Vias are tented** (board setting: tenting front and back), so there are no mask openings on vias. The exceptions are the EP thermal vias inside U2's and U15's exposed pads, and the two items in the gerber review findings F-1/F-2 from the preliminary run (fixed in routing; see the gerber review).
 - Vias 0.6/0.3 mm. Minimum track 0.15 mm (signals). JLC clearance rules plus the owner's via-to-pad rule are in `E0005_controller.kicad_dru`.
 - Drills:
-  - Plated, 698:
-    - 682 × 0.30 (vias);
+  - Plated, 701:
+    - 685 × 0.30 (vias);
     - 4 × 0.60 oval slots (J11 USB-C shell);
     - 4 × 0.80 (NTC leads);
     - 4 × 1.30 (holder lugs);
@@ -72,7 +72,7 @@ The width comes from JLC's impedance calculator (owner, 2026-10-28): 6.02 mil co
 
 ## Gerber render check (summary of [docs/gerber_review.md](docs/gerber_review.md))
 - **Copper:** the 4 layers match the board renders. **In1 is solid GND**: its only voids are antipads, hole clearances and the edge pullback. The **antenna keep-out has 0 copper** on all layers.
-- **Mask:** openings on pads only. 682 vias are tented, apart from the EP vias and findings F-1/F-2 from the preliminary run (fixed in routing; see the gerber review).
+- **Mask:** openings on pads only. 685 vias are tented, apart from the EP vias and findings F-1/F-2 from the preliminary run (fixed in routing; see the gerber review).
 - **Silk:** legible. **"5V" is at every port J1–J5** ("5V Jn E0001" and "5V J5 E0002"). Nothing on pads. The bottom silk is mirrored correctly.
 - **Outline:** 125.0 × 73.0 mm with R3 corners. J11's shell slots are plated 0.6 mm ovals.
 - **Drills:** the holder pegs (Ø3.6 / Ø2.4) and USB-C pegs are NPTH; M3, lugs and NTCs are plated.

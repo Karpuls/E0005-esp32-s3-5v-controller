@@ -10,7 +10,7 @@
  },
  "drill": {
   "PTH": {
-   "0.30": 682,
+   "0.30": 685,
    "0.80": 4,
    "1.30": 4,
    "3.20": 4,
@@ -130,7 +130,7 @@
  },
  "copper": {
   "F.Cu": {
-   "coverage_pct": 78.9,
+   "coverage_pct": 79.0,
    "keepout_copper_px": 0
   },
   "In1.Cu": {
@@ -142,7 +142,7 @@
    "keepout_copper_px": 0
   },
   "B.Cu": {
-   "coverage_pct": 81.6,
+   "coverage_pct": 81.5,
    "keepout_copper_px": 0
   }
  },
@@ -154,15 +154,8 @@
  },
  "F.Mask": {
   "openings": 858,
-  "vias": 682,
+  "vias": 685,
   "via_hits_in_opening": [
-   {
-    "at": [
-     100.6,
-     124.6
-    ],
-    "opening_mm2": 12.41
-   },
    {
     "at": [
      103.6,
@@ -220,43 +213,7 @@
     "opening_mm2": 4.11
    }
   ],
-  "vias_within_0p15_of_pad": [
-   {
-    "at": [
-     124.75,
-     85.0
-    ],
-    "gap_mm": -0.1
-   },
-   {
-    "at": [
-     124.75,
-     86.0
-    ],
-    "gap_mm": -0.1
-   },
-   {
-    "at": [
-     124.75,
-     87.0
-    ],
-    "gap_mm": -0.1
-   },
-   {
-    "at": [
-     124.75,
-     88.0
-    ],
-    "gap_mm": -0.1
-   },
-   {
-    "at": [
-     124.75,
-     89.0
-    ],
-    "gap_mm": -0.1
-   }
-  ],
+  "vias_within_0p15_of_pad": [],
   "openings_without_copper": [
    [
     125.32,
@@ -294,7 +251,7 @@
  },
  "B.Mask": {
   "openings": 24,
-  "vias": 682,
+  "vias": 685,
   "via_hits_in_opening": [],
   "vias_within_0p15_of_pad": [],
   "openings_without_copper": [

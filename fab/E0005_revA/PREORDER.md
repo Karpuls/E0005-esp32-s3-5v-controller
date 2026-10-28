@@ -18,7 +18,7 @@ Things to do or confirm before (or when) ordering the PCB and parts, and the ben
   - give the requirement as "90 Ω differential, USB_DP/USB_DN, L1 ref L2".
 
 ## 4. Board review items (gerber review): **closed**
-- F-1 (V5 via in L1 pad 2) and F-2 (FET_D vias in the Q1/Q2 tab gap) were found in the preliminary run and **fixed in routing** (FIX_COMMIT).
+- F-1 (V5 via in L1 pad 2) and F-2 (FET_D vias in the Q1/Q2 tab gap) were found in the preliminary run and **fixed in routing** (`50c434e`).
 - Details in [docs/gerber_review.md](docs/gerber_review.md).
 
 ## 5. Non-DigiKey parts (order first)
