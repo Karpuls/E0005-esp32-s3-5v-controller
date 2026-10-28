@@ -146,3 +146,22 @@ T('LCD_SCL', 0.15, I2, (21.4, 18.6), (21.4, 20.0))
 # south to the B lane from U1 (y 11.65)
 T('MUX_RST_N', 0.15, I2, (-3.55, -15.775), (-3.775, -16.0), (-11.55, -16.0), (-11.55, 10.0)); V('MUX_RST_N', -11.55, 10.0)
 T('MUX_RST_N', 0.15, B, (-11.55, 10.0), (-9.9, 11.65), (-6.0, 11.65))
+# SW1_IN / SW2_IN (U1 pull-up side -> J6 / J7 button connectors): B columns under the east half of U1 (east of the MID B pour),
+# south past the U1 south vias, west along the south edge (y 30.9 / 31.75) -> via -> F up to the connector pin; F links to the ESD
+# diode and the pull-up at the connector
+T('SW1_IN', 0.15, B, (43.35, -13.35), (45.5, -13.35), (45.5, 10.8), (49.0, 14.3), (49.0, 29.4), (47.5, 30.9), (-26.63, 30.9))
+V('SW1_IN', -26.63, 30.9); T('SW1_IN', 0.15, F, (-26.63, 30.9), 'J6.1')
+T('SW1_IN', 0.15, F, 'J6.1', (-26.63, 25.65), 'D15.1'); T('SW1_IN', 0.15, F, 'R47.2', (-26.6, 25.41))
+T('SW2_IN', 0.15, B, (44.1, -14.1), (46.0, -14.1), (46.0, 9.0), (49.6, 12.6), (49.6, 29.8), (47.65, 31.75), (-16.63, 31.75))
+V('SW2_IN', -16.63, 31.75); T('SW2_IN', 0.15, F, (-16.63, 31.75), 'J7.1')
+T('SW2_IN', 0.15, F, 'J7.1', (-16.63, 25.65), 'D16.1'); T('SW2_IN', 0.15, F, 'R49.2', (-16.6, 25.41))
+# SW3_IN / SW4_IN: vias north of R52 / R54 -> In2 columns between the EXP_INT_N column and the MID In2 pour, down the west side of
+# U1 -> In2 west south of the USB pair -> vias west of the LCD F lines -> F south to the J8 / J9 ESD diode, pull-up and connector pin
+T('SW3_IN', 0.15, F, 'R52.1', (36.6, -14.5)); V('SW3_IN', 36.6, -14.5)
+T('SW3_IN', 0.15, I2, (36.6, -14.5), (36.6, 7.0), (36.0, 7.6), (0.8, 7.6)); V('SW3_IN', 0.8, 7.6)
+T('SW3_IN', 0.15, F, (0.8, 7.6), (0.8, 23.5), (-5.6, 23.5), (-5.6, 25.37), 'D17.1')
+T('SW3_IN', 0.15, F, 'D17.1', (-6.35, 25.9), (-6.63, 26.18), 'J8.1'); T('SW3_IN', 0.15, F, 'R51.2', (-6.4, 25.41))
+T('SW4_IN', 0.15, F, 'R54.1', (37.66, -15.5)); V('SW4_IN', 37.66, -15.5)
+T('SW4_IN', 0.15, I2, (37.66, -15.5), (37.66, -14.0), (37.95, -13.71), (37.95, 2.3), (37.3, 2.95), (37.3, 7.6), (36.7, 8.2), (1.4, 8.2))
+V('SW4_IN', 1.4, 8.2); T('SW4_IN', 0.15, F, (1.4, 8.2), (1.4, 24.0), (2.31, 24.91), 'R53.2')
+T('SW4_IN', 0.15, F, 'R53.2', (3.6, 25.41)); T('SW4_IN', 0.15, F, 'D18.1', (3.65, 25.9), (3.37, 26.18), 'J9.1')
