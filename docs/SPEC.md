@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **v1.3 — FROZEN for hardware** (v1.3: board outline 125 × 73 mm, owner OK during routing) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
-| Date | 2026-10-27 (v0.1 – v1.2), 2026-10-28 (v1.3) |
+| Status | **v1.4 — FROZEN for hardware** (v1.4: routing copper sizing agreed with PlaceRoute) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
+| Date | 2026-10-27 (v0.1 – v1.2), 2026-10-28 (v1.3, v1.4) |
 | Scope | **PCB only.** Enclosure and firmware are out of scope; §8 lists only the firmware rules the hardware relies on. |
 | Reference design | **E0003** (`../E0003 - ESP32 control box mainboard`, spec v1.5, order-ready). E0005 reuses its MCU, battery, protection, gauge, I²C, LCD, switch and button blocks, its footprints/libraries and its DigiKey parts. **Only what "5 V only" forces is changed** (§1.1). |
 | Sister designs | E0001 (fader driver, 4 per box) and E0002 (haptic knob, 1 per box) are **not part of this job**. E0005 keeps their connectors and pinouts with **+5 V** on the power pins. **E0001 rev C and E0002 rev B need 6–9 V (PBUS) and will not work on E0005; 5 V revisions are needed later (out of scope).** §6 is the host-interface spec they will need. |
@@ -18,6 +18,7 @@
 | **v1.1** | Schematic-review corrections (lead, from the Phase 2 checks): (1) **TPS56637 output filter inside datasheet Table 4 (SLVSEG1A, 5 V row): L 3.3 µH, V5 effective C ≤ 100 µF** (v1.0 had 2.2 µH and ≈ 200 µF): V5 bulk is now 2 × 47 µF + the 10 µF eFuse/3V3 input caps ≈ 85–95 µF effective. (2) **Port eFuse UVLO 1 M / 402 k → 4.19 V rising / 3.80 V falling** (was 4.49/4.08 V), to keep the USB-unplug dip margin with the smaller C (§5.1.1, recomputed). (3) **Low-pack derating rule** §8.6: V5 load ≤ 3.0 A below a 6.8 V pack. (4) **PWR_HOLD rule** §8.5: TPS56637's 200 Ω SW discharge (datasheet §7.3.9) is on whenever EN is low, drawing ≈ 25 mA from USB, so PWR_HOLD stays high while USB is attached and a battery is fitted; ≈ 25 mA remains in USB-only/no-battery (buck VIN back-fed, §13). (5) Schematic deviations D-1…D-5 accepted (`docs/schematic_notes.md`). TPS56637 OVP at 125 % ≈ 6.0 V is above USB's 5.5 V max on V5. |
 | **v1.2** | PlaceRoute item: **USB-only/no-battery back-feed** of V5 into BAT+ through the TPS56637 high-side body diode, analysed (§5.1.2, `docs/schematic_notes.md`): nothing misbehaves. **§8.4 battery detect tightened:** auto-charge only for a pack ≥ 5.6 V; 5.0–5.6 V only after a precharge probe. The 1 MΩ MID pull-down alternative was not fitted. |
 | **v1.3** | **Outline 125 × 73 mm** (was ≈ 125 × 65), owner decision via PlaceRoute (no strict size limit; enlarge where it helps routing). +8 mm at the **north** edge: the J1–J5 port band (connectors, eFuses U10–U14 with their parts) and the U16 USB-input stage moved north with the edge, because the band between U8/U9 and the port eFuses was full on all routing layers. Everything else (BH1/BH2, U1, antenna keep-out) stayed put. 4 × M3 holes keep the 4 mm corner inset (`E0005_board:Holes_4xM3_125x73`), R3 corners. Details in `docs/routing_notes.md`. |
+| **v1.4** | **Routing copper sizing (PlaceRoute decision):** copper is sized for a **4.6 A design current on V5** and **5 A on the pack path** at **ΔT ≤ 20 °C** (IPC-2152). The 4.4 A firmware port budget is unchanged; short-term peaks up to the 4.85 A worst plausible V5 load are accepted (≈ 22 °C). The buck current limit and F1 stay the hardware backstops above that. |
 
 ---
 
@@ -165,7 +166,7 @@ Unchanged from E0003 §4: native USB-Serial/JTAG on GPIO19/20 (no UART pads), FS
 | **Worst plausible** (4 × 0.6 A + 2.0 A + 3V3 peak) | **4.85 A** | **23.3 W** | **4.0 A / 3.4 A** |
 | Hardware worst case (all eFuses at max, multi-fault) | 6.65 A | 32 W | 5.4 A / 4.7 A |
 
-- **V5 is sized for 6 A continuous:** TPS56637 6 A rating, valley current limit 6.3–8.6 A (output limit ≈ 7–9 A); copper ≥ 3 mm or pours; inductor 3.3 µH, Isat ≥ 9 A (datasheet Table 4). Worst plausible (4.85 A) has 1.15 A margin. The hardware worst case is a multi-fault case: the buck current limit, then the port UVLO, are the backstops.
+- **V5 converter sized for 6 A:** TPS56637 6 A rating, valley current limit 6.3–8.6 A (output limit ≈ 7–9 A). **Copper (v1.4): sized for a 4.6 A design current at ΔT ≤ 20 °C** (4.4 A firmware port budget + typical 3V3; 4.85 A worst-plausible peaks ≈ 22 °C, accepted); the pack path is sized for 5 A at ΔT ≤ 20 °C (4.0 A worst plausible at a 6.4 V pack), with F1 10 A and the buck limit as the backstops; inductor 3.3 µH, Isat ≥ 9 A (datasheet Table 4). Worst plausible (4.85 A) has 1.15 A margin. The hardware worst case is a multi-fault case: the buck current limit, then the port UVLO, are the backstops.
 - **Buck dropout:** t_OFF(min) 300 ns max at 500 kHz → D_max ≈ 85 %, so V5 holds 4.80 V down to a pack of ≈ 5.9 V at 5 A (≈ 5.7 V light load). Firmware sheds the ports at 6.4 V (§8.6), so the ports never see the dropout region.
 - **Battery current** ≤ 4.0 A worst plausible, ≤ ≈ 9 A by the buck current limit: inside F1 10 A, S-8252 OC ≈ 17–21 A, P50B 60 A. There is no charger BATFET in the discharge path any more, so **E0003's O-1 gap (6–20 A) is closed by the buck current limit**; a short on BAT+ itself is still covered by the S-8252 short detection and F1.
 - **Runtime** (≈ 32 Wh usable): idle ≈ 29 h, typical active ≈ 8.5 h, continuous operating peak ≈ 2.3 h.
