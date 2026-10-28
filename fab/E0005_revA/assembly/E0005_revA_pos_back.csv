@@ -1,0 +1,5 @@
+Ref,Val,Package,PosX,PosY,Rot,Side
+"BH1","Keystone 1121 + P50B","Keystone_1121_1x21700_THM",153.000000,-86.950000,0.000000,bottom
+"BH2","Keystone 1121 + P50B","Keystone_1121_1x21700_THM",153.000000,-113.050000,180.000000,bottom
+"RT1","10k B3435","NTC_Leaded_THT_P2.54mm_Drill0.8mm",144.000000,-100.000000,0.000000,bottom
+"RT2","10k B3435","NTC_Leaded_THT_P2.54mm_Drill0.8mm",158.000000,-100.000000,0.000000,bottom

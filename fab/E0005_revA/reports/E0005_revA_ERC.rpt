@@ -1,0 +1,20 @@
+ERC report (2026-10-28T15:43:47, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+
+***** Sheet /Power: USB-C, U_IN, charger, 5 V buck, 3V3/
+
+***** Sheet /Battery pack, protection, gauge/
+
+***** Sheet /MCU, UI, LCD, switches/
+
+***** Sheet /I2C mux, expander, 5 V peripheral ports/
+
+ ** ERC messages: 0  Errors 0  Warnings 0
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

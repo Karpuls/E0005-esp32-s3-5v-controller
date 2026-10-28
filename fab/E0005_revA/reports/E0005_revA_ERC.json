@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-28T15:43:51",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.99.0",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/941c9a94-d85a-5574-b1cc-3e129393c8ae",
+            "violations": []
+        },
+        {
+            "path": "/Power: USB-C, U_IN, charger, 5 V buck, 3V3/",
+            "uuid_path": "/941c9a94-d85a-5574-b1cc-3e129393c8ae/5702a6e3-3306-5f2f-91be-bb236bd70176",
+            "violations": []
+        },
+        {
+            "path": "/Battery pack, protection, gauge/",
+            "uuid_path": "/941c9a94-d85a-5574-b1cc-3e129393c8ae/29962900-5f84-5d00-ae2e-b4e23408e7b4",
+            "violations": []
+        },
+        {
+            "path": "/MCU, UI, LCD, switches/",
+            "uuid_path": "/941c9a94-d85a-5574-b1cc-3e129393c8ae/fffefd16-1046-5f12-9715-1190391a249b",
+            "violations": []
+        },
+        {
+            "path": "/I2C mux, expander, 5 V peripheral ports/",
+            "uuid_path": "/941c9a94-d85a-5574-b1cc-3e129393c8ae/068c3523-d35e-5f10-8466-9b5496fa3942",
+            "violations": []
+        }
+    ],
+    "source": "E0005_controller.kicad_sch"
+}

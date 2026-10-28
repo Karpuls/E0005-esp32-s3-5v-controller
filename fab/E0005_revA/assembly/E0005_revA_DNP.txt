@@ -1,0 +1,2 @@
+# DNP parts (not fitted, excluded from the JLC CPL and BOM)
+R60
