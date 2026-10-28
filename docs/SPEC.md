@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **v1.2 — FROZEN for hardware** (v1.1 approved by PlaceRoute; v1.2 adds the no-battery back-feed analysis and the §8.4 battery-detect rule) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
-| Date | 2026-10-27 (v0.1 – v1.2) |
+| Status | **v1.3 — FROZEN for hardware** (v1.3: board outline 125 × 73 mm, owner OK during routing) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
+| Date | 2026-10-27 (v0.1 – v1.2), 2026-10-28 (v1.3) |
 | Scope | **PCB only.** Enclosure and firmware are out of scope; §8 lists only the firmware rules the hardware relies on. |
 | Reference design | **E0003** (`../E0003 - ESP32 control box mainboard`, spec v1.5, order-ready). E0005 reuses its MCU, battery, protection, gauge, I²C, LCD, switch and button blocks, its footprints/libraries and its DigiKey parts. **Only what "5 V only" forces is changed** (§1.1). |
 | Sister designs | E0001 (fader driver, 4 per box) and E0002 (haptic knob, 1 per box) are **not part of this job**. E0005 keeps their connectors and pinouts with **+5 V** on the power pins. **E0001 rev C and E0002 rev B need 6–9 V (PBUS) and will not work on E0005; 5 V revisions are needed later (out of scope).** §6 is the host-interface spec they will need. |
@@ -17,6 +17,7 @@
 | **v1.0** | **Owner answers (all as recommended), spec frozen:** Q1 keep the **MAX17205** gauge; Q2 **drop the BQ29209**; Q3 keep E0003's port limits (**E0001 ≤ 0.6 A, E0002 ≤ 2.0 A, firmware budget 4.4 A**); Q4 **"off" with USB plugged in = board stays on from USB and charges**; Q5 private GitHub repo `Karpuls/E0005-esp32-s3-5v-controller`, pushed at every milestone. |
 | **v1.1** | Schematic-review corrections (lead, from the Phase 2 checks): (1) **TPS56637 output filter inside datasheet Table 4 (SLVSEG1A, 5 V row): L 3.3 µH, V5 effective C ≤ 100 µF** (v1.0 had 2.2 µH and ≈ 200 µF): V5 bulk is now 2 × 47 µF + the 10 µF eFuse/3V3 input caps ≈ 85–95 µF effective. (2) **Port eFuse UVLO 1 M / 402 k → 4.19 V rising / 3.80 V falling** (was 4.49/4.08 V), to keep the USB-unplug dip margin with the smaller C (§5.1.1, recomputed). (3) **Low-pack derating rule** §8.6: V5 load ≤ 3.0 A below a 6.8 V pack. (4) **PWR_HOLD rule** §8.5: TPS56637's 200 Ω SW discharge (datasheet §7.3.9) is on whenever EN is low, drawing ≈ 25 mA from USB, so PWR_HOLD stays high while USB is attached and a battery is fitted; ≈ 25 mA remains in USB-only/no-battery (buck VIN back-fed, §13). (5) Schematic deviations D-1…D-5 accepted (`docs/schematic_notes.md`). TPS56637 OVP at 125 % ≈ 6.0 V is above USB's 5.5 V max on V5. |
 | **v1.2** | PlaceRoute item: **USB-only/no-battery back-feed** of V5 into BAT+ through the TPS56637 high-side body diode, analysed (§5.1.2, `docs/schematic_notes.md`): nothing misbehaves. **§8.4 battery detect tightened:** auto-charge only for a pack ≥ 5.6 V; 5.0–5.6 V only after a precharge probe. The 1 MΩ MID pull-down alternative was not fitted. |
+| **v1.3** | **Outline 125 × 73 mm** (was ≈ 125 × 65), owner decision via PlaceRoute (no strict size limit; enlarge where it helps routing). +8 mm at the **north** edge: the J1–J5 port band (connectors, eFuses U10–U14 with their parts) and the U16 USB-input stage moved north with the edge, because the band between U8/U9 and the port eFuses was full on all routing layers. Everything else (BH1/BH2, U1, antenna keep-out) stayed put. 4 × M3 holes keep the 4 mm corner inset (`E0005_board:Holes_4xM3_125x73`), R3 corners. Details in `docs/routing_notes.md`. |
 
 ---
 
@@ -38,7 +39,7 @@
 | LCD | **Adafruit 4311** on EYESPI J10 (as E0003) | |
 | Switches | 4 × JST-GH 2p, pull-up + RC + ESD (as E0003) | |
 | On/off | Power button → **soft power latch on the buck EN** + GPIO21; BOOT, RESET (as E0003, latch new) | "Off" = buck off, ≈ 35 µA drain; no ship-mode charger needed |
-| Outline | **≈ 125 × 65 mm**, 4 × M3, E0003 edge plan (§9) | No size limit; reuses the reviewed outline, holder and antenna placement |
+| Outline | **125 × 73 mm** (v1.3; E0003's 125 × 65 + 8 mm north), 4 × M3, E0003 edge plan (§9) | No size limit; reuses the reviewed holder and antenna placement; extra room for the port band |
 
 ### 1.1 What changes against E0003
 | E0003 block | E0005 | Reason |
@@ -430,7 +431,7 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 
 ## 9. Mechanical (PCB only)
 - **Stack-up:** 4-layer 1.6 mm, JLC **JLC04161H-3313** (as E0003; 90 Ω USB pair). L1 parts/signals/power pours, L2 solid GND, L3 V5 + BAT+ pours and slow signals, L4 GND, holder lugs, protection parts.
-- **Outline ≈ 125 × 65 mm, 4 × M3, E0003 edge plan** (reuse `E0003_Outline_125x65_4xM3` and the Keystone 1121 footprint/STEP): USB-C + power stage (U_IN, BQ25887 + 1 µH, TPS56637 + 3.3 µH, 3V3) on the **west** side off the cells; ports J1–J5 on the **north** edge with eFuse/TVS/ESD and "5V" labels; ESP32-S3 with the antenna keep-out at the **east** edge (≥ 15 mm to the cans); switches, J12, power button and EYESPI on the **south** edge; holders on the bottom.
+- **Outline 125 × 73 mm** (v1.3: E0003's 125 × 65 mm extended 8 mm north for the port band; board-level Edge.Cuts, R3 corners), **4 × M3** 4 mm from the corners (`E0005_board:Holes_4xM3_125x73`), **E0003 edge plan** (Keystone 1121 footprint/STEP at E0003's positions): USB-C + power stage (U_IN, BQ25887 + 1 µH, TPS56637 + 3.3 µH, 3V3) on the **west** side off the cells; ports J1–J5 on the **north** edge with eFuse/TVS/ESD and "5V" labels; ESP32-S3 with the antenna keep-out at the **east** edge (≥ 15 mm to the cans); switches, J12, power button and EYESPI on the **south** edge; holders on the bottom.
 - High-current paths: BAT+ → F1 → buck VIN, buck → V5 → port eFuses, and VBUS → U_IN → V5 carry up to ≈ 6 A: pours on two layers or ≥ 3 mm with via stitching. R_SENSE Kelvin to the gauge.
 - Bottom standoffs ≥ 25 mm; top parts ≤ 12 mm (as E0003).
 - House rules in R8: no test points, no vias in pads, 45° tracks, `.kicad_dru` with JLC + no-via-on-pad rules.
