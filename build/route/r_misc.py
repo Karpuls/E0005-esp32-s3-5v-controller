@@ -1,7 +1,7 @@
 """Small leftovers: eFuse split pins (main pad <-> corner pad), switch twin pads."""
 from rt import T, V
 F = 'F.Cu'
-for u, pins in (('U16', ('1', '10')), ('U10', ('1', '4')), ('U11', ('1', '4')), ('U12', ('1', '4')), ('U13', ('1', '4')), ('U14', ('1', '4'))):
+for u, pins in (('U16', ('1', '4', '10')), ('U10', ('1', '4')), ('U11', ('1', '4')), ('U12', ('1', '4')), ('U13', ('1', '4')), ('U14', ('1', '4'))):
     for p in pins:
         a, b = '%s.%s' % (u, p), "%s.%s'" % (u, p)
         from rt import PADS

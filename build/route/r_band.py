@@ -25,8 +25,8 @@ T('PORT4_OFF', 0.15, F, (8.6, -20.9), (4.3, -20.9)); V('PORT4_OFF', 4.3, -20.9)
 T('PORT4_OFF', 0.15, B, (4.3, -20.9), (4.0, -21.2), (4.0, -30.15), (4.4, -30.55)); V('PORT4_OFF', 4.4, -30.55)
 T('PORT4_OFF', 0.15, F, (4.4, -30.55), (5.4, -30.55))
 # PORT3_OFF: Q5.1 -> via -> B across the band -> via -> F to R84.2 (keeps F free for the west lanes)
-T('PORT3_OFF', 0.15, F, 'Q5.1', (5.6, -24.2)); V('PORT3_OFF', 5.6, -24.2)
-T('PORT3_OFF', 0.15, B, (5.6, -24.2), (5.6, -16.9)); V('PORT3_OFF', 5.6, -16.9)
+T('PORT3_OFF', 0.15, F, 'Q5.1', (5.17, -24.62), (6.0, -24.62)); V('PORT3_OFF', 6.0, -24.62)
+T('PORT3_OFF', 0.15, B, (6.0, -24.62), (5.6, -24.22), (5.6, -16.9)); V('PORT3_OFF', 5.6, -16.9)
 T('PORT3_OFF', 0.15, F, (5.6, -16.9), 'R84.2')
 # CHG_CD / USB_ILIM: F east from the pins under the U9 body, north out of the body top into the band, F lanes west
 for pin, xc, yl in (('U9.10', 12.6, -17.9), ('U9.11', 13.0, -18.5)):
@@ -59,21 +59,28 @@ T('USB_ILIM_3A0', 0.15, F, (8.0, -18.5), (-36.2, -18.5)); V('USB_ILIM_3A0', -36.
 T('USB_ILIM_3A0', 0.15, B, (-36.2, -18.5), (-38.4, -18.5), (-38.4, -28.35)); V('USB_ILIM_3A0', -38.4, -28.35)
 T('USB_ILIM_3A0', 0.15, F, (-38.4, -28.35), (-38.7, -28.65), 'R141.1')
 T('PORT1_EN', 0.15, F, (-26.7, -25.94), (-26.4, -26.24))   # Q3 nudged 0.3 mm with the enlargement: extend into Q3.3
-T(G, 0.3, F, 'Q7.2', (23.58, -24.0)); V(G, 23.58, -24.0)   # Q7.2 GND via next to the pad (was stretched 8 mm by the enlargement)
+T(G, 0.3, F, 'Q7.2', (24.4, -24.0)); V(G, 24.4, -24.0)   # Q7.2 GND via next to the pad (was stretched 8 mm by the enlargement)
 # PORT1-4_FLT_N: U9.13-.16 F east under/past the pull-up row to nested F columns x 20.7..23.35, north into the band,
 # F lanes y -21.5 (P4) .. -23.3 (P1) west; P3 / P2 / P1 drop to B for the last leg (port EN/V5 parts on F)
-for pin, n, xc, yl in (('U9.16', 'PORT4_FLT_N', 20.7, -21.5), ('U9.15', 'PORT3_FLT_N', 21.3, -22.1),
-                       ('U9.14', 'PORT2_FLT_N', 22.75, -22.7), ('U9.13', 'PORT1_FLT_N', 23.35, -23.3)):
+for pin, n, xc, yl in (('U9.16', 'PORT4_FLT_N', 20.7, -21.5), ('U9.15', 'PORT3_FLT_N', 21.3, -22.05),
+                       ('U9.14', 'PORT2_FLT_N', 22.75, -22.6), ('U9.13', 'PORT1_FLT_N', 23.35, -23.15)):
     T(n, 0.15, F, pin, (xc, rt.PADS_NEW[pin]['y']), (xc, yl))
 T('PORT4_FLT_N', 0.15, F, (20.7, -21.5), (12.0, -21.5)); V('PORT4_FLT_N', 12.0, -21.5)   # B under the P3..P1 lanes
 T('PORT4_FLT_N', 0.15, B, (12.0, -21.5), (12.0, -26.1), (12.3, -26.4)); V('PORT4_FLT_N', 12.3, -26.4)
 T('PORT4_FLT_N', 0.15, F, (12.3, -26.4), (12.3, -27.01))
-T('PORT3_FLT_N', 0.15, F, (21.3, -22.1), (-5.6, -22.1)); V('PORT3_FLT_N', -5.6, -22.1)
-T('PORT3_FLT_N', 0.15, B, (-5.6, -22.1), (-5.6, -26.0), (-5.0, -26.6)); V('PORT3_FLT_N', -5.0, -26.6)
+T('PORT3_FLT_N', 0.15, F, (21.3, -22.05), (-5.6, -22.05)); V('PORT3_FLT_N', -5.6, -22.05)
+T('PORT3_FLT_N', 0.15, B, (-5.6, -22.05), (-5.6, -26.0), (-5.0, -26.6)); V('PORT3_FLT_N', -5.0, -26.6)
 T('PORT3_FLT_N', 0.15, F, (-5.0, -26.6), (-5.0, -27.01))
-T('PORT2_FLT_N', 0.15, F, (22.75, -22.7), (-18.18, -22.7)); V('PORT2_FLT_N', -18.18, -22.7)
-T('PORT2_FLT_N', 0.15, B, (-18.18, -22.7), (-18.18, -25.55))
-T('PORT1_FLT_N', 0.15, F, (23.35, -23.3), (-21.5, -23.3)); V('PORT1_FLT_N', -21.5, -23.3)
-T('PORT1_FLT_N', 0.15, B, (-21.5, -23.3), (-22.95, -24.75), (-32.65, -24.75), (-34.4, -26.5))
+T('PORT2_FLT_N', 0.15, F, (22.75, -22.6), (-18.18, -22.6)); V('PORT2_FLT_N', -18.18, -22.6)
+T('PORT2_FLT_N', 0.15, B, (-18.18, -22.6), (-18.18, -25.55))
+T('PORT1_FLT_N', 0.15, F, (23.35, -23.15), (-20.7, -23.15)); V('PORT1_FLT_N', -20.7, -23.15)
+T('PORT1_FLT_N', 0.15, B, (-20.7, -23.15), (-20.7, -24.1), (-21.2, -24.6), (-32.5, -24.6), (-34.4, -26.5))
 # PORT5_FLT_N: under-body via -> B east under the pull-up row, south of the 3V3 via at (30.6,-16.6), north to the R89.2 via
-T('PORT5_FLT_N', 0.15, B, (14.45, -12.525), (30.3, -12.525), (31.3, -13.525), (31.3, -25.7), (30.6, -26.4))
+T('PORT5_FLT_N', 0.15, B, (14.45, -12.525), (14.85, -12.125), (29.9, -12.125), (31.3, -13.525), (31.3, -25.7), (30.6, -26.4))
+# USBIN_FLT_N: R90.2 -> F between the pull-up pads -> via -> B east of the 3V3 riser -> northmost F lane y -23.7 west ->
+# In2 north of the BH1 peg (south of the PORT1_EN via) and along y -24.0 into the V5 west column to the U16.4 via
+T('USBIN_FLT_N', 0.15, F, 'R90.2', (17.43, -13.5), (20.0, -13.5)); V('USBIN_FLT_N', 20.0, -13.5)
+T('USBIN_FLT_N', 0.15, B, (20.0, -13.5), (20.0, -15.0), (20.5, -15.5), (22.6, -15.5), (22.6, -23.7)); V('USBIN_FLT_N', 22.6, -23.7)
+T('USBIN_FLT_N', 0.15, F, (22.6, -23.7), (-21.5, -23.7)); V('USBIN_FLT_N', -21.5, -23.7)
+T('USBIN_FLT_N', 0.15, I2, (-21.5, -23.7), (-22.95, -25.15), (-26.6, -25.15), (-27.15, -24.6), (-32.8, -24.6), (-33.4, -24.0),
+  (-50.23, -24.0), (-50.23, -29.2))
