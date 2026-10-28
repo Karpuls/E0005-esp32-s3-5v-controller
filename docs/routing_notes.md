@@ -143,6 +143,19 @@ Switch-node copper:
   Item 8 was cancelled, so the earlier T-junction chamfer/via passes were removed from the build (a clean revert); T's stay plain.
 - No autorouter. No part moved this round.
 
+## Same-net via-in-pad sweep (fab review F-1 / F-2, 2026-10-28)
+Every via was checked against every same-net pad's copper box; the gap must be ≥ 0.15 mm unless the pad is an EP.
+- **F-1:** the V5 via at (−49.4,24.6) sat inside L1 pad 2. It is replaced by three vias at x −43.45 (y 23.6, 24.6, 25.5),
+  between L1.2 and C76, in the V5 F pour. That makes 6 V5 vias at the buck output with the three at x −38.9. The F neck
+  from L1.2 to the new vias is 2.6 mm. The V5 path is unchanged at 12.8 °C at 4.6 A.
+- **F-2:** the five FET_D vias in the 0.55 mm gap between the Q1 and Q2 drain tabs are replaced by **six** vias in a row at
+  y −15.75 (x −27.8 … −23.3), 0.20 mm north of both tabs. The F and In2 FET_D pours were extended to y −16.3 to cover them.
+  The south end is taken by the CHG_G B.Cu lane and the B_N In2 lane. FET_D is now 67.5 mm² on F and 67.8 mm² on In2, with
+  8.1 °C at 5 A across the pack path.
+- After the fix: the only same-net vias touching a pad are the EP thermal vias of U2 (EP pin 25, 6 vias) and U15 (EP pin 15,
+  2 vias). Closest same-net non-EP gaps: GND via (1.95,−34.10) to C54.2 and EXP_INT_N via (35.60,5.71) to U1.25, both
+  exactly 0.150 mm. Different-net via-to-pad gaps are covered by DRC and e5qc viapad (0).
+
 ## Part nudges (all < 1 mm)
 - R28 −0.60 x, R29 +0.50 x, R30 +0.50 x (U15 gauge fan-out); R98 0.60 north (U10 GND pin 8 exit); R85 0.60 west (port-3 EN via);
   Q3 +0.3 x / −0.3 y (with the outline move, clear of the BH1 peg ring).

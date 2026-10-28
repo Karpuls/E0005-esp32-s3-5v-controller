@@ -7,12 +7,12 @@ BN, FD, VC, VDD = 'B_N', 'FET_D', 'S8252_VC', 'S8252_VDD'
 # ---------------- pack path pours, F.Cu + In2, current vias outside the pads (none in the FET tabs)
 for L in (F, I2):
     Z(BN, L, rect(-36.9, -15.6, -31.15, -11.55), 'R_BN_' + L[:2], prio=4)
-    Z(FD, L, rect(-30.95, -15.6, -19.55, -10.2), 'R_FETD_' + L[:2], prio=4)
+    Z(FD, L, rect(-30.95, -16.3, -19.55, -10.2), 'R_FETD_' + L[:2], prio=4)
     Z('SNS_P', L, rect(-19.35, -14.3, -16.3, -10.5) if L == I2 else
       [(-19.35, -14.3), (-17.9, -14.3), (-17.9, -14.75), (-16.3, -14.75), (-16.3, -10.5), (-16.6, -10.5), (-16.6, -10.0), (-19.35, -10.0)],
       'R_SNSP_' + L[:2], prio=4)   # F: widened north / south (Q2 source -> R20.1 is F-only: no via room between the Q2 pins)
 VS(BN, [(-33.05, -14.9), (-33.05, -13.6), (-33.05, -12.3)])
-VS(FD, [(-25.25, y) for y in (-15.0, -14.0, -13.0, -12.0, -11.0)])
+VS(FD, [(x, -15.75) for x in (-27.8, -26.9, -26.0, -25.1, -24.2, -23.3)])   # F <-> In2 row north of the Q1/Q2 drain tabs (>= 0.2 mm off both; the 0.55 mm gap between the tabs can't hold a via; south is taken by CHG_G B / B_N In2)
 VS('SNS_P', [(-17.55, -13.9), (-17.55, -12.6), (-17.55, -11.4)])
 Z(G, F, rect(-10.6, -14.9, -8.65, -11.15), 'R_GND_R20_F', prio=4)
 VS(G, [(-9.2, -14.6), (-9.2, -13.85), (-9.2, -13.1), (-9.2, -12.35), (-8.8, -11.65)])   # 5 stitching vias; spot at (-9.46,-11.2) left for I2C0_SDA
