@@ -80,7 +80,26 @@ T('PORT5_FLT_N', 0.15, B, (14.45, -12.525), (14.85, -12.125), (29.9, -12.125), (
 # USBIN_FLT_N: R90.2 -> F between the pull-up pads -> via -> B east of the 3V3 riser -> northmost F lane y -23.7 west ->
 # In2 north of the BH1 peg (south of the PORT1_EN via) and along y -24.0 into the V5 west column to the U16.4 via
 T('USBIN_FLT_N', 0.15, F, 'R90.2', (17.43, -13.5), (20.0, -13.5)); V('USBIN_FLT_N', 20.0, -13.5)
-T('USBIN_FLT_N', 0.15, B, (20.0, -13.5), (20.0, -15.0), (20.5, -15.5), (22.6, -15.5), (22.6, -23.7)); V('USBIN_FLT_N', 22.6, -23.7)
+T('USBIN_FLT_N', 0.15, B, (20.0, -13.5), (22.6, -13.5), (22.6, -23.7)); V('USBIN_FLT_N', 22.6, -23.7)
 T('USBIN_FLT_N', 0.15, F, (22.6, -23.7), (-21.5, -23.7)); V('USBIN_FLT_N', -21.5, -23.7)
 T('USBIN_FLT_N', 0.15, I2, (-21.5, -23.7), (-22.95, -25.15), (-26.6, -25.15), (-27.15, -24.6), (-32.8, -24.6), (-33.4, -24.0),
   (-50.23, -24.0), (-50.23, -29.2))
+# CHG_PG_N: R92.2 -> F north of R92 -> via -> B north -> F band lane y -19.8 / -21.5 west -> B hop past the P1_OFF column ->
+# F y -19.9 south of the BH1 peg -> In2 west of the ILIM vias -> B column x -38.0 west of the BH1.2 holder pad ->
+# In2 hop under the MID B line -> B to the existing stub at (-40.6, 0.45)
+T('CHG_PG_N', 0.15, F, 'R92.2', (17.43, -14.71), (19.9, -14.71)); V('CHG_PG_N', 19.9, -14.71)
+T('CHG_PG_N', 0.15, B, (19.9, -14.71), (19.9, -19.8)); V('CHG_PG_N', 19.9, -19.8)
+T('CHG_PG_N', 0.15, F, (19.9, -19.8), (11.2, -19.8), (9.5, -21.5), (-21.6, -21.5)); V('CHG_PG_N', -21.6, -21.5)
+T('CHG_PG_N', 0.15, B, (-21.6, -21.5), (-23.2, -19.9)); V('CHG_PG_N', -23.2, -19.9)
+T('CHG_PG_N', 0.15, F, (-23.2, -19.9), (-35.9, -19.9)); V('CHG_PG_N', -35.9, -19.9)
+T('CHG_PG_N', 0.15, I2, (-35.9, -19.9), (-38.0, -17.8), (-38.0, -10.4)); V('CHG_PG_N', -38.0, -10.4)
+T('CHG_PG_N', 0.15, B, (-38.0, -10.4), (-38.0, -3.0)); V('CHG_PG_N', -38.0, -3.0)
+T('CHG_PG_N', 0.15, I2, (-38.0, -3.0), (-38.0, 0.9)); V('CHG_PG_N', -38.0, 0.9)
+T('CHG_PG_N', 0.15, B, (-38.0, 0.9), (-40.15, 0.9), (-40.6, 0.45))
+# BUCK_PG: R93.2 -> via in the pull-up pocket -> In2 south (3V3 plane) -> B west along y -5.85 (north of the MID B line,
+# south of the U8 via field) -> In2 down x -20.0 (east of the CELL2_P In2 line) and west along y 16.0 (south of BH2 / BAT+ strip)
+# to the U17.4 via
+T('BUCK_PG', 0.15, F, 'R93.2', (18.8, -15.25), (19.1, -15.55)); V('BUCK_PG', 19.1, -15.55)
+T('BUCK_PG', 0.15, I2, (19.1, -15.55), (18.6, -15.05), (18.6, -6.5)); V('BUCK_PG', 18.6, -6.5)
+T('BUCK_PG', 0.15, B, (18.6, -6.5), (17.95, -5.85), (-19.75, -5.85), (-20.0, -6.1)); V('BUCK_PG', -20.0, -6.1)
+T('BUCK_PG', 0.15, I2, (-20.0, -6.1), (-20.0, 16.0), (-51.0, 16.0), (-51.55, 15.45))
