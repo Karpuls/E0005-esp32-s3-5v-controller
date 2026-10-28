@@ -35,22 +35,24 @@
 | MID / CELL2_P (balancing, cell link) | ≤ 0.3 A | 0.25–0.5 mm and pours |
 | GND | — | In1 solid + F/B pours |
 | Signals | < 50 mA | 0.15 mm |
-| USB_DP / USB_DN | — | 0.19 mm, 0.20 mm gap (90 Ω differential) |
+| USB_DP / USB_DN (+ _C) | — | 0.153 mm, 0.20 mm gap (90 Ω differential, JLC calculator) |
 
 ## USB 2.0 pair (U1 ↔ R2/R3 ↔ U4 ↔ J11)
-- Edge-coupled microstrip on F.Cu over solid In1 GND (L1–L2 prepreg 0.0994 mm, εr 4.1): **W 0.19 mm, S 0.20 mm,
-  Zdiff ≈ 90 Ω**. The GND pours keep 0.3 mm from the pair (DRU rule `USB pour gap`).
-- Length U1 → R2/R3 (track length, PlaceRoute fix round): **D+ 93.867 mm, D− 93.867 mm, skew 0.0002 mm**, matched with bumps
-  on D+. **No layer changes** on USB_DP/USB_DN. On the connector side (USB_DP_C 11.41 mm / USB_DN_C 10.70 mm) only the J11
-  B6/B7 contacts are tied over with two small vias, as the connector requires.
-- Spacing: pair gap 0.20 mm everywhere; **no other F.Cu track within 0.68 mm** of the pair (nearest: CHG_CD). Other-net vias
-  closer than 0.6 mm: GND stitching (31.0,−7.0) 0.32 mm (return-path via, intended); and three that were already there at
-  a90341d: +3V3 (−38.0,3.35) 0.36 mm, CHG_CD (−45.2,3.25) 0.46 mm, SW3_IN (0.8,7.6) 0.52 mm. These are boxed in by
-  the U2 bundle lanes and the SW4_IN via, so they stay where they are. The CHG_PG_N via added this round sits at
-  (−32.0,3.0), 0.71 mm from the pair.
-- **Impedance to confirm at order time:** W 0.19 / S 0.20 mm gives ≈ 90 Ω here, from our own stack-up numbers. Confirm it
-  in JLC's impedance calculator for **JLC04161H-3313** (L1 over L2, 0.0994 mm prepreg) when ordering, and adjust W/S if JLC
-  gives a different answer.
+- Edge-coupled microstrip on F.Cu over solid In1 GND, JLC04161H-3313 (L1 over L2, prepreg 0.0994 mm): **W 0.153 mm,
+  S 0.20 mm** (centre pitch 0.353 mm). This is **90 Ω, confirmed in JLC's impedance calculator** by the owner on 2026-10-28:
+  coplanar differential with a 0.30 mm (11.8 mil) gap to copper gives W = 6.02 mil = 0.153 mm at S = 7.87 mil
+  (non-coplanar gives 6.05 mil). The earlier 0.19 mm width came out at ≈ 80 Ω.
+  The GND pours keep 0.30 mm from the pair (DRU rule `USB pour gap`).
+- Length U1 → R2/R3 (track length): **D+ 93.851 mm, D− 93.852 mm, skew 0.001 mm**, matched with three bumps on D+.
+  The pair sits at exactly 0.200 mm gap for 88.6 % of the D− length; the rest is the bumps and the U1 / R2 / R3 pin
+  fan-outs. **No layer changes** on USB_DP/USB_DN.
+- Connector side (USB_DP_C 11.41 mm / USB_DN_C 10.70 mm, J11 → U4 → R2.1/R3.1): also 0.153 mm, including the J11 B6/B7 tie
+  links and their two small via pairs, as the connector requires. The pad geometry sets the spacing here (minimum gap
+  0.34 mm). The pads (J11 A6/A7 0.3 mm, U4 pins, R2/R3) are all wider than the track, so there are no neck-downs.
+- Spacing: no other F.Cu track within 0.70 mm of the pair. Other-net vias closer than 0.6 mm:
+  - GND stitching at (31.0,−7.0), a return-path via;
+  - three from a90341d: +3V3 (−38.0,3.35), CHG_CD (−45.2,3.25), SW3_IN (0.8,7.6). These are boxed in by the U2 bundle
+    lanes and the SW4_IN via.
 
 ## Current paths, IPC-2152 (design currents per the owner, 2026-10-28)
 Design currents:
