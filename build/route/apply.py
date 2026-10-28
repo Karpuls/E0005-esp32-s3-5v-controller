@@ -42,7 +42,7 @@ for it in items:
         cs.connection.thermal_spokes.width.value_nm = round(it['spoke'] * NM)
         cs.connection.thermal_spokes.gap.value_nm = round(0.25 * NM)
         z.clearance = round(it['clr'] * NM); z.min_thickness = round(it['minw'] * NM)
-        z.island_mode = IslandRemovalMode.IRM_AREA; z.min_island_area = round(1.0 * NM * NM)
+        z.island_mode = IslandRemovalMode.IRM_ALWAYS
         new.append(z)
 for i in range(0, len(new), 500):
     board.create_items(new[i:i + 500])

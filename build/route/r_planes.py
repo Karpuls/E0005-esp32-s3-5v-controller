@@ -9,3 +9,6 @@ Z('V5', I2, [(-62.5, -40.5), (-38.5, -40.5), (-38.5, -31.0), (52.5, -31.0), (52.
             (-29.7, -16.0), (-29.7, -17.0), (-38.5, -17.0), (-38.5, 32.5), (-62.5, 32.5)], 'R_V5_IN2', prio=1, conn='full', clr=0.25)
 Z('V5', I2, rect(-1.5, -33.2, -0.3, -31.0), 'R_V5B_C54', prio=1, conn='full', clr=0.25)
 Z('+3V3', I2, [(-38.5, -17.0), (-29.7, -17.0), (-29.7, -16.0), (-28.3, -16.0), (-28.3, -17.0), (8.4, -17.0), (8.4, -18.2), (33.6, -18.2), (33.6, -17.0), (62.5, -17.0), (62.5, 32.5), (-38.5, 32.5)], 'R_3V3_IN2', prio=1, conn='full', clr=0.25)
+# outer-layer GND pours (lowest priority): stitched to In1 GND; 0.21 mm clearance (fill-arc margin over the 0.2 mm rule; USB pair: 0.3 mm via the 'USB pour gap' DRC rule)
+Z('GND', 'F.Cu', rect(-62.5, -40.5, 62.5, 32.5), 'R_GND_F', prio=0, conn='pth', clr=0.21)
+Z('GND', 'B.Cu', rect(-62.5, -40.5, 62.5, 32.5), 'R_GND_B', prio=0, conn='pth', clr=0.21)
