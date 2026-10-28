@@ -3,4 +3,9 @@ MODS = [m for m in ['r_buck', 'r_chg', 'r_uin', 'r_bat', 'r_ports', 'r_mux', 'r_
 for m in MODS:
     rt.NEWFRAME = False
     importlib.import_module(m)
+import chamfer
+pa, pleft = chamfer.padangle2()
+print('pad exits squared', pa, 'left', len(pleft), pleft[:20])
+nch, bad = chamfer.run()
+print('chamfered', nch, 'left', len(bad), bad[:20])
 print(rt.save(), len(rt.ITEMS))

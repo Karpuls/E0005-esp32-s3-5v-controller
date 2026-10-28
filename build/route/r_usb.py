@@ -41,7 +41,7 @@ acc = [(37.7, Y0), (x_b, Y0), (x_b - bump_h, Y0 - bump_h), (x_b - bump_h - 0.4, 
        (x_b - 2 * bump_h - 0.8, Y0), (x_b - 3 * bump_h - 0.8, Y0 - bump_h), (x_b - 3 * bump_h - 1.2, Y0 - bump_h),
        (x_b - 4 * bump_h - 1.2, Y0)]
 # third bump on the long run south of the cells (x ~ -12), height chosen so that |len(D+) - len(D-)| <= 0.05 mm
-H3 = 1.58; xb3 = -11.0
+H3 = 1.137; xb3 = -11.0
 b3 = [(xb3, Y1), (xb3 - H3, Y1 - H3), (xb3 - H3 - 0.4, Y1 - H3), (xb3 - 2 * H3 - 0.4, Y1)]
 dp_pts = [(38.0, Y0)] + acc + cl[1:3] + b3 + cl[3:] + ['R2.2']
 T(DP, W, F, *dp_pts)
@@ -51,7 +51,7 @@ T(DN, W, F, *dn_pts)
 # ---------------- USB-C side: J11 A6/A7 straight in, B6/B7 tied with small vias + B.Cu; U4 ESD pass-through; R2.1 / R3.1
 DPC, DNC = 'USB_DP_C', 'USB_DN_C'
 T(DPC, W, F, 'J11.A6', (-53.0, 4.25), (-52.6, 3.85), (-52.3, 3.55), 'U4.1', 'U4.6', (-48.2, 3.55), (-47.85, 3.9), 'R2.1')
-T(DNC, W, F, 'J11.A7', (-53.6, 4.75), (-52.7, 4.75), (-52.3, 5.15), (-52.0, 5.45), 'U4.3', 'U4.4', (-48.2, 5.45), (-47.85, 5.1), 'R3.1')
+T(DNC, W, F, 'J11.A7', (-53.6, 4.75), (-52.8, 4.75), (-52.35, 5.2), (-51.9, 5.2), 'U4.3', 'U4.4', (-48.2, 5.45), (-47.85, 5.1), 'R3.1')
 V(DNC, -53.6, 4.75, dia=0.45, drill=0.3); V(DNC, -53.6, 3.75, dia=0.45, drill=0.3)
 V(DPC, -53.0, 4.25, dia=0.45, drill=0.3); V(DPC, -53.0, 5.25, dia=0.45, drill=0.3)
 T(DNC, 0.2, F, 'J11.B7', (-53.6, 3.75)); T(DNC, 0.2, B, (-53.6, 3.75), (-53.6, 4.75))

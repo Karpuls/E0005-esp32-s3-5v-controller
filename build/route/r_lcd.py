@@ -20,10 +20,10 @@ T('LCD_MOSI_MCU', 0.15, F, 'U1.19', (35.79, -1.91), (35.79, -2.45), (34.2, -2.45
 T('LCD_MOSI_MCU', 0.15, B, (34.2, -2.45), (34.2, -5.67)); V('LCD_MOSI_MCU', 34.2, -5.67)
 T('LCD_MOSI_MCU', 0.15, F, (34.2, -5.67), 'R56.1')
 T('LCD_SCK_MCU', 0.15, F, 'U1.20', (35.6, -0.64), (35.5, -0.74), 'R55.1')
-T('PWR_BTN_N', 0.15, F, 'U1.23', (35.6, 3.17), (35.4, 2.97), 'R43.2')
+T('PWR_BTN_N', 0.15, F, 'U1.23', (35.6, 3.175), (35.395, 2.97), 'R43.2')
 T('+3V3', 0.2, F, 'R43.1', (34.3, 3.99)); V('+3V3', 34.3, 3.99)
 # PWR_BTN_N leaves through a via under the module edge (B west)
-T('PWR_BTN_N', 0.15, F, 'U1.23', (38.05, 3.17)); V('PWR_BTN_N', 38.05, 3.17)
+T('PWR_BTN_N', 0.15, F, 'U1.23', (38.05, 3.175)); V('PWR_BTN_N', 38.05, 3.175)
 # ---------------- LCD lines: exits -> spread to final columns (F)
 XF = {'LCD_MOSI': 27.6, 'LCD_CS': 28.5, 'LCD_SCK': 29.4, 'LCD_MISO': 31.5, 'LCD_DC': 32.4, 'LCD_LITE': 33.3}
 T('LCD_MOSI', 0.15, F, 'R56.2', (32.7, -6.69), (32.7, -2.1), (XF['LCD_MOSI'], 3.0))

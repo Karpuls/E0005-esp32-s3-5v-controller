@@ -84,17 +84,42 @@ def split45(a, b, bend):
         m = (q(b[0] - sx * d), q(b[1] - sy * d))
     return [a, m, b]
 
-def T(n, w, layer, *pts, bend='d'):
+def split3(a, b):
+    """pad-to-pad leg: straight half, 45-degree middle, straight half (square exits from both pads)"""
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    adx, ady = abs(dx), abs(dy)
+    if adx < 1e-7 or ady < 1e-7 or abs(adx - ady) < 1e-7:
+        return [a, b]
+    sx, sy = math.copysign(1, dx), math.copysign(1, dy)
+    d = min(adx, ady)
+    if adx > ady:
+        m1 = (q(a[0] + sx * (adx - d) / 2), a[1]); m2 = (q(m1[0] + sx * d), b[1])
+    else:
+        m1 = (a[0], q(a[1] + sy * (ady - d) / 2)); m2 = (b[0], q(m1[1] + sy * d))
+    return [a, m1, m2, b]
+
+def T(n, w, layer, *pts, bend=None):
     n = net(n)
     for a in pts:
         pn = padnet(a)
         if pn is not None and pn != n:
             raise ValueError('pad %s is on %s, not %s' % (a, pn, n))
     P = [ptx(a) for a in pts]
-    bends = bend if isinstance(bend, (list, tuple)) else [bend] * (len(P) - 1)
+    ispad = [isinstance(a, str) for a in pts]
+    # a pad leg that is off-axis by < 0.05 mm (pad-centre decimals): slide the pad end so the leg is truly axial
+    for i in range(len(P) - 1):
+        for pi, oi in ((i, i + 1), (i + 1, i)):
+            if ispad[pi] and not ispad[oi]:
+                dx, dy = P[oi][0] - P[pi][0], P[oi][1] - P[pi][1]
+                if 1e-6 < abs(dx) < 0.05 and abs(dy) > 0.1: P[pi] = (P[oi][0], P[pi][1])
+                elif 1e-6 < abs(dy) < 0.05 and abs(dx) > 0.1: P[pi] = (P[pi][0], P[oi][1])
+    if bend is None:   # square pad exits: legs leave a pad straight first and enter a pad straight last
+        bends = ['3' if ispad[i] and ispad[i + 1] else ('s' if ispad[i] else 'd') for i in range(len(P) - 1)]
+    else:
+        bends = bend if isinstance(bend, (list, tuple)) else [bend] * (len(P) - 1)
     out = [P[0]]
     for i in range(1, len(P)):
-        out += split45(out[-1], P[i], bends[i - 1])[1:]
+        out += (split3(out[-1], P[i]) if bends[i - 1] == '3' else split45(out[-1], P[i], bends[i - 1]))[1:]
     for a, b in zip(out, out[1:]):
         if a != b:
             ITEMS.append(dict(k='t', net=n, w=w, L=layer, a=a, b=b))
