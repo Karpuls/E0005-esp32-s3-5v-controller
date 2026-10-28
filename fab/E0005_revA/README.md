@@ -20,7 +20,7 @@
   - **In2**: V5 plane (west column and north port band), 3V3 plane, short slow-signal lanes.
   - **B.Cu**: signals, GND pour, holder lugs, B.Cu V5 strap, MID pours.
 - **125 × 73 mm**, R3 corners, 4 × M3 holes (Ø3.2 mm plated, 4 mm corner inset).
-- **Vias are tented** (board setting: tenting front and back), so there are no mask openings on vias. The exceptions are the EP thermal vias inside U2's and U15's exposed pads, and the two items in the gerber review findings F-1/F-2 from the preliminary run (fixed in routing; see the gerber review).
+- **Vias are tented** (board setting: tenting front and back), so there are no mask openings on vias. The only exceptions are the EP thermal vias inside U2's and U15's exposed pads.
 - Vias 0.6/0.3 mm. Minimum track 0.15 mm (signals). JLC clearance rules plus the owner's via-to-pad rule are in `E0005_controller.kicad_dru`.
 - Drills:
   - Plated, 701:

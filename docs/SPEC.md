@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | **v1.4 — FROZEN for hardware** (v1.4: routing copper sizing agreed with PlaceRoute) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
+| Status | **v1.4 — FROZEN; E0005 rev A COMPLETE (2026-10-28).** Spec → schematic → placement → routing → fab outputs, all approved by PlaceRoute. Fab package `fab/E0005_revA/` (approved), routing final at `50c434e`. Before ordering: `fab/E0005_revA/PREORDER.md`. |
 | Date | 2026-10-27 (v0.1 – v1.2), 2026-10-28 (v1.3, v1.4) |
 | Scope | **PCB only.** Enclosure and firmware are out of scope; §8 lists only the firmware rules the hardware relies on. |
 | Reference design | **E0003** (`../E0003 - ESP32 control box mainboard`, spec v1.5, order-ready). E0005 reuses its MCU, battery, protection, gauge, I²C, LCD, switch and button blocks, its footprints/libraries and its DigiKey parts. **Only what "5 V only" forces is changed** (§1.1). |
@@ -19,6 +19,7 @@
 | **v1.2** | PlaceRoute item: **USB-only/no-battery back-feed** of V5 into BAT+ through the TPS56637 high-side body diode, analysed (§5.1.2, `docs/schematic_notes.md`): nothing misbehaves. **§8.4 battery detect tightened:** auto-charge only for a pack ≥ 5.6 V; 5.0–5.6 V only after a precharge probe. The 1 MΩ MID pull-down alternative was not fitted. |
 | **v1.3** | **Outline 125 × 73 mm** (was ≈ 125 × 65), owner decision via PlaceRoute (no strict size limit; enlarge where it helps routing). +8 mm at the **north** edge: the J1–J5 port band (connectors, eFuses U10–U14 with their parts) and the U16 USB-input stage moved north with the edge, because the band between U8/U9 and the port eFuses was full on all routing layers. Everything else (BH1/BH2, U1, antenna keep-out) stayed put. 4 × M3 holes keep the 4 mm corner inset (`E0005_board:Holes_4xM3_125x73`), R3 corners. Details in `docs/routing_notes.md`. |
 | **v1.4** | **Routing copper sizing (PlaceRoute decision):** copper is sized for a **4.6 A design current on V5** and **5 A on the pack path** at **ΔT ≤ 20 °C** (IPC-2152). The 4.4 A firmware port budget is unchanged; short-term peaks up to the 4.85 A worst plausible V5 load are accepted (≈ 22 °C). The buck current limit and F1 stay the hardware backstops above that. |
+| **rev A done** | 2026-10-28: Phase 5 (fab outputs) complete and approved by PlaceRoute. No spec change. |
 
 ---
 

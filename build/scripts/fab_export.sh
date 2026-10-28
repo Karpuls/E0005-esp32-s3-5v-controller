@@ -67,6 +67,16 @@ for side in front back both; do
 done
 "$K" pcb export pos --output "$OUT/assembly/.pos_fitted.csv" --format csv --units mm --side both --exclude-dnp "$PCB"
 python3 "$CONVERT_POS" "$OUT/assembly/.pos_fitted.csv" "$OUT/assembly/${REV}_CPL_JLC.csv"
+# JLC's CPL template spells the layer out: T/B -> Top/Bottom (PlaceRoute, fab review 2026-10-28)
+python3 -I - "$OUT/assembly/${REV}_CPL_JLC.csv" <<'EOF'
+import csv, sys
+p = sys.argv[1]
+rows = list(csv.reader(open(p, newline='')))
+i = rows[0].index('Layer')
+for r in rows[1:]:
+    r[i] = {'T': 'Top', 'B': 'Bottom', 'top': 'Top', 'bottom': 'Bottom'}.get(r[i], r[i])
+csv.writer(open(p, 'w', newline=''), lineterminator='\r\n').writerows(rows)
+EOF
 rm -f "$OUT/assembly/.pos_fitted.csv"
 
 # ---- 4. BOM (DigiKey primary, JLC format secondary) + DNP list -----------------------------------
