@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **v1.4 — FROZEN for hardware** (v1.4: routing copper sizing agreed with PlaceRoute) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
-| Date | 2026-10-27 (v0.1 – v1.2), 2026-10-28 (v1.3, v1.4) |
+| Status | **v1.5 — FROZEN for hardware** (v1.5: JLC04161H-3313 stack-up corrected, USB pair to be re-widened) (PlaceRoute-approved v0.2 + owner answers Q1–Q5, §14). Changes need an owner/PlaceRoute decision and a version bump. |
+| Date | 2026-10-27 (v0.1 – v1.2), 2026-10-28 (v1.3 – v1.5) |
 | Scope | **PCB only.** Enclosure and firmware are out of scope; §8 lists only the firmware rules the hardware relies on. |
 | Reference design | **E0003** (`../E0003 - ESP32 control box mainboard`, spec v1.5, order-ready). E0005 reuses its MCU, battery, protection, gauge, I²C, LCD, switch and button blocks, its footprints/libraries and its DigiKey parts. **Only what "5 V only" forces is changed** (§1.1). |
 | Sister designs | E0001 (fader driver, 4 per box) and E0002 (haptic knob, 1 per box) are **not part of this job**. E0005 keeps their connectors and pinouts with **+5 V** on the power pins. **E0001 rev C and E0002 rev B need 6–9 V (PBUS) and will not work on E0005; 5 V revisions are needed later (out of scope).** §6 is the host-interface spec they will need. |
@@ -19,6 +19,7 @@
 | **v1.2** | PlaceRoute item: **USB-only/no-battery back-feed** of V5 into BAT+ through the TPS56637 high-side body diode, analysed (§5.1.2, `docs/schematic_notes.md`): nothing misbehaves. **§8.4 battery detect tightened:** auto-charge only for a pack ≥ 5.6 V; 5.0–5.6 V only after a precharge probe. The 1 MΩ MID pull-down alternative was not fitted. |
 | **v1.3** | **Outline 125 × 73 mm** (was ≈ 125 × 65), owner decision via PlaceRoute (no strict size limit; enlarge where it helps routing). +8 mm at the **north** edge: the J1–J5 port band (connectors, eFuses U10–U14 with their parts) and the U16 USB-input stage moved north with the edge, because the band between U8/U9 and the port eFuses was full on all routing layers. Everything else (BH1/BH2, U1, antenna keep-out) stayed put. 4 × M3 holes keep the 4 mm corner inset (`E0005_board:Holes_4xM3_125x73`), R3 corners. Details in `docs/routing_notes.md`. |
 | **v1.4** | **Routing copper sizing (PlaceRoute decision):** copper is sized for a **4.6 A design current on V5** and **5 A on the pack path** at **ΔT ≤ 20 °C** (IPC-2152). The 4.4 A firmware port budget is unchanged; short-term peaks up to the 4.85 A worst plausible V5 load are accepted (≈ 22 °C). The buck current limit and F1 stay the hardware backstops above that. |
+| **v1.5** | **Stack-up correction (owner, JLC calculator):** JLC04161H-3313 has L1–L2 = **0.2064 mm** (two 3313 plies), not 0.0994 mm as entered for E0005 (and E0003). Board stack-up corrected (dielectric 1/3 0.2064 mm, core 1.065 mm). The routed USB pair W 0.19 / S 0.20 mm is ≈ 115–120 Ω on the real stack-up; it is re-widened to JLC's coplanar 90 Ω width with a 0.30 mm gap to the pour (§9, `docs/routing_notes.md`). |
 
 ---
 
@@ -431,7 +432,7 @@ Changes from E0003 §7 in **bold**. Strapping pins 0/3/45/46 stay free except BO
 ---
 
 ## 9. Mechanical (PCB only)
-- **Stack-up:** 4-layer 1.6 mm, JLC **JLC04161H-3313** (as E0003; 90 Ω USB pair). L1 parts/signals/power pours, L2 solid GND, L3 V5 + BAT+ pours and slow signals, L4 GND, holder lugs, protection parts.
+- **Stack-up:** 4-layer 1.6 mm, JLC **JLC04161H-3313** (as E0003; 90 Ω USB pair). Per JLC (v1.5): L1 1 oz, **L1–L2 prepreg 0.2064 mm** (3313 0.1070 + 3313 0.0994, εr ≈ 4.1), L2/L3 0.0152 mm, core 1.065 mm, symmetric to L4. The USB pair width/gap are set from JLC's coplanar 90 Ω calculation on this stack-up (`docs/routing_notes.md`). L1 parts/signals/power pours, L2 solid GND, L3 V5 + BAT+ pours and slow signals, L4 GND, holder lugs, protection parts.
 - **Outline 125 × 73 mm** (v1.3: E0003's 125 × 65 mm extended 8 mm north for the port band; board-level Edge.Cuts, R3 corners), **4 × M3** 4 mm from the corners (`E0005_board:Holes_4xM3_125x73`), **E0003 edge plan** (Keystone 1121 footprint/STEP at E0003's positions): USB-C + power stage (U_IN, BQ25887 + 1 µH, TPS56637 + 3.3 µH, 3V3) on the **west** side off the cells; ports J1–J5 on the **north** edge with eFuse/TVS/ESD and "5V" labels; ESP32-S3 with the antenna keep-out at the **east** edge (≥ 15 mm to the cans); switches, J12, power button and EYESPI on the **south** edge; holders on the bottom.
 - High-current paths: BAT+ → F1 → buck VIN, buck → V5 → port eFuses, and VBUS → U_IN → V5 carry up to ≈ 6 A: pours on two layers or ≥ 3 mm with via stitching. R_SENSE Kelvin to the gauge.
 - Bottom standoffs ≥ 25 mm; top parts ≤ 12 mm (as E0003).
