@@ -30,7 +30,7 @@ def _rep(net, geo, layers, tag, pads_any=False):
     worst.sort()
     print(tag, 'OK' if not worst or worst[0][0] >= 0.15 else 'CLASH', worst[:4])
 def check(net, layer, pts, w=0.15):
-    P = [rt.pt(p) for p in pts]
+    P = [rt.ptx(p) for p in pts]
     _rep(net, LineString(P).buffer(w / 2), [layer], '%s %s' % (net, layer))
 def check_via(net, x, y, d=0.6):
     _rep(net, Point(x, y).buffer(d / 2), list(OBS), 'via %s (%.2f,%.2f)' % (net, x, y), True)

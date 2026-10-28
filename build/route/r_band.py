@@ -59,7 +59,7 @@ T('USB_ILIM_3A0', 0.15, F, (8.0, -18.5), (-36.2, -18.5)); V('USB_ILIM_3A0', -36.
 T('USB_ILIM_3A0', 0.15, B, (-36.2, -18.5), (-38.4, -18.5), (-38.4, -28.35)); V('USB_ILIM_3A0', -38.4, -28.35)
 T('USB_ILIM_3A0', 0.15, F, (-38.4, -28.35), (-38.7, -28.65), 'R141.1')
 T('PORT1_EN', 0.15, F, (-26.7, -25.94), (-26.4, -26.24))   # Q3 nudged 0.3 mm with the enlargement: extend into Q3.3
-T(G, 0.3, F, 'Q7.2', (24.4, -24.0)); V(G, 24.4, -24.0)   # Q7.2 GND via next to the pad (was stretched 8 mm by the enlargement)
+T(G, 0.3, F, 'Q7.2', (25.3, -25.19)); V(G, 25.3, -25.19)   # Q7.2 GND via next to the pad (was stretched 8 mm by the enlargement)
 # PORT1-4_FLT_N: U9.13-.16 F east under/past the pull-up row to nested F columns x 20.7..23.35, north into the band,
 # F lanes y -21.5 (P4) .. -23.3 (P1) west; P3 / P2 / P1 drop to B for the last leg (port EN/V5 parts on F)
 for pin, n, xc, yl in (('U9.16', 'PORT4_FLT_N', 20.7, -21.5), ('U9.15', 'PORT3_FLT_N', 21.3, -22.05),
@@ -100,6 +100,16 @@ T('CHG_PG_N', 0.15, B, (-38.0, 0.9), (-40.15, 0.9), (-40.6, 0.45))
 # south of the U8 via field) -> In2 down x -20.0 (east of the CELL2_P In2 line) and west along y 16.0 (south of BH2 / BAT+ strip)
 # to the U17.4 via
 T('BUCK_PG', 0.15, F, 'R93.2', (18.8, -15.25), (19.1, -15.55)); V('BUCK_PG', 19.1, -15.55)
-T('BUCK_PG', 0.15, I2, (19.1, -15.55), (18.6, -15.05), (18.6, -6.5)); V('BUCK_PG', 18.6, -6.5)
-T('BUCK_PG', 0.15, B, (18.6, -6.5), (17.95, -5.85), (-19.75, -5.85), (-20.0, -6.1)); V('BUCK_PG', -20.0, -6.1)
+T('BUCK_PG', 0.15, I2, (19.1, -15.55), (18.6, -15.05), (18.6, -6.2)); V('BUCK_PG', 18.6, -6.2)
+T('BUCK_PG', 0.15, B, (18.6, -6.2), (18.25, -5.85), (-19.75, -5.85), (-20.0, -6.1)); V('BUCK_PG', -20.0, -6.1)
 T('BUCK_PG', 0.15, I2, (-20.0, -6.1), (-20.0, 16.0), (-51.0, 16.0), (-51.55, 15.45))
+# PORT5_SCL / _SDA: U8 east via column -> B south under the pull-up row -> B lanes y -7.0 / -7.6 east (between the 3V3 vias and
+# the BUCK_PG lane) -> F columns x 24.4 / 23.8 north (east of the FLT columns) -> B past Q7 -> R127.1 / R128.1 (port-5 pull-ups)
+T('PORT5_SDA', 0.15, B, (-1.55, -9.925), (-1.55, -7.6), (23.8, -7.6)); V('PORT5_SDA', 23.8, -7.6)
+T('PORT5_SDA', 0.15, F, (23.8, -7.6), (23.8, -23.75)); V('PORT5_SDA', 23.8, -23.75)
+T('PORT5_SDA', 0.15, B, (23.8, -23.75), (23.2, -24.35), (23.2, -31.6)); V('PORT5_SDA', 23.2, -31.6)
+T('PORT5_SDA', 0.15, F, (23.2, -31.6), (22.61, -32.19), 'R128.1')
+T('PORT5_SCL', 0.15, B, (-2.45, -10.575), (-2.45, -7.0), (24.4, -7.0)); V('PORT5_SCL', 24.4, -7.0)
+T('PORT5_SCL', 0.15, F, (24.4, -7.0), (24.4, -24.35)); V('PORT5_SCL', 24.4, -24.35)
+T('PORT5_SCL', 0.15, B, (24.4, -24.35), (23.8, -24.95), (23.8, -30.1)); V('PORT5_SCL', 23.8, -30.1)
+T('PORT5_SCL', 0.15, F, (23.8, -30.1), 'R127.1')
