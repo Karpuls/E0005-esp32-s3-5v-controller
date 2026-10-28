@@ -17,10 +17,9 @@ Things to do or confirm before (or when) ordering the PCB and parts, and the ben
   - select **impedance control** with stackup **JLC04161H-3313**;
   - give the requirement as "90 Ω differential, USB_DP/USB_DN, L1 ref L2".
 
-## 4. Board review items (gerber review, for the lead)
-- **F-1:** V5 via inside L1 pad 2 at (100.6, 124.6).
-- **F-2:** 5 FET_D vias at x 124.75 reaching 0.10 mm into Q2's drain-tab opening.
-- Details in [docs/gerber_review.md](docs/gerber_review.md). Accept or fix before ordering.
+## 4. Board review items (gerber review): **closed**
+- F-1 (V5 via in L1 pad 2) and F-2 (FET_D vias in the Q1/Q2 tab gap) were found in the preliminary run and **fixed in routing** (FIX_COMMIT).
+- Details in [docs/gerber_review.md](docs/gerber_review.md).
 
 ## 5. Non-DigiKey parts (order first)
 | Item | Ref | Qty | Source | Note |

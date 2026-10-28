@@ -87,7 +87,6 @@ All four layers are seen from the top, with the board outline (KiCad plots).
 ## Status and open items
 - **Rev A fab outputs are generated:** DRC 0 / 0 / 0 (U1 `lib_footprint_mismatch` accepted), ERC 0. JLC order settings (JLC04161H-3313 with impedance control, tented vias, ENIG) are in [`fab/E0005_revA/README.md`](fab/E0005_revA/README.md).
 - **Before ordering** ([`PREORDER.md`](fab/E0005_revA/PREORDER.md)):
-  - Decide the two gerber-review findings: **F-1**, the V5 via in L1 pad 2; **F-2**, the FET_D vias at Q2's drain-tab edge.
   - Test-fit the flat-top P50B in the Keystone 1121.
   - Confirm the DigiKey cut-tape PNs for BQ25887RGER and TPS56637RPAR.
   - Order the LCSC / Adafruit / nkon parts.

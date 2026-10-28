@@ -20,7 +20,7 @@
   - **In2**: V5 plane (west column and north port band), 3V3 plane, short slow-signal lanes.
   - **B.Cu**: signals, GND pour, holder lugs, B.Cu V5 strap, MID pours.
 - **125 × 73 mm**, R3 corners, 4 × M3 holes (Ø3.2 mm plated, 4 mm corner inset).
-- **Vias are tented** (board setting: tenting front and back), so there are no mask openings on vias. The exceptions are the EP thermal vias inside U2's and U15's exposed pads, and the two items in the gerber review findings F-1/F-2.
+- **Vias are tented** (board setting: tenting front and back), so there are no mask openings on vias. The exceptions are the EP thermal vias inside U2's and U15's exposed pads, and the two items in the gerber review findings F-1/F-2 from the preliminary run (fixed in routing; see the gerber review).
 - Vias 0.6/0.3 mm. Minimum track 0.15 mm (signals). JLC clearance rules plus the owner's via-to-pad rule are in `E0005_controller.kicad_dru`.
 - Drills:
   - Plated, 698:
@@ -72,13 +72,18 @@ The width comes from JLC's impedance calculator (owner, 2026-10-28): 6.02 mil co
 
 ## Gerber render check (summary of [docs/gerber_review.md](docs/gerber_review.md))
 - **Copper:** the 4 layers match the board renders. **In1 is solid GND**: its only voids are antipads, hole clearances and the edge pullback. The **antenna keep-out has 0 copper** on all layers.
-- **Mask:** openings on pads only. 682 vias are tented, apart from the EP vias and findings F-1/F-2.
+- **Mask:** openings on pads only. 682 vias are tented, apart from the EP vias and findings F-1/F-2 from the preliminary run (fixed in routing; see the gerber review).
 - **Silk:** legible. **"5V" is at every port J1–J5** ("5V Jn E0001" and "5V J5 E0002"). Nothing on pads. The bottom silk is mirrored correctly.
 - **Outline:** 125.0 × 73.0 mm with R3 corners. J11's shell slots are plated 0.6 mm ovals.
 - **Drills:** the holder pegs (Ø3.6 / Ø2.4) and USB-C pegs are NPTH; M3, lugs and NTCs are plated.
 
 ## Notes
-- **3D models:** the STEP has no 3D model for D12 (0402 diode), F1 (Littelfuse NANO2 451/453) or U15 (TDFN-14), because the KiCad library on this machine lacks those STEP files. The board and the other parts are complete.
+- **3D models not available, footprint outline only:**
+  - **D12** (`Diode_SMD:D_0402_1005Metric`, TPD1E10B09);
+  - **F1** (`Fuse:Fuse_Littelfuse-NANO2-451_453`);
+  - **U15** (`Package_DFN_QFN:TDFN-14-1EP_3x3mm_P0.4mm_EP1.78x2.35mm`, MAX17205).
+
+  The KiCad 3D library on this machine has no STEP for these three footprints (checked in both the 10.0.6 and 10.99 bp.4 installs). **E0003 doesn't have them either:** it uses the same F1 and U15 footprints, but its `lib/E0003_mech.3dshapes` holds only the Keystone 1121 model, and `fab/E0003_revA/3d/E0003_revA.step` has no fuse or TDFN body. The STEP is otherwise complete: board, the other parts, and the holders with cells.
 - Rotations in the CPL are KiCad's. If JLC assembles, check the rotation preview at order time, as usual.
 
 ## Open before ordering
